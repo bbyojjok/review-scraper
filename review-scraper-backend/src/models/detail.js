@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import * as listAPI from '../lib/api/list';
+import { dummyList } from '../lib/dummyList';
 
 const { Schema } = mongoose;
 
@@ -20,7 +21,10 @@ export const createDetail = (name) => {
 
 const Detail = async () => {
   try {
-    const { data } = await listAPI.getList();
+    // const { data } = await listAPI.getList();
+    // 더미리스트로 테스트
+    const data = dummyList;
+
     return data.reduce((acc, cur) => {
       acc[cur.name] = createDetail(cur.name);
       return acc;

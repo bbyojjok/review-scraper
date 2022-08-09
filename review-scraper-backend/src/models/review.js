@@ -1,18 +1,31 @@
 import mongoose from 'mongoose';
 import * as listAPI from '../lib/api/list';
+import { dummyList } from '../lib/dummyList';
 
 const { Schema } = mongoose;
 
 export const createReview = (name) => {
   return mongoose.model(
     `Review-${name}`,
-    new Schema({}, { collection: `Review-${name}` }),
+    new Schema(
+      {
+        name: { type: String, required: true, unique: true },
+        os: String,
+        review: Schema.Types.Mixed,
+        data: { type: Date },
+        createdAt: { type: Date, default: Date.now() },
+      },
+      { collection: `Review-${name}` },
+    ),
   );
 };
 
 const Review = async () => {
   try {
-    const { data } = await listAPI.getList();
+    // const { data } = await listAPI.getList();
+    // 더미리스트로 테스트
+    const data = dummyList;
+
     return data.reduce((acc, cur) => {
       acc[cur.name] = createReview(cur.name);
       return acc;
