@@ -9,12 +9,12 @@ export const createDetail = (name) => {
     `Detail-${name}`,
     new Schema(
       {
-        name: { type: String, required: true, unique: true },
-        anroid: Schema.Types.Mixed,
-        ios: Schema.Types.Mixed,
+        name: { type: String, required: true },
+        googlePlay: Schema.Types.Mixed,
+        appStore: Schema.Types.Mixed,
         createdAt: { type: Date, default: Date.now() },
       },
-      { collection: `Detail-${name}` },
+      { collection: `detail-${name}` },
     ),
   );
 };

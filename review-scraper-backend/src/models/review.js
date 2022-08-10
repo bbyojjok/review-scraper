@@ -9,13 +9,13 @@ export const createReview = (name) => {
     `Review-${name}`,
     new Schema(
       {
-        name: { type: String, required: true, unique: true },
+        name: { type: String, required: true },
         os: String,
         review: Schema.Types.Mixed,
-        data: { type: Date },
+        date: { type: Date },
         createdAt: { type: Date, default: Date.now() },
       },
-      { collection: `Review-${name}` },
+      { collection: `review-${name}` },
     ),
   );
 };

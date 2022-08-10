@@ -4,7 +4,6 @@ export const dummyList = [
     googlePlayAppId: 'com.hdmallapp.thehyundai',
     appStoreId: 1067693191,
   },
-
   {
     name: 'tohome',
     googlePlayAppId: 'com.thehyundai.tohome',

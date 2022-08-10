@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const ListSchema = new Schema({
-  name: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
   googlePlayAppId: String,
   appStoreId: Number,
   image: String,
   createdAt: { type: Date, default: Date.now() },
 });
 
-const List = mongoose.model('List', ListSchema);
+const List = mongoose.model('list', ListSchema);
 
 export default List;
