@@ -1,18 +1,19 @@
 export const dummyList = [
   {
-    name: 'hmall',
-    googlePlayAppId: 'com.hmallapp',
-    appStoreId: 870397981,
-  },
-  {
     name: 'thehyundai',
     googlePlayAppId: 'com.hdmallapp.thehyundai',
     appStoreId: 1067693191,
   },
+
   {
     name: 'tohome',
     googlePlayAppId: 'com.thehyundai.tohome',
     appStoreId: 1511894889,
+  },
+  {
+    name: 'hmall',
+    googlePlayAppId: 'com.hmallapp',
+    appStoreId: 870397981,
   },
   {
     name: 'elevenst',

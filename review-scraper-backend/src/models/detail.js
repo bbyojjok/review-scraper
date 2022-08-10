@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import * as listAPI from '../lib/api/list';
-import { dummyList } from '../lib/dummyList';
+import * as listAPI from '../lib/api/list.js';
+import { dummyList } from '../lib/dummyList.js';
 
 const { Schema } = mongoose;
 

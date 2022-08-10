@@ -1,8 +1,11 @@
 import gplay from 'google-play-scraper';
 import store from 'app-store-scraper';
-import { dummyList } from '../lib/dummyList';
+import { dummyList } from '../lib/dummyList.js';
 
-console.log('dummyList:', dummyList);
+// google play 상세
+gplay
+  .app({ appId: dummyList[0].googlePlayAppId, lang: 'ko', country: 'kr' })
+  .then(console.log, console.log);
 
 // store
 //   .app({ id: hmallStoreId, country: 'kr' })
@@ -27,10 +30,10 @@ console.log('dummyList:', dummyList);
 //   })
 //   .then(console.log, console.log);
 
-gplay
-  .reviews({
-    appId: 'com.mojang.minecraftpe',
-    sort: gplay.sort.RATING,
-    num: 3000,
-  })
-  .then(console.log, console.log);
+// gplay
+//   .reviews({
+//     appId: 'com.mojang.minecraftpe',
+//     sort: gplay.sort.RATING,
+//     num: 3000,
+//   })
+//   .then(console.log, console.log);
