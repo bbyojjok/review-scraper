@@ -182,7 +182,7 @@ const scrapingReview = async (data) => {
   }
 };
 
-const scrapingStart = async (data) => {
+export const scrapingStart = async (data) => {
   // 스크랩 시작
   const { name } = data;
   console.log(`[SCRAPING/START] #${name} ${nowDate()}`);

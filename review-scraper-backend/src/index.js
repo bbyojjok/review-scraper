@@ -15,8 +15,8 @@ mongoose
   .connect(MONGO_URI, { useNewUrlParser: true })
   .then(async () => {
     // console.log('Connected to MongoDB');
-    // await Detail();
-    // await Review();
+    await Detail();
+    await Review();
     // scraping();
   })
   .catch((e) => {
