@@ -25,7 +25,7 @@ const appStoreReview = async ({ id, country, page }) => {
         review.title = cur['title'][0];
         review.comment = cur['content'][0]['_'];
         review.vote = cur['im:voteCount'][0];
-        review.updated = cur['updated'][0];
+        review.date = cur['updated'][0];
         review.country = country;
         acc.push(review);
         return acc;

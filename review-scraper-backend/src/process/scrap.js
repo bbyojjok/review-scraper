@@ -11,7 +11,7 @@ const nowDate = () => moment().format('YYYY.MM.DD HH:mm:ss');
 
 const scrapingDetailGooglePlay = async (appId) => {
   return null;
-  // TODO 구글플레이 상세
+  // TODO 구글플레이 상세 -> 컨트리 kr 적용시 에러 버젼업 할 예정인듯
   // try {
   //   const result = await gplay.app({
   //     appId,
@@ -32,6 +32,7 @@ const scrapingDetailAppStore = async (id) => {
       lang: 'ko',
       country: 'kr',
     });
+
     return { version, score, url, icon };
   } catch (e) {
     console.error(e);
@@ -45,8 +46,8 @@ const scrapingDetail = async (data) => {
 
   const googlePlay = await scrapingDetailGooglePlay(googlePlayAppId);
   const appStore = await scrapingDetailAppStore(appStoreId);
-
   const existName = await Detail.findOne({ name }).exec();
+
   if (existName) {
     try {
       await Detail.findOneAndUpdate(
@@ -57,10 +58,14 @@ const scrapingDetail = async (data) => {
     } catch (e) {
       console.error(e);
     }
+    return;
   }
+
+  // TODO 상세 데이터중 아이콘 url 을 list컬렉션에 업데이트를 치는 로직 추가
 
   const detail = Detail({ name, googlePlay, appStore });
   try {
+    console.log(`[SCRAPING/DETAIL] #${name} detail, new`);
     await detail.save();
   } catch (e) {
     console.error(e);
@@ -74,7 +79,7 @@ const scrapingReviewGooglePlay = async (appId) => {
       lang: 'ko',
       country: 'kr',
       sort: gplay.sort.NEWEST,
-      num: 10,
+      num: 50,
     });
     return data;
   } catch (e) {
@@ -83,69 +88,7 @@ const scrapingReviewGooglePlay = async (appId) => {
   }
 };
 
-const scrapingReview = async (data) => {
-  // 스크랩 리뷰
-  const { name, Review, googlePlayAppId, appStoreId } = data;
-
-  // 구글플레이 리뷰
-  const reviewGooglePlay = await scrapingReviewGooglePlay(googlePlayAppId);
-  const resultReviewGooglePlay = await reviewGooglePlay.reduce(
-    async (acc, cur, idx) => {
-      let _acc = await acc;
-      const { id, date } = cur;
-
-      const existReview = await Review.findOne({ 'review.id': id }).exec();
-      if (existReview) {
-        const props = [
-          'id',
-          'userName',
-          'date',
-          'score',
-          'text',
-          'replyDate',
-          'replyText',
-        ];
-        const before = objectKeyAdd(existReview.review, props);
-        const after = objectKeyAdd(cur, props);
-        const isDeepCompare = !deepCompare(before, after);
-
-        if (isDeepCompare) {
-          // 저장된 리뷰 내용 비교후 db 업데이트
-          try {
-            await Review.findOneAndUpdate(
-              { 'review.id': id },
-              { $set: { review: cur, date } },
-              { new: true },
-            ).exec();
-            console.log(
-              `[SCRAPING] #${name} reviews googlePlay, updated review idx: ${idx}`,
-            );
-          } catch (e) {
-            console.error(e);
-          }
-        }
-        return _acc;
-      }
-
-      console.log(
-        `[SCRAPING] #${name} reviews googlePlay, new review idx: ${idx}`,
-      );
-      _acc.push({ name, os: 'googlePlay', review: cur, date });
-      return _acc;
-    },
-    [],
-  );
-
-  // 신규 구글플레이 리뷰 db 저장
-  if (resultReviewGooglePlay.length > 0) {
-    try {
-      await Review.insertMany(resultReviewGooglePlay);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  // 앱스토어 리뷰
+const scrapingReviewAppStore = async (appStoreId) => {
   let reviewAppStore = [];
   for (let i = 1, len = 1; i <= len; i++) {
     reviewAppStore = reviewAppStore.concat(
@@ -156,53 +99,83 @@ const scrapingReview = async (data) => {
       }),
     );
   }
-  const resultReviewAppStore = await reviewAppStore.reduce(
-    async (acc, cur, idx) => {
-      let _acc = await acc;
-      const { id, updated } = cur;
+  return reviewAppStore;
+};
 
-      const existReview = await Review.findOne({ 'review.id': id }).exec();
-      if (existReview) {
-        const props = ['id', 'author', 'rate', 'title', 'comment', 'updated'];
-        const before = objectKeyAdd(existReview.review, props);
-        const after = objectKeyAdd(cur, props);
-        const isDeepCompare = !deepCompare(before, after);
+const reviewReducer = async ({ review, data, keyProps, os }) => {
+  const { name, Review } = data;
 
-        if (isDeepCompare) {
-          console.log(before);
-          console.log(after);
+  return await review.reduce(async (acc, cur, idx) => {
+    let _acc = await acc;
+    const { id, date } = cur;
 
-          // 저장된 리뷰 내용 비교후 db 업데이트
-          try {
-            await Review.findOneAndUpdate(
-              { 'review.id': id },
-              { $set: { review: cur, date: updated } },
-              { new: true },
-            ).exec();
-            console.log(
-              `[SCRAPING] #${name} reviews appStore, updated review idx: ${idx}`,
-            );
-          } catch (e) {
-            console.error(e);
-          }
+    const existReview = await Review.findOne({ 'review.id': id }).exec();
+    if (existReview) {
+      const before = objectKeyAdd(existReview.review, keyProps);
+      const after = objectKeyAdd(cur, keyProps);
+      const isDeepCompare = !deepCompare(before, after);
+
+      if (isDeepCompare) {
+        // 저장된 리뷰 내용 비교후 db 업데이트
+        try {
+          console.log(
+            `[SCRAPING/REVIEW] #${name} review ${os}, updated review idx: ${idx}`,
+          );
+          await Review.findOneAndUpdate(
+            { 'review.id': id },
+            { $set: { review: cur, date } },
+            { new: true },
+          ).exec();
+        } catch (e) {
+          console.error(e);
         }
-
-        return _acc;
       }
-
-      console.log(
-        `[SCRAPING] #${name} reviews appStore, new review idx: ${idx}`,
-      );
-      _acc.push({ name, os: 'appStore', review: cur, date: updated });
       return _acc;
-    },
-    [],
-  );
+    }
 
-  // 신규 구글플레이 리뷰 db 저장
-  if (resultReviewAppStore.length > 0) {
+    console.log(
+      `[SCRAPING/REVIEW] #${name} review ${os}, new review idx: ${idx}`,
+    );
+    _acc.push({ name, os, review: cur, date });
+    return _acc;
+  }, []);
+};
+
+const scrapingReview = async (data) => {
+  // 스크랩 리뷰
+  const { Review, googlePlayAppId, appStoreId } = data;
+
+  // 구글플레이 리뷰
+  const reviewGooglePlay = await scrapingReviewGooglePlay(googlePlayAppId);
+  const resultReviewGooglePlay = await reviewReducer({
+    review: reviewGooglePlay,
+    data,
+    keyProps: [
+      'id',
+      'userName',
+      'date',
+      'score',
+      'text',
+      'replyDate',
+      'replyText',
+    ],
+    os: 'googlePlay',
+  });
+
+  // 앱스토어 리뷰
+  const reviewAppStore = await scrapingReviewAppStore(appStoreId);
+  const resultReviewAppStore = await reviewReducer({
+    review: reviewAppStore,
+    data,
+    keyProps: ['id', 'author', 'rate', 'title', 'comment', 'date'],
+    os: 'appStore',
+  });
+
+  // 신규 구글플레이, 앱스토어 리뷰 db 저장
+  const resultReview = resultReviewGooglePlay.concat(resultReviewAppStore);
+  if (resultReview.length > 0) {
     try {
-      await Review.insertMany(resultReviewAppStore);
+      await Review.insertMany(resultReview);
     } catch (e) {
       console.error(e);
     }
@@ -212,12 +185,7 @@ const scrapingReview = async (data) => {
 const scrapingStart = async (data) => {
   // 스크랩 시작
   const { name } = data;
-  console.log(`
---------------------------------------------
-  [SCRAPING/START] #${name}
-  ${nowDate()}
---------------------------------------------
-  `);
+  console.log(`[SCRAPING/START] #${name} ${nowDate()}`);
 
   await scrapingDetail(data);
   await scrapingReview(data);
@@ -241,36 +209,3 @@ export const scraping = async () => {
     console.error(e);
   }
 };
-
-// 구글플레이 상세 -> 컨트리 kr 적용시 에러 버젼업 할 예정인듯
-// gplay
-//   .app({ appId: dummyList[1].googlePlayAppId, lang: 'ko', country: 'kr' })
-//   .then(console.log, console.log);
-
-// 구글플레이 리뷰
-// gplay
-//   .reviews({
-//     appId: dummyList[1].googlePlayAppId,
-//     lang: 'ko',
-//     country: 'kr',
-//     sort: gplay.sort.NEWEST,
-//     num: 100,
-//   })
-//   .then(console.log, console.log);
-
-// 앱스토어 상세
-// store
-//   .app({ id: dummyList[0].appStoreId, lang: 'ko', country: 'kr' })
-//   .then(console.log)
-//   .catch(console.log);
-
-// 앱스토어 리뷰 -> 날짜 데이터가 없어 스토어 라이브러리 사용못함, 직접 api 개발해야됨
-// store
-//   .reviews({
-//     id: dummyList[0].appStoreId,
-//     country: 'kr',
-//     sort: store.sort.RECENT,
-//     page: 1,
-//   })
-//   .then(console.log)
-//   .catch(console.log);
