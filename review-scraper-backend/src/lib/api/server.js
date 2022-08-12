@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const server = axios.create();
+server.defaults.baseURL = 'http://127.0.0.1:4000';
 /*
   글로벌 설정 예시:
   
