@@ -3,6 +3,7 @@ import gplay from 'google-play-scraper';
 import store from 'app-store-scraper';
 import moment from 'moment';
 import appStoreReview from '../lib/appStoreReview.js';
+import { getList } from '../lib/api/index.js';
 import { dummyList } from '../lib/dummyList.js';
 import { objectKeyAdd, deepCompare } from '../lib/utility.js';
 moment.locale('ko');
@@ -194,6 +195,7 @@ export const scrapingStart = async (data) => {
 export const scraping = async () => {
   // 스크랩할 리스트 가져오기
   try {
+    // const { data } = await getList();
     const data = dummyList;
     const list = data.reduce((acc, cur) => {
       cur.Detail = mongoose.model(`Detail-${cur.name}`);

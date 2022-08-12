@@ -131,4 +131,51 @@ const objectKeyAdd = (obj, prop) => {
   }, {});
 };
 
-export { objectKeyAdd, deepCompare };
+/**
+ * get random
+ * @param { Integer } min
+ * @param { Integer } max
+ * @param { Integer } num
+ */
+const getRandom = (min, max, num = 1) => {
+  const randomResult = [];
+  const randomList = [];
+  for (let i = min; i <= max; i++) {
+    randomList.push(i);
+  }
+  for (let i = 0; i < num; i++) {
+    let randomNumber = Math.floor(Math.random() * randomList.length);
+    randomResult.push(randomList[randomNumber]);
+    randomList.splice(randomNumber, 1);
+  }
+  return randomResult.length === 1 ? randomResult[0] : randomResult;
+};
+
+/**
+ * get cron rule
+ */
+const getCronRule = () => {
+  /*
+    #Cron-style Scheduling
+      '* * * * * *'
+      second (0 - 59, OPTIONAL)
+      minute (0 - 59)
+      hour (0 - 23)
+      day of month (1 - 31)
+      month (1 - 12)
+      day of week (0 - 7) (0 or 7 is Sun)
+  */
+  //실제 적용할 크론 룰 (매일 00시 ~ 05시 사이 랜덤으로 분 초 적용)
+  const rule = [
+    getRandom(0, 59),
+    getRandom(0, 59),
+    getRandom(0, 4),
+    '*',
+    '*',
+    '*',
+  ].join(' ');
+  console.log('[CRON] rule:', rule);
+  return rule;
+};
+
+export { objectKeyAdd, deepCompare, getCronRule };
