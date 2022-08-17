@@ -21,8 +21,8 @@ export const createDetail = (name) => {
 
 const Detail = async () => {
   try {
-    const data = dummyList; // 더미리스트로 테스트
-    // const { data } = await getList();
+    // const data = dummyList; // 더미리스트로 테스트
+    const { data } = await getList();
 
     return data.reduce((acc, cur) => {
       acc[cur.name] = createDetail(cur.name);

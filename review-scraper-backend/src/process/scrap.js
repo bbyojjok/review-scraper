@@ -3,6 +3,7 @@ import gplay from 'google-play-scraper';
 import store from 'app-store-scraper';
 import moment from 'moment';
 import appStoreReview from '../lib/appStoreReview.js';
+import List from '../models/list.js';
 import { getList } from '../lib/api/index.js';
 import { dummyList } from '../lib/dummyList.js';
 import { objectKeyAdd, deepCompare } from '../lib/utility.js';
@@ -62,7 +63,19 @@ const scrapingDetail = async (data) => {
     return;
   }
 
-  // TODO 상세 데이터중 아이콘 url 을 list컬렉션에 업데이트를 치는 로직 추가
+  // TODO 상세 데이터중 icon경로를 list 컬렉션에 업데이트를 치는 로직 추가
+  const existList = List.findOne({ name }).exec();
+  if (existList) {
+    try {
+      await List.findOneAndUpdate(
+        { name },
+        { $set: { image: appStore.icon } },
+        { new: true },
+      ).exec();
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   const detail = Detail({ name, googlePlay, appStore });
   try {
@@ -195,8 +208,8 @@ export const scrapingStart = async (data) => {
 export const scraping = async () => {
   // 스크랩할 리스트 가져오기
   try {
-    // const { data } = await getList();
-    const data = dummyList;
+    const { data } = await getList();
+    // const data = dummyList;
     const list = data.reduce((acc, cur) => {
       cur.Detail = mongoose.model(`Detail-${cur.name}`);
       cur.Review = mongoose.model(`Review-${cur.name}`);

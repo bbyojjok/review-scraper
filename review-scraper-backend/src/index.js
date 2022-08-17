@@ -18,7 +18,6 @@ mongoose
     console.log('[SERVER] Connected to MongoDB');
     await Detail();
     await Review();
-    // scraping();
   })
   .catch((e) => {
     console.error(e);
