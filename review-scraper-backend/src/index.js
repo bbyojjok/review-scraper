@@ -4,6 +4,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import schedule from 'node-schedule';
+import helmet from 'helmet';
+import compression from 'compression';
 import route from './api/index.js';
 import Detail from './models/detail.js';
 import Review from './models/review.js';
@@ -25,6 +27,8 @@ mongoose
 
 const app = express();
 
+app.use(helmet());
+app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -35,7 +39,7 @@ const port = PORT || 4000;
 app.listen(port, async () => {
   console.log(`[SERVER] Express is listening on port ${port}`);
 
-  const rule = [`*/${getRandom(5, 10)}`, '*', '*', '*', '*'].join(' ');
+  const rule = [`*/${getRandom(20, 40)}`, '*', '*', '*', '*'].join(' ');
   console.log('rule:', rule);
   schedule.scheduleJob(rule, () => {
     console.log('## 스케쥴 호출');
