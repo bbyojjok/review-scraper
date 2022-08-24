@@ -178,4 +178,4 @@ const getCronRule = () => {
   return rule;
 };
 
-export { objectKeyAdd, deepCompare, getCronRule };
+export { objectKeyAdd, deepCompare, getCronRule, getRandom };

@@ -23,15 +23,14 @@ const validtationAppStoreId = async (id) => {
 };
 
 const validtationAppId = async ({ googlePlayAppId, appStoreId }) => {
-  const googelPlay = true; //await validtationGooglePlayId(googlePlayAppId);
+  const googelPlay = await validtationGooglePlayId(googlePlayAppId);
   const appStore = await validtationAppStoreId(appStoreId);
 
-  const err = (!googelPlay && 'googelPlay') || (!appStore && 'appStore');
+  const err = (!googelPlay && 'googlePlayAppId') || (!appStore && 'appStoreId');
   if (err) {
     return { error: `${err} validation failed` };
   }
-
-  return null;
+  return { icon: appStore.icon };
 };
 
 /* 리스트 작성
@@ -65,11 +64,16 @@ export const write = async (req, res) => {
   // db에 같은 name이 존재하는지 체크
   const existList = await List.findOne({ name }).exec();
   if (existList) {
-    return res.json(existList);
+    return res.status(400).json({ error: `${name} exist` });
   }
 
   // list 저장
-  const list = new List({ name, googlePlayAppId, appStoreId });
+  const list = new List({
+    name,
+    googlePlayAppId,
+    appStoreId,
+    icon: validAppId.icon,
+  });
   try {
     await list.save();
   } catch (e) {

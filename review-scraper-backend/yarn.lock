@@ -1182,10 +1182,10 @@ globby@^11.1.0:
     merge2 "^1.4.1"
     slash "^3.0.0"
 
-google-play-scraper@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/google-play-scraper/-/google-play-scraper-9.1.0.tgz#941bc6abf10cbe88726c4f1728994f3f46c94dda"
-  integrity sha512-vjcm9Q4423PvgxHpXqm1Zc8IvPqCfxce81JT5Z5zKqbKBZOTG0lw7RwJstT3SNoHXAez914YfUE2TmdVb7UEIg==
+google-play-scraper@^9.1.1:
+  version "9.1.1"
+  resolved "https://registry.yarnpkg.com/google-play-scraper/-/google-play-scraper-9.1.1.tgz#ea27f551306e63f435dd8d707add460269fe9522"
+  integrity sha512-feolKsEk9lEVOpDVbxftoA6t3oG5xt9GgvkMDrC20yY9YYQt2r7blT1KRptW79hW63x746k21dE07QB0yf+MZw==
   dependencies:
     cheerio "^1.0.0-rc.10"
     debug "^2.2.0"
@@ -1501,9 +1501,9 @@ kareem@2.4.1:
   integrity sha512-aJ9opVoXroQUPfovYP5kaj2lM7Jn02Gw13bL0lg9v0V7SaUc0qavPs0Eue7d2DcC3NjqI6QAUElXNsuZSeM+EA==
 
 keyv@^4.0.0:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.3.3.tgz#6c1bcda6353a9e96fc1b4e1aeb803a6e35090ba9"
-  integrity sha512-AcysI17RvakTh8ir03+a3zJr5r0ovnAH/XTXei/4HIv3bL2K/jzvgivLK9UuI/JbU1aJjM3NSAnVvVVd3n+4DQ==
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.4.1.tgz#5d97bae8dfbb6788ebc9330daf5eb6582e2d3d1c"
+  integrity sha512-PzByhNxfBLnSBW2MZi1DF+W5+qB/7BMpOokewqIvqS8GFtP7xHm2oeGU72Y1fhtfOv/FiEnI4+nyViYDmUChnw==
   dependencies:
     compress-brotli "^1.3.8"
     json-buffer "3.0.1"
