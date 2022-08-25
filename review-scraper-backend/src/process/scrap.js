@@ -7,8 +7,6 @@ import { getList } from '../lib/api/index.js';
 import { objectKeyAdd, deepCompare } from '../lib/utility.js';
 moment.locale('ko');
 
-const nowDate = () => moment().format('YYYY.MM.DD HH:mm:ss');
-
 const scrapingDetailGooglePlay = async (appId) => {
   try {
     const { version, score, url, icon } = await gplay.app({
@@ -73,7 +71,7 @@ const scrapingReviewGooglePlay = async (appId) => {
       lang: 'ko',
       country: 'kr',
       sort: gplay.sort.NEWEST,
-      num: 50,
+      num: 3000, // 3000
     });
     return data;
   } catch (e) {
@@ -84,12 +82,12 @@ const scrapingReviewGooglePlay = async (appId) => {
 
 const scrapingReviewAppStore = async (appStoreId) => {
   let reviewAppStore = [];
-  for (let i = 1, len = 1; i <= len; i++) {
+  for (let i = 1, len = 10; i <= len; i++) {
     reviewAppStore = reviewAppStore.concat(
       await appStoreReview({
         id: appStoreId,
         country: 'kr',
-        page: '1',
+        page: i,
       }),
     );
   }
@@ -179,6 +177,8 @@ const scrapingReview = async (data) => {
 export const scrapingStart = async (data) => {
   // 스크랩 시작
   const { name } = data;
+  const nowDate = () => moment().format('YYYY.MM.DD HH:mm:ss');
+
   console.log(`[SCRAPING/BEGIN] #${name} ${nowDate()}`);
   await scrapingDetail(data);
   await scrapingReview(data);

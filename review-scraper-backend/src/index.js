@@ -20,6 +20,7 @@ mongoose
     console.log('[SERVER] Connected to MongoDB');
     await Detail();
     await Review();
+    // scraping();
   })
   .catch((e) => {
     console.error(e);
@@ -39,11 +40,14 @@ const port = PORT || 4000;
 app.listen(port, async () => {
   console.log(`[SERVER] Express is listening on port ${port}`);
 
-  const rule = [`*/${getRandom(20, 40)}`, '*', '*', '*', '*'].join(' ');
+  const rule = [`*/${getRandom(2, 10)}`, '*', '*', '*', '*'].join(' ');
   console.log('rule:', rule);
-  schedule.scheduleJob(rule, () => {
-    console.log('## 스케쥴 호출');
-    scraping();
+  const scrapJob = schedule.scheduleJob(rule, () => {
+    console.log('## 스케쥴 테스트: 호출!!');
+
+    const rule = [`*/${getRandom(2, 10)}`, '*', '*', '*', '*'].join(' ');
+    console.log('rule:', rule);
+    scrapJob.reschedule(rule);
   });
 
   /*

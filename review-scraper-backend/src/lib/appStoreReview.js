@@ -11,7 +11,8 @@ const appStoreReview = async ({ id, country, page }) => {
   try {
     const url = `https://itunes.apple.com/${country}/rss/customerreviews/page=${page}/id=${id}/sortby=mostrecent/xml`;
     const res = await axios.get(url);
-    const data = await parseStringPromise(replaceAll(res.data, '<</', '</'));
+    const filter = replaceAll(res.data, '<</', '</');
+    const data = await parseStringPromise(replaceAll(filter, '<&lt;&lt;', ''));
     const entry = data['feed']['entry'];
 
     if (entry) {
@@ -33,7 +34,7 @@ const appStoreReview = async ({ id, country, page }) => {
     }
     return [];
   } catch (err) {
-    console.error(`[ERROR : appStoreReview Library] ${err}`);
+    console.error(`[ERROR/appStoreReview Library] ${err}`);
     return [];
   }
 };

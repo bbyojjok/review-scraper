@@ -1,6 +1,6 @@
 # Review-scraper
 
-동업계 앱리뷰 스크랩퍼
+커머스 앱 리뷰 스크랩퍼
 
 ## Tech stack
 
