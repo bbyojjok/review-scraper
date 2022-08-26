@@ -40,17 +40,16 @@ const port = PORT || 4000;
 app.listen(port, async () => {
   console.log(`[SERVER] Express is listening on port ${port}`);
 
-  const rule = [`*/${getRandom(2, 10)}`, '*', '*', '*', '*'].join(' ');
-  console.log('rule:', rule);
-  const scrapJob = schedule.scheduleJob(rule, () => {
-    console.log('## 스케쥴 테스트: 호출!!');
+  // const rule = [`*/${getRandom(2, 10)}`, '*', '*', '*', '*'].join(' ');
+  // console.log('rule:', rule);
+  // const scrapJob = schedule.scheduleJob(rule, () => {
+  //   console.log('## 스케쥴 테스트: 호출!!');
 
-    const rule = [`*/${getRandom(2, 10)}`, '*', '*', '*', '*'].join(' ');
-    console.log('rule:', rule);
-    scrapJob.reschedule(rule);
-  });
+  //   const rule = [`*/${getRandom(2, 10)}`, '*', '*', '*', '*'].join(' ');
+  //   console.log('rule:', rule);
+  //   scrapJob.reschedule(rule);
+  // });
 
-  /*
   // 스케쥴 등록
   const scrapJob = schedule.scheduleJob(getCronRule(), () => {
     scraping();
@@ -58,5 +57,4 @@ app.listen(port, async () => {
     // 스케쥴 취소 후, 3시간 이후 다시 재등록
     setTimeout(() => scrapJob.reschedule(getCronRule()), 1000 * 60 * 60 * 3);
   });
-  */
 });
