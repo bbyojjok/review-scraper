@@ -1,7 +1,11 @@
+import Dotenv from 'dotenv';
+Dotenv.config();
 import axios from 'axios';
 
+const { API_BASEURL } = process.env;
+
 const server = axios.create();
-server.defaults.baseURL = 'http://127.0.0.1:4000';
+server.defaults.baseURL = API_BASEURL;
 /*
   글로벌 설정 예시:
   
