@@ -19,8 +19,7 @@
     "make-dir": "^3.1.0",
     "moment": "^2.29.4",
     "mongoose": "^6.5.1",
-    "node-schedule": "^2.1.0",
-    "xml2js": "^0.4.23"
+    "node-schedule": "^2.1.0"
   },
   "devDependencies": {
     "eslint": "^8.21.0",
