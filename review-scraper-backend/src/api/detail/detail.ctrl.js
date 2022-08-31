@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import List from '../../models/list.js';
 
 /* 상세 조회
 GET /api/detail/name/os?
@@ -7,10 +7,9 @@ GET /api/detail/thehyundai/appStore
 */
 export const read = async (req, res) => {
   const { name, os } = req.params;
-  const Detail = mongoose.model(`Detail-${name}`);
 
   try {
-    const queryResult = await Detail.findOne({}).exec();
+    const queryResult = await List.findOne({ name }).exec();
     if (!queryResult) {
       return res.status(404);
     }

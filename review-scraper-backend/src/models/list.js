@@ -6,7 +6,8 @@ const ListSchema = new Schema({
   name: { type: String, required: true },
   googlePlayAppId: String,
   appStoreId: Number,
-  icon: String,
+  googlePlay: Schema.Types.Mixed,
+  appStore: Schema.Types.Mixed,
   createdAt: { type: Date, default: Date.now() },
 });
 

@@ -7,7 +7,6 @@ import helmet from 'helmet';
 import compression from 'compression';
 import schedule from 'node-schedule';
 import route from './api/index.js';
-import Detail from './models/detail.js';
 import Review from './models/review.js';
 import { scraping } from './process/scrap.js';
 import { getCronRule, getRandom } from './lib/utility.js';
@@ -18,7 +17,6 @@ mongoose
   .connect(MONGO_URI, { useNewUrlParser: true })
   .then(async () => {
     console.log('[SERVER] Connected to MongoDB');
-    await Detail();
     await Review();
     // scraping();
   })
@@ -50,7 +48,6 @@ app.listen(port, async () => {
   //   scrapJob.reschedule(rule);
   // });
 
-  /*
   // 스케쥴 등록
   const scrapJob = schedule.scheduleJob(getCronRule(), () => {
     scraping();
@@ -58,5 +55,4 @@ app.listen(port, async () => {
     // 스케쥴 취소 후, 3시간 이후 다시 재등록
     setTimeout(() => scrapJob.reschedule(getCronRule()), 1000 * 60 * 60 * 3);
   });
-  */
 });

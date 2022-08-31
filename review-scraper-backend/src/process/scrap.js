@@ -3,6 +3,7 @@ import gplay from 'google-play-scraper';
 import store from 'app-store-scraper';
 import moment from 'moment';
 import appStoreReview from '../lib/appStoreReview.js';
+import List from '../models/list.js';
 import { getList } from '../lib/api/index.js';
 import { objectKeyAdd, deepCompare } from '../lib/utility.js';
 moment.locale('ko');
@@ -37,14 +38,15 @@ const scrapingDetailAppStore = async (id) => {
 
 const scrapingDetail = async (data) => {
   // 스크랩 상세
-  const { name, Detail, googlePlayAppId, appStoreId } = data;
+  const { name, googlePlayAppId, appStoreId } = data;
   const googlePlay = await scrapingDetailGooglePlay(googlePlayAppId);
   const appStore = await scrapingDetailAppStore(appStoreId);
 
-  const existName = await Detail.findOne({ name }).exec();
+  const existName = await List.findOne({ name }).exec();
   if (existName) {
     try {
-      await Detail.findOneAndUpdate(
+      console.log(`[SCRAPING/DETAIL] #${name} detail updated`);
+      await List.findOneAndUpdate(
         { name },
         { $set: { googlePlay, appStore } },
         { new: true },
@@ -53,14 +55,6 @@ const scrapingDetail = async (data) => {
       console.error(e);
     }
     return;
-  }
-
-  const detail = Detail({ name, googlePlay, appStore });
-  try {
-    console.log(`[SCRAPING/DETAIL] #${name} detail, new`);
-    await detail.save();
-  } catch (e) {
-    console.error(e);
   }
 };
 
@@ -179,10 +173,12 @@ export const scrapingStart = async (data) => {
   const { name } = data;
   const nowDate = () => moment().format('YYYY.MM.DD HH:mm:ss');
 
-  console.log(`[SCRAPING/BEGIN] #${name} ${nowDate()}`);
+  console.log(`----------------------------------------------------------------------
+[SCRAPING/BEGIN] #${name} ${nowDate()}`);
   await scrapingDetail(data);
   await scrapingReview(data);
-  console.log(`[SCRAPING/FINISH] #${name} ${nowDate()}`);
+  console.log(`[SCRAPING/FINISH] #${name} ${nowDate()}
+----------------------------------------------------------------------`);
 };
 
 export const scraping = async () => {
@@ -190,7 +186,6 @@ export const scraping = async () => {
   try {
     const { data } = await getList();
     const list = data.reduce((acc, cur) => {
-      cur.Detail = mongoose.model(`Detail-${cur.name}`);
       cur.Review = mongoose.model(`Review-${cur.name}`);
       acc.push(cur);
       return acc;

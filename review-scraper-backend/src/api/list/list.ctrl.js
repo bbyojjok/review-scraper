@@ -2,13 +2,17 @@ import Joi from 'joi';
 import gplay from 'google-play-scraper';
 import store from 'app-store-scraper';
 import List from '../../models/list.js';
-import { createDetail } from '../../models/detail.js';
 import { createReview } from '../../models/review.js';
 import { scrapingStart } from '../../process/scrap.js';
 
 const validtationGooglePlayId = async (appId) => {
   try {
-    return await gplay.app({ appId, lang: 'ko', country: 'kr' });
+    const { version, score, url, icon } = await gplay.app({
+      appId,
+      lang: 'ko',
+      country: 'kr',
+    });
+    return { version, score, url, icon };
   } catch (e) {
     return null;
   }
@@ -16,21 +20,27 @@ const validtationGooglePlayId = async (appId) => {
 
 const validtationAppStoreId = async (id) => {
   try {
-    return await store.app({ id, lang: 'ko', country: 'kr' });
+    const { version, score, url, icon } = await store.app({
+      id,
+      lang: 'ko',
+      country: 'kr',
+    });
+    return { version, score, url, icon };
   } catch (e) {
     return null;
   }
 };
 
 const validtationAppId = async ({ googlePlayAppId, appStoreId }) => {
-  const googelPlay = await validtationGooglePlayId(googlePlayAppId);
+  const googlePlay = await validtationGooglePlayId(googlePlayAppId);
   const appStore = await validtationAppStoreId(appStoreId);
 
-  const err = (!googelPlay && 'googlePlayAppId') || (!appStore && 'appStoreId');
+  const result = { googlePlay, appStore, error: null };
+  const err = (!googlePlay && 'googlePlayAppId') || (!appStore && 'appStoreId');
   if (err) {
-    return { error: `${err} validation failed` };
+    result.error = `${err} validation failed`;
   }
-  return { icon: appStore.icon };
+  return result;
 };
 
 /* 리스트 작성
@@ -56,9 +66,12 @@ export const write = async (req, res) => {
   }
 
   // googlePlayAppId, appStoreId 유효한 id값인지 체크
-  const validAppId = await validtationAppId({ googlePlayAppId, appStoreId });
-  if (validAppId?.error) {
-    return res.status(400).json(validAppId);
+  const { googlePlay, appStore, error } = await validtationAppId({
+    googlePlayAppId,
+    appStoreId,
+  });
+  if (error) {
+    return res.status(400).json(error);
   }
 
   // db에 같은 name이 존재하는지 체크
@@ -72,7 +85,8 @@ export const write = async (req, res) => {
     name,
     googlePlayAppId,
     appStoreId,
-    icon: validAppId.icon,
+    googlePlay,
+    appStore,
   });
   try {
     await list.save();
@@ -81,11 +95,10 @@ export const write = async (req, res) => {
   }
 
   // db 저장후 스키마 모델 생성
-  const Detail = await createDetail(name);
   const Review = await createReview(name);
 
   // 스크랩 시작
-  scrapingStart({ name, googlePlayAppId, appStoreId, Detail, Review });
+  scrapingStart({ name, googlePlayAppId, appStoreId, Review });
 
   return res.json(list);
 };
