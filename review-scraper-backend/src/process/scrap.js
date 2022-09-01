@@ -177,8 +177,7 @@ export const scrapingStart = async (data) => {
 [SCRAPING/BEGIN] #${name} ${nowDate()}`);
   await scrapingDetail(data);
   await scrapingReview(data);
-  console.log(`[SCRAPING/FINISH] #${name} ${nowDate()}
-----------------------------------------------------------------------`);
+  console.log(`[SCRAPING/FINISH] #${name} ${nowDate()}`);
 };
 
 export const scraping = async () => {
