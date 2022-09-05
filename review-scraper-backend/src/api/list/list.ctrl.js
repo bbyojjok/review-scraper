@@ -1,39 +1,15 @@
 import Joi from 'joi';
-import gplay from 'google-play-scraper';
-import store from 'app-store-scraper';
 import List from '../../models/list.js';
 import { createReview } from '../../models/review.js';
-import { scrapingStart } from '../../process/scrap.js';
-
-const validtationGooglePlayId = async (appId) => {
-  try {
-    const { version, score, url, icon } = await gplay.app({
-      appId,
-      lang: 'ko',
-      country: 'kr',
-    });
-    return { version, score, url, icon };
-  } catch (e) {
-    return null;
-  }
-};
-
-const validtationAppStoreId = async (id) => {
-  try {
-    const { version, score, url, icon } = await store.app({
-      id,
-      lang: 'ko',
-      country: 'kr',
-    });
-    return { version, score, url, icon };
-  } catch (e) {
-    return null;
-  }
-};
+import {
+  scrapingStart,
+  scrapingDetailGooglePlay,
+  scrapingDetailAppStore,
+} from '../../process/scrap.js';
 
 const validtationAppId = async ({ googlePlayAppId, appStoreId }) => {
-  const googlePlay = await validtationGooglePlayId(googlePlayAppId);
-  const appStore = await validtationAppStoreId(appStoreId);
+  const googlePlay = await scrapingDetailGooglePlay(googlePlayAppId);
+  const appStore = await scrapingDetailAppStore(appStoreId);
 
   const result = { googlePlay, appStore, error: null };
   const err = (!googlePlay && 'googlePlayAppId') || (!appStore && 'appStoreId');

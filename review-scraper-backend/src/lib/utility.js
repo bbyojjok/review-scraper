@@ -178,4 +178,17 @@ const getCronRule = () => {
   return rule;
 };
 
-export { objectKeyAdd, deepCompare, getCronRule, getRandom };
+/**
+ * 타이틀 특수문자 제거 -, (
+ */
+const trimTitle = (str) => {
+  if (str.indexOf('-') !== -1) {
+    return str.split('-')[0].trim();
+  }
+  if (str.indexOf('(') !== -1) {
+    return str.split('(')[0].trim();
+  }
+  return str;
+};
+
+export { objectKeyAdd, deepCompare, getCronRule, getRandom, trimTitle };

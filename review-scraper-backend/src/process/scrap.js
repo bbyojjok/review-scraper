@@ -5,31 +5,31 @@ import moment from 'moment';
 import appStoreReview from '../lib/appStoreReview.js';
 import List from '../models/list.js';
 import { getList } from '../lib/api/index.js';
-import { objectKeyAdd, deepCompare } from '../lib/utility.js';
+import { objectKeyAdd, deepCompare, trimTitle } from '../lib/utility.js';
 moment.locale('ko');
 
-const scrapingDetailGooglePlay = async (appId) => {
+export const scrapingDetailGooglePlay = async (appId) => {
   try {
-    const { version, score, url, icon } = await gplay.app({
+    const { version, score, url, icon, title } = await gplay.app({
       appId,
       lang: 'ko',
       country: 'kr',
     });
-    return { version, score, url, icon };
+    return { version, score, url, icon, title: trimTitle(title) };
   } catch (e) {
     console.error(e);
     return null;
   }
 };
 
-const scrapingDetailAppStore = async (id) => {
+export const scrapingDetailAppStore = async (id) => {
   try {
-    const { version, score, url, icon } = await store.app({
+    const { version, score, url, icon, title } = await store.app({
       id,
       lang: 'ko',
       country: 'kr',
     });
-    return { version, score, url, icon };
+    return { version, score, url, icon, title: trimTitle(title) };
   } catch (e) {
     console.error(e);
     return null;
