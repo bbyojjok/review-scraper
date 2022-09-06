@@ -7,18 +7,13 @@ type HomeProps = {
 };
 
 const Home: NextPage = ({ lists }: HomeProps) => {
-  return (
-    <>
-      <Lists lists={lists} />
-    </>
-  );
+  return <Lists lists={lists} />;
 };
 
 export default Home;
 
 export const getServerSideProps = async () => {
   const { data: lists } = await axios.get('http://localhost:3000/api/list');
-
   return {
     props: {
       lists,

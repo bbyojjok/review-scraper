@@ -48,6 +48,12 @@ app.listen(port, async () => {
   //   scrapJob.reschedule(rule);
   // });
 
+  const rule = [`30`, '*', '*', '*', '*'].join(' ');
+  const scrapJob = schedule.scheduleJob(rule, () => {
+    scraping();
+  });
+
+  /*
   // 스케쥴 등록
   const scrapJob = schedule.scheduleJob(getCronRule(), () => {
     scraping();
@@ -55,4 +61,5 @@ app.listen(port, async () => {
     // 스케쥴 취소 후, 5시간 이후 다시 재등록
     // setTimeout(() => scrapJob.reschedule(getCronRule()), 1000 * 60 * 60 * 5);
   });
+  */
 });

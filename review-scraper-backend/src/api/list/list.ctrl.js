@@ -80,11 +80,16 @@ export const write = async (req, res) => {
 };
 
 /* 리스트 조회
-GET /api/list
+GET /api/list/name?
+GET /api/list/
+GET /api/list/thehyundai
 */
 export const list = async (req, res) => {
+  const { name } = req.params;
+  const options = name ? { name } : {};
+
   try {
-    const queryResult = await List.find({}).exec();
+    const queryResult = await List.find(options).exec();
     if (!queryResult) {
       return res.status(404);
     }

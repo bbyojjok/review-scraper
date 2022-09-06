@@ -79,7 +79,7 @@ const Lists = ({ lists }: ListsProps) => {
       <ul>
         {lists.map((list: any) => (
           <li key={list.name}>
-            <Link href={`/${list.name}/15/1`}>
+            <Link href={`/${list.name}/7/1`}>
               <a>
                 <img src={list.appStore?.icon} alt={list.name} />
                 <span className="title">{list.appStore?.title}</span>
