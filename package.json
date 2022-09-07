@@ -7,6 +7,6 @@
     "client": "cd review-scraper-frontend && npm run start",
     "server": "cd review-scraper-backend && npm run start",
     "start": "concurrently \"npm run client\" \"npm run server\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install concurrently && npm install --prefix review-scraper-frontend && npm install --prefix review-scraper-backend && npm run build --prefix review-scraper-frontend"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install concurrently --prefix && npm install --prefix review-scraper-frontend && npm install --prefix review-scraper-backend && npm run build --prefix review-scraper-frontend"
   }
 }
