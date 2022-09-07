@@ -48,10 +48,11 @@ app.listen(port, async () => {
   //   scrapJob.reschedule(rule);
   // });
 
-  const rule = [`30`, '*', '*', '*', '*'].join(' ');
-  const scrapJob = schedule.scheduleJob(rule, () => {
-    scraping();
-  });
+  // const rule = [`*/30`, '*', '*', '*', '*'].join(' ');
+  // const scrapJob = schedule.scheduleJob(rule, () => {
+  //   console.log('### scraping call !!');
+  //   scraping();
+  // });
 
   /*
   // 스케쥴 등록

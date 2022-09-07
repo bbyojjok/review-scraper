@@ -86,10 +86,21 @@ GET /api/list/thehyundai
 */
 export const list = async (req, res) => {
   const { name } = req.params;
-  const options = name ? { name } : {};
+
+  if (name) {
+    try {
+      const queryResult = await List.findOne({ name }).exec();
+      if (!queryResult) {
+        return res.status(404);
+      }
+      return res.json(queryResult);
+    } catch (e) {
+      return res.status(500).json(e);
+    }
+  }
 
   try {
-    const queryResult = await List.find(options).exec();
+    const queryResult = await List.find({}).exec();
     if (!queryResult) {
       return res.status(404);
     }
