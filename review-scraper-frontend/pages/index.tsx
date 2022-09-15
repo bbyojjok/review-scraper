@@ -13,7 +13,7 @@ const Home: NextPage = ({ lists }: HomeProps) => {
 export default Home;
 
 export const getServerSideProps = async () => {
-  const { data: lists } = await axios.get('http://localhost:3000/api/list');
+  const { data: lists } = await axios.get('http://localhost:8083/api/list');
   return {
     props: {
       lists,

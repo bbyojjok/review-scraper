@@ -74,7 +74,7 @@ export default function Review({
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const [name, day = '7', score = '1'] = params?.review as Array<string>;
 
-  let url = `http://localhost:3000/api/review/day/${name}`;
+  let url = `http://localhost:8083/api/review/day/${name}`;
   if (day) {
     url += `/${day}`;
   }
@@ -85,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { data: googlePlay } = await axios.get(`${url}/googlePlay`);
   const { data: appStore } = await axios.get(`${url}/appStore`);
   const { data: detail } = await axios.get(
-    `http://localhost:3000/api/list/${name}`,
+    `http://localhost:8083/api/list/${name}`,
   );
 
   return {
