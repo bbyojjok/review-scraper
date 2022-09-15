@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 // 라우트 설정
 app.use('/api', route);
 
-const port = PORT || 4000;
+const port = PORT || 8082;
 app.listen(port, async () => {
   console.log(`[SERVER] Express is listening on port ${port}`);
 

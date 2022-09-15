@@ -6,16 +6,16 @@ import Reviews from '../../components/Reviews';
 import Sort from '../../components/Sort';
 
 type ReviewProps = {
-  reviews: any;
   detail: any;
+  reviews: any;
   name: string;
   day: string;
   score: string[];
 };
 
 export default function Review({
-  reviews,
   detail,
+  reviews,
   name: selectedName,
   day: selectedDay,
   score: selectedScore,
@@ -28,8 +28,10 @@ export default function Review({
 
   useEffect(() => {
     if (!day || !score) {
-      router.replace(`/${name}/${selectedDay}/${selectedScore}`);
+      router.replace(`/${name}/${selectedDay}/${selectedScore.join('')}`);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const changeScore = (e: React.ChangeEvent<HTMLInputElement>) => {
