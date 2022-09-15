@@ -54,13 +54,11 @@ app.listen(port, async () => {
   //   scraping();
   // });
 
-  /*
   // 스케쥴 등록
   const scrapJob = schedule.scheduleJob(getCronRule(), () => {
     scraping();
 
     // 스케쥴 취소 후, 5시간 이후 다시 재등록
-    // setTimeout(() => scrapJob.reschedule(getCronRule()), 1000 * 60 * 60 * 5);
+    setTimeout(() => scrapJob.reschedule(getCronRule()), 1000 * 60 * 60 * 5);
   });
-  */
 });
