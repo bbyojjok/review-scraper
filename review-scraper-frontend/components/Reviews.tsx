@@ -24,37 +24,44 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           {reviews.googlePlay.length === 0 && (
             <li>googlePlay 리뷰가 없습니다</li>
           )}
-          {reviews.googlePlay.map(({ _id, name, os, review }: any) => (
-            <li key={_id}>
-              <hr />
-              <p>name: {name}</p>
-              <p>os: {os}</p>
-              <p>userName: {review.userName}</p>
-              <p>userName: {review.userName}</p>
-              <p>text: {review.text}</p>
-              <p>scoreText: {review.scoreText}</p>
-              <p>date: {review.date}</p>
-              <p>replyText: {review.replyText}</p>
-              <p>replyDate: {review.replyDate}</p>
-            </li>
-          ))}
+          {reviews.googlePlay.map(({ _id, name, os, review }: any) => {
+            const { userName, text, scoreText, date, replyText, replyDate } =
+              review;
+            return (
+              <li key={_id}>
+                <hr />
+                <p>name: {name}</p>
+                <p>os: {os}</p>
+                <p>userName: {userName}</p>
+                <p>text: {text}</p>
+                <p>scoreText: {scoreText}</p>
+                <p>date: {date}</p>
+                <p>replyText: {replyText}</p>
+                <p>replyDate: {replyDate}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div>
         <p>앱스토어, score: {detail.appStore.score}</p>
         <ul>
           {reviews.appStore.length === 0 && <li>appStore 리뷰가 없습니다</li>}
-          {reviews.appStore.map(({ _id, name, os, review }: any) => (
-            <li key={_id}>
-              <hr />
-              <p>name: {name}</p>
-              <p>os: {os}</p>
-              <p>author: {review.author}</p>
-              <p>comment: {review.comment}</p>
-              <p>rate: {review.rate}</p>
-              <p>date: {review.date}</p>
-            </li>
-          ))}
+          {reviews.appStore.map(({ _id, name, os, review }: any) => {
+            const { author, title, comment, rate, date } = review;
+            return (
+              <li key={_id}>
+                <hr />
+                <p>name: {name}</p>
+                <p>os: {os}</p>
+                <p>author: {author}</p>
+                <p>title: {title}</p>
+                <p>comment: {comment}</p>
+                <p>rate: {rate}</p>
+                <p>date: {date}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </ReviewsBlock>

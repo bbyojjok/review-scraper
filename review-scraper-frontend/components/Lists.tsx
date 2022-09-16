@@ -42,9 +42,14 @@ const ListsBlock = styled.div`
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19),
             0 2px 6px rgba(0, 0, 0, 0.23);
         }
+      }
 
-        .title {
-          font-weight: 700;
+      &.add {
+        background-color: skyblue;
+
+        a {
+          position: relative;
+          padding: 100% 0 0 0;
         }
       }
     }
@@ -63,6 +68,8 @@ const ListsBlock = styled.div`
   }
 
   @media (max-width: 400px) {
+    padding: 30px 15px;
+
     ul li {
       width: 50%;
     }
@@ -79,7 +86,7 @@ const Lists = ({ lists }: ListsProps) => {
       <ul>
         {lists.map((list: any) => (
           <li key={list.name}>
-            <Link href={`/${list.name}/7/1`}>
+            <Link href={`/review/${list.name}/7/1`}>
               <a>
                 <img src={list.appStore?.icon} alt={list.name} />
                 <span className="title">{list.appStore?.title}</span>
@@ -87,6 +94,13 @@ const Lists = ({ lists }: ListsProps) => {
             </Link>
           </li>
         ))}
+        <li className="add">
+          <Link href="/admin/add">
+            <a>
+              <span>추가하기(로그인 했을시에만 노출)</span>
+            </a>
+          </Link>
+        </li>
       </ul>
     </ListsBlock>
   );

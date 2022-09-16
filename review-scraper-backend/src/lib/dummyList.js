@@ -44,4 +44,9 @@ export const dummyList = [
     googlePlayAppId: 'com.hyundaihmall.hlive',
     appStoreId: 1574631191,
   },
+  {
+    name: 'lotteon',
+    googlePlayAppId: 'com.lotte',
+    appStoreId: 376622474,
+  },
 ];

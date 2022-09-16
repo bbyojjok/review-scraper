@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const HeaderBlock = styled.header`
   position: sticky;
@@ -19,7 +20,14 @@ const HeaderBlock = styled.header`
     color: #fff;
   }
 
-  button {
+  .btn-back {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .btn-login {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -28,14 +36,23 @@ const HeaderBlock = styled.header`
 `;
 
 const Header = () => {
+  const router = useRouter();
+
   return (
     <HeaderBlock>
+      {router.pathname !== '/' && (
+        <button className="btn-back" onClick={() => router.back()}>
+          뒤로가기
+        </button>
+      )}
       <h1>
         <Link href="/">
           <a>REVIEW-SCRAPER</a>
         </Link>
       </h1>
-      <button>로그인버튼</button>
+      <Link href="/admin">
+        <a className="btn-login">로그인버튼</a>
+      </Link>
     </HeaderBlock>
   );
 };

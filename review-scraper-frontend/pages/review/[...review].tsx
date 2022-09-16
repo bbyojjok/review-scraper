@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Reviews from '../../components/Reviews';
 import Sort from '../../components/Sort';
+import { findList, findReview } from '../../lib/api/index';
 
 type ReviewProps = {
   detail: any;
@@ -23,12 +24,11 @@ export default function Review({
   const router = useRouter();
   const [name, day, score] = router.query.review as string[];
 
-  console.log(selectedName, selectedDay, selectedScore);
-  console.log(reviews);
-
   useEffect(() => {
     if (!day || !score) {
-      router.replace(`/${name}/${selectedDay}/${selectedScore.join('')}`);
+      router.replace(
+        `/review/${name}/${selectedDay}/${selectedScore.join('')}`,
+      );
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,7 +40,7 @@ export default function Review({
       return;
     }
 
-    let url = `/${name}/${day}/`;
+    let url = `/review/${name}/${day}/`;
     const findScore = selectedScore.find((score) => score === val);
     if (findScore) {
       url += selectedScore
@@ -54,7 +54,7 @@ export default function Review({
   };
 
   const changeDays = (e: React.ChangeEvent<HTMLInputElement>) => {
-    router.push(`/${name}/${e.target.value}/${score}`);
+    router.push(`/review/${name}/${e.target.value}/${score}`);
   };
 
   return (
@@ -73,20 +73,11 @@ export default function Review({
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const [name, day = '7', score = '1'] = params?.review as Array<string>;
+  const url = `/${name}/${day}/${score}`;
 
-  let url = `http://localhost:8083/api/review/day/${name}`;
-  if (day) {
-    url += `/${day}`;
-  }
-  if (score) {
-    url += `/${score}`;
-  }
-
-  const { data: googlePlay } = await axios.get(`${url}/googlePlay`);
-  const { data: appStore } = await axios.get(`${url}/appStore`);
-  const { data: detail } = await axios.get(
-    `http://localhost:8083/api/list/${name}`,
-  );
+  const { data: googlePlay } = await findReview(`${url}/googlePlay`);
+  const { data: appStore } = await findReview(`${url}/appStore`);
+  const { data: detail } = await findList(name);
 
   return {
     props: {

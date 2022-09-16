@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import axios from 'axios';
 import Lists from '../components/Lists';
+import { findList } from '../lib/api/index';
 
 type HomeProps = {
   lists?: any;
@@ -13,7 +13,8 @@ const Home: NextPage = ({ lists }: HomeProps) => {
 export default Home;
 
 export const getServerSideProps = async () => {
-  const { data: lists } = await axios.get('http://localhost:8083/api/list');
+  const { data: lists } = await findList();
+
   return {
     props: {
       lists,

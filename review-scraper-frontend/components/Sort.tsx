@@ -83,13 +83,13 @@ const Sort = ({
   changeScore,
   changeDays,
 }: SortProps) => {
-  console.log(detail);
+  const { icon, title } = detail.appStore;
 
   return (
     <SortBlock>
       <div className="info">
-        <img src={detail.appStore.icon} alt={detail.appStore.title} />
-        <span>{detail.appStore.title}</span>
+        <img src={icon} alt={title} />
+        <span>{title}</span>
       </div>
 
       <div>
