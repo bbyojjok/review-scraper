@@ -14,7 +14,7 @@ import { getCronRule, getRandom } from './lib/utility.js';
 const { PORT, MONGO_URI } = process.env;
 
 mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true })
+  .connect(MONGO_URI, { dbName: 'review-scraper', useNewUrlParser: true })
   .then(async () => {
     console.log('[SERVER] Connected to MongoDB');
     await Review();

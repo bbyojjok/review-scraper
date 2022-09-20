@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <HeaderBlock>
       {router.pathname !== '/' && (
-        <button className="btn-back" onClick={() => router.back()}>
+        <button className="btn-back" onClick={() => router.push('/')}>
           뒤로가기
         </button>
       )}
