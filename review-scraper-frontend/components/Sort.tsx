@@ -87,12 +87,21 @@ const SortBlock = styled.div`
     input:checked + span {
       color: #fff;
       background-color: #000;
-      /* border: 1px solid #fff;
-      border-right: none; */
     }
 
     &:not(:last-child) span {
       border-right: none;
+    }
+  }
+
+  @media (hover: hover) {
+    label:hover span {
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    label:hover + label span {
+      border-left: 1px solid #fff;
     }
   }
 `;

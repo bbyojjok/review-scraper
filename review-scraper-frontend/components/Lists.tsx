@@ -70,24 +70,6 @@ const ListsBlock = styled.div`
         }
       }
 
-      a:hover {
-        .img {
-          border: 1px solid #fff;
-
-          img {
-            scale: 1.1;
-          }
-
-          .over-box {
-            opacity: 1;
-          }
-        }
-
-        .title {
-          color: #fff;
-        }
-      }
-
       &.add {
         a {
           position: relative;
@@ -111,17 +93,41 @@ const ListsBlock = styled.div`
               transition: all 0.2s;
             }
           }
+        }
+      }
+    }
+  }
 
-          &:hover {
-            .img {
-              border: 1px solid #fff;
-            }
+  @media (hover: hover) {
+    ul li {
+      a:hover {
+        .img {
+          border: 1px solid #fff;
 
-            .add {
-              width: 3rem;
-              height: 3rem;
-              color: #fff;
-            }
+          img {
+            scale: 1.1;
+          }
+
+          .over-box {
+            opacity: 1;
+          }
+        }
+
+        .title {
+          color: #fff;
+        }
+      }
+
+      &.add {
+        a:hover {
+          .img {
+            border: 1px solid #fff;
+          }
+
+          .add {
+            width: 3rem;
+            height: 3rem;
+            color: #fff;
           }
         }
       }
