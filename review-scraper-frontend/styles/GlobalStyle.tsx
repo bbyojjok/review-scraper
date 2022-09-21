@@ -7,7 +7,7 @@ const globals = css`
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background: #1a1a1a;
+    background: #222;
     color: #eee;
   }
 

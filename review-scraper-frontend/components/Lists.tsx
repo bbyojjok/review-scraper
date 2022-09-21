@@ -32,7 +32,7 @@ const ListsBlock = styled.div`
           width: 100%;
           border-radius: 10%;
           border: 1px solid transparent;
-          transition: border 0.2s;
+          transition: all 0.2s;
 
           img {
             border-radius: 10%;

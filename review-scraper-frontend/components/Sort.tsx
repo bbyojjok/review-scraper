@@ -7,7 +7,7 @@ const SortBlock = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   padding: 20px;
-  background-color: #1a1a1a;
+  background-color: #222;
 
   .info {
     text-align: center;
