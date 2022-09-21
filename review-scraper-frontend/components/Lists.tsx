@@ -49,6 +49,7 @@ const ListsBlock = styled.div`
             justify-content: center;
             align-items: center;
             background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10%;
             opacity: 0;
             transition: opacity 0.2s;
 
