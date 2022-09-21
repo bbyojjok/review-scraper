@@ -75,20 +75,26 @@ const SortBlock = styled.div`
       border-radius: 0 10% 10% 0;
     }
 
+    &:not(:last-child) span {
+      border-right: none;
+    }
+
     input:checked + span {
       color: #fff;
       background-color: #000;
     }
-
-    &:not(:last-child) span {
-      border-right: none;
-    }
   }
 
   @media (hover: hover) {
-    label:hover span {
-      color: #fff;
-      border: 1px solid #fff;
+    label:hover {
+      span {
+        color: #fff;
+        border: 1px solid #fff;
+      }
+
+      &:not(:last-child) span {
+        border-right: none;
+      }
     }
 
     label:hover + label span {
