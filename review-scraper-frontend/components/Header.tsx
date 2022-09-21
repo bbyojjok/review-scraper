@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { MdOutlineArrowBackIos } from 'react-icons/md';
 
 const HeaderBlock = styled.header`
   position: sticky;
@@ -11,8 +12,7 @@ const HeaderBlock = styled.header`
   align-items: center;
   padding: 0 50px;
   height: 50px;
-  background-color: #222831;
-  box-shadow: 0px 0px 5px 0px #191b1d;
+  background-color: #000;
 
   h1 a {
     font-size: 16px;
@@ -22,9 +22,13 @@ const HeaderBlock = styled.header`
 
   .btn-back {
     position: absolute;
-    left: 10px;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
+    padding: 15px;
+    border: 0;
+    background: 0;
+    cursor: pointer;
   }
 
   .btn-login {
@@ -32,6 +36,12 @@ const HeaderBlock = styled.header`
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    color: #888;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
   }
 `;
 
@@ -42,7 +52,7 @@ const Header = () => {
     <HeaderBlock>
       {router.pathname !== '/' && (
         <button className="btn-back" onClick={() => router.push('/')}>
-          뒤로가기
+          <MdOutlineArrowBackIos color="#fff" />
         </button>
       )}
       <h1>
@@ -51,7 +61,7 @@ const Header = () => {
         </Link>
       </h1>
       <Link href="/admin">
-        <a className="btn-login">로그인버튼</a>
+        <a className="btn-login">Login</a>
       </Link>
     </HeaderBlock>
   );

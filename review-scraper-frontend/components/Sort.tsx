@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 const SortBlock = styled.div`
   position: sticky;
   top: 50px;
-
-  background-color: #eee;
+  background-color: #1a1a1a;
 
   & > div {
     display: flex;
@@ -25,7 +24,6 @@ const SortBlock = styled.div`
       display: inline-block;
       padding: 10px 0 0;
       font-size: 13px;
-      color: #393e46;
     }
   }
 

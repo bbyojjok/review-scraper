@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { MdOutlineArrowForward, MdAdd } from 'react-icons/md';
 
 const ListsBlock = styled.div`
   padding: 30px;
@@ -22,34 +23,98 @@ const ListsBlock = styled.div`
         img {
           vertical-align: top;
           width: 100%;
+        }
+
+        .img {
+          position: relative;
+          overflow: hidden;
+          display: block;
+          width: 100%;
           border-radius: 10%;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05),
-            0 1px 1px rgba(0, 0, 0, 0.1);
-          transition: box-shadow 0.3s;
+          border: 1px solid transparent;
+          transition: border 0.2s;
+
+          img {
+            transition: scale 0.3s;
+          }
+
+          .over-box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.2s;
+
+            .icon {
+              display: inline-block;
+              padding: 10px;
+              background-color: rgba(255, 255, 255, 0.6);
+              border-radius: 50%;
+            }
+          }
         }
 
         .title {
           display: inline-block;
           padding: 10px 0 0;
           font-size: 13px;
-          color: #393e46;
-          transition: font-weight 0.3s;
+          color: #ddd;
+          transition: color 0.2s;
         }
       }
 
       a:hover {
-        img {
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.19),
-            0 2px 6px rgba(0, 0, 0, 0.23);
+        .img {
+          border: 1px solid #fff;
+
+          img {
+            scale: 1.1;
+          }
+
+          .over-box {
+            opacity: 1;
+          }
+        }
+
+        .title {
+          color: #fff;
         }
       }
 
       &.add {
-        background-color: skyblue;
-
         a {
           position: relative;
           padding: 100% 0 0 0;
+
+          .img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .add {
+              width: 2rem;
+              height: 2rem;
+              color: #ddd;
+              transition: all 0.2s;
+            }
+          }
+
+          &:hover .add {
+            width: 3rem;
+            height: 3rem;
+            color: #fff;
+          }
         }
       }
     }
@@ -88,7 +153,14 @@ const Lists = ({ lists }: ListsProps) => {
           <li key={list.name}>
             <Link href={`/review/${list.name}/7/1`}>
               <a>
-                <img src={list.appStore?.icon} alt={list.name} />
+                <span className="img">
+                  <img src={list.appStore?.icon} alt={list.name} />
+                  <span className="over-box">
+                    <span className="icon">
+                      <MdOutlineArrowForward color="#000" />
+                    </span>
+                  </span>
+                </span>
                 <span className="title">{list.appStore?.title}</span>
               </a>
             </Link>
@@ -97,7 +169,9 @@ const Lists = ({ lists }: ListsProps) => {
         <li className="add">
           <Link href="/admin/add">
             <a>
-              <span>추가하기(로그인 했을시에만 노출)</span>
+              <span className="img">
+                <MdAdd className="add" />
+              </span>
             </a>
           </Link>
         </li>

@@ -3,6 +3,7 @@ import moment from 'moment';
 import xl from 'excel4node';
 import makeDir from 'make-dir';
 import { getReviewDay } from '../../lib/api/index.js';
+import { scraping } from '../../process/scrap.js';
 
 const reviewDateFormat = (review) => {
   return review.reduce((acc, cur) => {
@@ -213,4 +214,12 @@ export const xlsx = async (req, res) => {
       return res.json({ file, stats });
     }
   });
+};
+
+/* 스크랩 시작
+GET /api/review/scrap
+*/
+export const scrap = (req, res) => {
+  scraping();
+  res.json({ message: 'scraping start' });
 };
