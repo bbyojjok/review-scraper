@@ -15,7 +15,6 @@ const ListsBlock = styled.div`
       text-align: center;
       width: 20%;
       padding: 20px;
-      margin-bottom: 20px;
 
       a {
         display: block;
@@ -36,7 +35,7 @@ const ListsBlock = styled.div`
 
           img {
             border-radius: 10%;
-            transition: scale 0.3s;
+            transition: all 0.3s;
           }
 
           .over-box {
@@ -142,8 +141,6 @@ const ListsBlock = styled.div`
   }
 
   @media (max-width: 400px) {
-    padding: 30px 15px;
-
     ul li {
       width: 50%;
     }
@@ -160,7 +157,7 @@ const Lists = ({ lists }: ListsProps) => {
       <ul>
         {lists.map((list: any) => (
           <li key={list.name}>
-            <Link href={`/review/${list.name}/7/1`}>
+            <Link href={`/review/${list.name}/7/12345`}>
               <a>
                 <span className="img">
                   <img src={list.appStore?.icon} alt={list.name} />

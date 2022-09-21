@@ -72,7 +72,7 @@ export default function Review({
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const [name, day = '7', score = '1'] = params?.review as Array<string>;
+  const [name, day = '7', score = '12345'] = params?.review as Array<string>;
   const url = `/${name}/${day}/${score}`;
 
   const { data: googlePlay } = await findReview(`${url}/googlePlay`);

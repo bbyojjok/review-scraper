@@ -67,7 +67,7 @@ const SortBlock = styled.div`
       outline: 1px solid;
     }
 
-    &:first-child span {
+    &:first-of-type span {
       border-radius: 10% 0 0 10%;
     }
 
