@@ -75,15 +75,6 @@ const SortBlock = styled.div`
       border-radius: 0 10% 10% 0;
     }
 
-    &:hover span {
-      color: #fff;
-      border: 1px solid #fff;
-    }
-
-    &:hover + label span {
-      border-left: 1px solid #fff;
-    }
-
     input:checked + span {
       color: #fff;
       background-color: #000;
