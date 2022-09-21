@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { MdOutlineArrowForward, MdAdd } from 'react-icons/md';
 
 const ListsBlock = styled.div`
-  padding: 30px;
+  padding: 20px;
 
   ul {
     display: flex;
@@ -14,7 +14,7 @@ const ListsBlock = styled.div`
     li {
       text-align: center;
       width: 20%;
-      padding: 10px;
+      padding: 20px;
       margin-bottom: 20px;
 
       a {
@@ -35,6 +35,7 @@ const ListsBlock = styled.div`
           transition: border 0.2s;
 
           img {
+            border-radius: 10%;
             transition: scale 0.3s;
           }
 
@@ -101,6 +102,7 @@ const ListsBlock = styled.div`
             display: flex;
             justify-content: center;
             align-items: center;
+            border: 1px solid #ddd;
 
             .add {
               width: 2rem;
@@ -110,10 +112,16 @@ const ListsBlock = styled.div`
             }
           }
 
-          &:hover .add {
-            width: 3rem;
-            height: 3rem;
-            color: #fff;
+          &:hover {
+            .img {
+              border: 1px solid #fff;
+            }
+
+            .add {
+              width: 3rem;
+              height: 3rem;
+              color: #fff;
+            }
           }
         }
       }

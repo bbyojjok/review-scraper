@@ -3,15 +3,14 @@ import styled from '@emotion/styled';
 const SortBlock = styled.div`
   position: sticky;
   top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
   background-color: #1a1a1a;
 
-  & > div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .info {
+    text-align: center;
     width: 100px;
 
     img {
@@ -27,10 +26,18 @@ const SortBlock = styled.div`
     }
   }
 
+  .btns {
+    padding-left: 8px;
+  }
+
   .score-box {
+    display: flex;
+    padding-bottom: 4px;
   }
 
   .days-box {
+    display: flex;
+    padding-top: 4px;
   }
 
   label {
@@ -49,16 +56,43 @@ const SortBlock = styled.div`
       justify-content: center;
       align-items: center;
       width: 50px;
-      height: 50px;
+      height: 46px;
       font-size: 12px;
-    }
-
-    input:checked + span {
-      background-color: skyblue;
+      color: #666;
+      border: 1px solid #666;
+      transition: all 0.2s;
     }
 
     input:focus-visible + span {
       outline: 1px solid;
+    }
+
+    &:first-child span {
+      border-radius: 10% 0 0 10%;
+    }
+
+    &:last-child span {
+      border-radius: 0 10% 10% 0;
+    }
+
+    &:hover span {
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    &:hover + label span {
+      border-left: 1px solid #fff;
+    }
+
+    input:checked + span {
+      color: #fff;
+      background-color: #000;
+      /* border: 1px solid #fff;
+      border-right: none; */
+    }
+
+    &:not(:last-child) span {
+      border-right: none;
     }
   }
 `;
@@ -87,41 +121,41 @@ const Sort = ({
     <SortBlock>
       <div className="info">
         <img src={icon} alt={title} />
-        <span>{title}</span>
       </div>
-
-      <div>
-        {scores.map((score) => {
-          const findScore = selectedScore.find(
-            (selectScore) => score === selectScore,
-          );
-          return (
-            <label title={`별점${score}`} key={score}>
+      <div className="btns">
+        <div className="score-box">
+          {scores.map((score) => {
+            const findScore = selectedScore.find(
+              (selectScore) => score === selectScore,
+            );
+            return (
+              <label title={`별점${score}`} key={score}>
+                <input
+                  type="checkbox"
+                  name="score"
+                  value={score}
+                  onChange={changeScore}
+                  checked={findScore === score}
+                />
+                <span>{`별점${score}`}</span>
+              </label>
+            );
+          })}
+        </div>
+        <div className="days-box">
+          {days.map((day) => (
+            <label title={`${day}일`} key={day}>
               <input
-                type="checkbox"
-                name="score"
-                value={score}
-                onChange={changeScore}
-                checked={findScore === score}
+                type="radio"
+                name="days"
+                value={day}
+                onChange={changeDays}
+                checked={day === selectedDay}
               />
-              <span>{`별점${score}`}</span>
+              <span>{`${day}일`}</span>
             </label>
-          );
-        })}
-      </div>
-      <div>
-        {days.map((day) => (
-          <label title={`${day}일`} key={day}>
-            <input
-              type="radio"
-              name="days"
-              value={day}
-              onChange={changeDays}
-              checked={day === selectedDay}
-            />
-            <span>{`${day}일`}</span>
-          </label>
-        ))}
+          ))}
+        </div>
       </div>
     </SortBlock>
   );
