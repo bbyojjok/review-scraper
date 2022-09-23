@@ -38,7 +38,7 @@ const ReviewsBlock = styled.div`
       background-color: #333;
       border-radius: 5px;
 
-      &:first-child {
+      &:first-of-type {
         margin-top: 0;
       }
 
@@ -54,26 +54,28 @@ const ReviewsBlock = styled.div`
         padding-bottom: 10px;
 
         .title {
-          width: calc(100% - 100px);
+          width: calc(100% - 80px);
         }
 
         .date {
           text-align: right;
-          width: 100px;
+          width: 80px;
         }
 
         .rate {
-          width: 90px;
+          width: 65px;
         }
 
         .author {
           text-align: right;
-          width: calc(100% - 90px);
+          width: calc(100% - 65px);
+          word-break: break-all;
         }
       }
 
       .text {
         line-height: 1.4;
+        word-break: break-all;
       }
 
       .reply-text {
