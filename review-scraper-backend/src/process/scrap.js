@@ -180,7 +180,8 @@ export const scrapingStart = async (data) => {
   console.log(`[SCRAPING/FINISH] #${name} ${nowDate()}`);
 };
 
-export const scraping = async () => {
+let isScrapingPlaying = false;
+const scraper = async (callback) => {
   // 스크랩할 리스트 가져오기
   try {
     const { data } = await getList();
@@ -193,7 +194,20 @@ export const scraping = async () => {
     for (let i = 0, len = list.length; i < len; i++) {
       await scrapingStart(list[i]);
     }
+
+    callback();
   } catch (e) {
     console.error(e);
   }
+};
+
+export const scraping = () => {
+  if (isScrapingPlaying) {
+    return false;
+  }
+  isScrapingPlaying = true;
+  scraper(() => {
+    isScrapingPlaying = false;
+  });
+  return true;
 };

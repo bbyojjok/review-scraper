@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -14,13 +13,13 @@ type ReviewProps = {
   score: string[];
 };
 
-export default function Review({
+const Review = ({
   detail,
   reviews,
   name: selectedName,
   day: selectedDay,
   score: selectedScore,
-}: ReviewProps) {
+}: ReviewProps) => {
   const router = useRouter();
   const [name, day, score] = router.query.review as string[];
 
@@ -69,7 +68,9 @@ export default function Review({
       <Reviews detail={detail} reviews={reviews} />
     </>
   );
-}
+};
+
+export default Review;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const [name, day = '7', score = '12345'] = params?.review as Array<string>;

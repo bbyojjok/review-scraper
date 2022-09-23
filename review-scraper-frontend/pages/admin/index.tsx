@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import useUser from '../../store/modules/userHook';
 
 const StyledInput = styled.input``;
 
@@ -17,6 +18,8 @@ export default function Login() {
     password: '',
   });
 
+  const { isLoggedin, login, logout } = useUser();
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.value;
     setLoginData((state: any) => ({
@@ -28,11 +31,14 @@ export default function Login() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('# on submit !!');
+
+    const { username, password } = loginData;
+    login({ userId: username, password: password });
   };
 
   return (
     <LoginBlock>
-      <h2>로그인</h2>
+      <h2>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</h2>
       <form onSubmit={onSubmit}>
         <StyledInput
           type="text"

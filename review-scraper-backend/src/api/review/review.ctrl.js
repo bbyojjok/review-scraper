@@ -217,9 +217,12 @@ export const xlsx = async (req, res) => {
 };
 
 /* 스크랩 시작
-GET /api/review/scrap
+POST /api/review/scrap
 */
-export const scrap = (req, res) => {
-  scraping();
-  res.json({ message: 'scraping start' });
+export const scrap = async (req, res) => {
+  const status = scraping();
+  if (!status) {
+    return res.json({ status, message: 'scraping playing' });
+  }
+  res.json({ status, message: 'scraping start' });
 };

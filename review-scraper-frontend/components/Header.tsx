@@ -29,9 +29,16 @@ const HeaderBlock = styled.header`
     border: 0;
     background: 0;
     cursor: pointer;
+
+    .icon {
+      vertical-align: middle;
+      color: #fff;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
   }
 
-  .btn-login {
+  .btn-admin {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -52,7 +59,7 @@ const Header = () => {
     <HeaderBlock>
       {router.pathname !== '/' && (
         <button className="btn-back" onClick={() => router.push('/')}>
-          <MdOutlineArrowBackIos color="#fff" />
+          <MdOutlineArrowBackIos className="icon" />
         </button>
       )}
       <h1>
@@ -61,7 +68,7 @@ const Header = () => {
         </Link>
       </h1>
       <Link href="/admin">
-        <a className="btn-login">Login</a>
+        <a className="btn-admin">Admin</a>
       </Link>
     </HeaderBlock>
   );

@@ -9,7 +9,7 @@ import schedule from 'node-schedule';
 import route from './api/index.js';
 import Review from './models/review.js';
 import { scraping } from './process/scrap.js';
-import { getCronRule, getRandom } from './lib/utility.js';
+import { getCronRule } from './lib/utility.js';
 
 const { PORT, MONGO_URI } = process.env;
 
