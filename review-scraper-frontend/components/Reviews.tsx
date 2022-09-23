@@ -83,6 +83,7 @@ const ReviewsBlock = styled.div`
         padding: 10px;
         background-color: #444;
         border-radius: 5px;
+        word-break: break-all;
 
         p {
           display: flex;
