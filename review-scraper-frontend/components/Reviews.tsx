@@ -110,7 +110,7 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
         <div className="list-wrap">
           <ul className="review-list">
             {reviews.googlePlay.length === 0 && (
-              <li className="center">googlePlay 리뷰가 없습니다.</li>
+              <li className="center">GooglePlay 리뷰가 없습니다.</li>
             )}
             {reviews.googlePlay.map(({ _id, name, os, review }: any) => {
               const { userName, text, scoreText, date, replyText, replyDate } =
@@ -157,7 +157,7 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
         <div className="list-wrap">
           <ul className="review-list">
             {reviews.appStore.length === 0 && (
-              <li className="center">appStore 리뷰가 없습니다.</li>
+              <li className="center">AppStore 리뷰가 없습니다.</li>
             )}
             {reviews.appStore.map(({ _id, name, os, review }: any) => {
               const { author, title, comment, rate, date } = review;
