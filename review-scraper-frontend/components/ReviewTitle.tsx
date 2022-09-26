@@ -10,14 +10,14 @@ const ReviewTitleBlick = styled.div`
   & > div {
     display: flex;
     justify-content: space-between;
-  }
 
-  & > div:nth-of-type(1) {
     p {
       display: flex;
       align-items: center;
     }
+  }
 
+  & > div:nth-of-type(1) {
     .os {
       svg {
         margin-right: 4px;
