@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
 import ReviewTitle from './ReviewTitle';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 
 const ReviewsBlock = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ const ReviewsBlock = styled.div`
   }
 
   .list-wrap {
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: calc(100% - 50px);
   }
 
@@ -111,43 +112,51 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           length={reviews.googlePlay.length}
         />
         <div className="list-wrap">
-          <ul className="review-list">
-            {reviews.googlePlay.length === 0 && (
-              <li className="center">GooglePlay 리뷰가 없습니다.</li>
-            )}
-            {reviews.googlePlay.map(({ _id, name, os, review }: any) => {
-              const { userName, text, scoreText, date, replyText, replyDate } =
-                review;
-              return (
-                <li key={_id}>
-                  <div className="info">
-                    <p className="title"></p>
-                    <p className="date">{date}</p>
-                  </div>
-                  <div className="info">
-                    <p className="rate">
-                      {Array(parseInt(scoreText, 10))
-                        .fill(0)
-                        .map((val, idx) => (
-                          <MdStar key={scoreText + idx} />
-                        ))}
-                    </p>
-                    <p className="author">{userName}</p>
-                  </div>
-                  <div className="text">{text}</div>
-                  {replyText && (
-                    <div className="reply-text">
-                      <p>
-                        <MdSubdirectoryArrowRight />
-                        {replyDate}
-                      </p>
-                      {replyText}
+          <Scrollbars>
+            <ul className="review-list">
+              {reviews.googlePlay.length === 0 && (
+                <li className="center">GooglePlay 리뷰가 없습니다.</li>
+              )}
+              {reviews.googlePlay.map(({ _id, name, os, review }: any) => {
+                const {
+                  userName,
+                  text,
+                  scoreText,
+                  date,
+                  replyText,
+                  replyDate,
+                } = review;
+                return (
+                  <li key={_id}>
+                    <div className="info">
+                      <p className="title"></p>
+                      <p className="date">{date}</p>
                     </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+                    <div className="info">
+                      <p className="rate">
+                        {Array(parseInt(scoreText, 10))
+                          .fill(0)
+                          .map((val, idx) => (
+                            <MdStar key={scoreText + idx} />
+                          ))}
+                      </p>
+                      <p className="author">{userName}</p>
+                    </div>
+                    <div className="text">{text}</div>
+                    {replyText && (
+                      <div className="reply-text">
+                        <p>
+                          <MdSubdirectoryArrowRight />
+                          {replyDate}
+                        </p>
+                        {replyText}
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </Scrollbars>
         </div>
       </div>
       <div className="review-wrap">
@@ -158,33 +167,35 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           length={reviews.appStore.length}
         />
         <div className="list-wrap">
-          <ul className="review-list">
-            {reviews.appStore.length === 0 && (
-              <li className="center">AppStore 리뷰가 없습니다.</li>
-            )}
-            {reviews.appStore.map(({ _id, name, os, review }: any) => {
-              const { author, title, comment, rate, date } = review;
-              return (
-                <li key={_id}>
-                  <div className="info">
-                    <p className="title">{title}</p>
-                    <p className="date">{date}</p>
-                  </div>
-                  <div className="info">
-                    <p className="rate">
-                      {Array(parseInt(rate, 10))
-                        .fill(0)
-                        .map((val, idx) => (
-                          <MdStar key={rate + idx} />
-                        ))}
-                    </p>
-                    <p className="author">{author}</p>
-                  </div>
-                  <div className="text">{comment}</div>
-                </li>
-              );
-            })}
-          </ul>
+          <Scrollbars>
+            <ul className="review-list">
+              {reviews.appStore.length === 0 && (
+                <li className="center">AppStore 리뷰가 없습니다.</li>
+              )}
+              {reviews.appStore.map(({ _id, name, os, review }: any) => {
+                const { author, title, comment, rate, date } = review;
+                return (
+                  <li key={_id}>
+                    <div className="info">
+                      <p className="title">{title}</p>
+                      <p className="date">{date}</p>
+                    </div>
+                    <div className="info">
+                      <p className="rate">
+                        {Array(parseInt(rate, 10))
+                          .fill(0)
+                          .map((val, idx) => (
+                            <MdStar key={rate + idx} />
+                          ))}
+                      </p>
+                      <p className="author">{author}</p>
+                    </div>
+                    <div className="text">{comment}</div>
+                  </li>
+                );
+              })}
+            </ul>
+          </Scrollbars>
         </div>
       </div>
     </ReviewsBlock>

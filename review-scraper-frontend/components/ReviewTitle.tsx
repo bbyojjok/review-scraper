@@ -3,19 +3,19 @@ import { MdStar } from 'react-icons/md';
 import { SiGoogleplay, SiApple } from 'react-icons/si';
 
 const ReviewTitleBlick = styled.div`
-  display: flex;
-  justify-content: space-between;
   height: 50px;
   font-size: 12px;
   line-height: 1.4;
 
-  & > div:nth-of-type(1) {
-    span {
-      vertical-align: middle;
-    }
+  & > div {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    svg {
-      vertical-align: middle;
+  & > div:nth-of-type(1) {
+    p {
+      display: flex;
+      align-items: center;
     }
 
     .os {
@@ -54,13 +54,13 @@ const ReviewTitle = ({ os, score, version, length }: ReviewTitleProps) => {
             </>
           )}
         </p>
-        <p className="score">
+        <p>버전: {version}</p>
+      </div>
+      <div>
+        <p>
           <span>{score}</span>
           <MdStar />
         </p>
-      </div>
-      <div>
-        <p>버전: {version}</p>
         <p>조회된 리뷰 수: {length}</p>
       </div>
     </ReviewTitleBlick>

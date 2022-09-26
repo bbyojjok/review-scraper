@@ -6,12 +6,15 @@ const SortBlock = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   padding: 20px;
   background-color: #222;
 
   .info {
+    flex: 1;
     text-align: center;
-    width: 100px;
+    max-width: 100px;
+    width: 100%;
 
     img {
       vertical-align: top;
