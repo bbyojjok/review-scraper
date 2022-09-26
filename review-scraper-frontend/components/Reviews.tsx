@@ -112,7 +112,7 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           length={reviews.googlePlay.length}
         />
         <div className="list-wrap">
-          <Scrollbars>
+          <Scrollbars universal>
             <ul className="review-list">
               {reviews.googlePlay.length === 0 && (
                 <li className="center">GooglePlay 리뷰가 없습니다.</li>
@@ -167,7 +167,7 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           length={reviews.appStore.length}
         />
         <div className="list-wrap">
-          <Scrollbars>
+          <Scrollbars universal>
             <ul className="review-list">
               {reviews.appStore.length === 0 && (
                 <li className="center">AppStore 리뷰가 없습니다.</li>
