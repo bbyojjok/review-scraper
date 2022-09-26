@@ -29,6 +29,14 @@ const ReviewsBlock = styled.div`
   .list-wrap {
     /* overflow-y: auto; */
     height: calc(100% - 50px);
+
+    & > div {
+      & > div:nth-of-type(3) {
+        & > div {
+          background-color: rgba(0, 0, 0, 0.5) !important;
+        }
+      }
+    }
   }
 
   .review-list {
