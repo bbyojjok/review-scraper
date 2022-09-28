@@ -60,6 +60,21 @@ export const readDay = async (req, res) => {
     }
 
     const result = reviewDateFormat(queryResult);
+    if (!os) {
+      const { googlePlay, appStore } = result.reduce(
+        (acc, cur) => {
+          if (cur.os === 'googlePlay') {
+            acc.googlePlay.push(cur);
+          }
+          if (cur.os === 'appStore') {
+            acc.appStore.push(cur);
+          }
+          return acc;
+        },
+        { googlePlay: [], appStore: [] },
+      );
+      return res.json({ googlePlay, appStore });
+    }
     return res.json(result);
   } catch (e) {
     return res.status(500).json(e);

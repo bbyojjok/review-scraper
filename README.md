@@ -14,3 +14,4 @@
 
   - React
   - Next
+  - Typescript

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import SortLabel from './SortLabel';
 
 const SortBlock = styled.div`
   position: sticky;
@@ -42,72 +43,10 @@ const SortBlock = styled.div`
     display: flex;
     padding-top: 4px;
   }
-
-  label {
-    display: block;
-    position: relative;
-    cursor: pointer;
-
-    input {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-    }
-
-    span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 50px;
-      height: 46px;
-      font-size: 12px;
-      color: #666;
-      border: 1px solid #666;
-      transition: all 0.2s;
-    }
-
-    input:focus-visible + span {
-      outline: 1px solid;
-    }
-
-    &:first-of-type span {
-      border-radius: 10% 0 0 10%;
-    }
-
-    &:last-child span {
-      border-radius: 0 10% 10% 0;
-    }
-
-    &:not(:last-child) span {
-      border-right: none;
-    }
-
-    input:checked + span {
-      color: #fff;
-      background-color: #000;
-    }
-  }
-
-  @media (hover: hover) {
-    label:hover {
-      span {
-        color: #fff;
-        border: 1px solid #fff;
-      }
-
-      &:not(:last-child) span {
-        border-right: none;
-      }
-    }
-
-    label:hover + label span {
-      border-left: 1px solid #fff;
-    }
-  }
 `;
 
 const scores: string[] = ['1', '2', '3', '4', '5'];
-const days: string[] = ['7', '15', '30', '90', '180'];
+const days: string[] = ['7', '15', '30', '60', '90'];
 
 type SortProps = {
   detail: any;
@@ -138,31 +77,25 @@ const Sort = ({
               (selectScore) => score === selectScore,
             );
             return (
-              <label title={`별점${score}`} key={score}>
-                <input
-                  type="checkbox"
-                  name="score"
-                  value={score}
-                  onChange={changeScore}
-                  checked={findScore === score}
-                />
-                <span>{`별점${score}`}</span>
-              </label>
+              <SortLabel
+                key={score}
+                type="checkbox"
+                value={score}
+                onChange={changeScore}
+                checked={findScore === score}
+              />
             );
           })}
         </div>
         <div className="days-box">
           {days.map((day) => (
-            <label title={`${day}일`} key={day}>
-              <input
-                type="radio"
-                name="days"
-                value={day}
-                onChange={changeDays}
-                checked={day === selectedDay}
-              />
-              <span>{`${day}일`}</span>
-            </label>
+            <SortLabel
+              key={day}
+              type="radio"
+              value={day}
+              onChange={changeDays}
+              checked={day === selectedDay}
+            />
           ))}
         </div>
       </div>

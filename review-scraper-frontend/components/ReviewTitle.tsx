@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { MdStar } from 'react-icons/md';
 import { SiGoogleplay, SiApple } from 'react-icons/si';
 
-const ReviewTitleBlick = styled.div`
+const ReviewTitleBlock = styled.div`
   height: 50px;
   font-size: 12px;
   line-height: 1.4;
@@ -34,25 +34,19 @@ type ReviewTitleProps = {
   os: string;
   score: number;
   version: string;
+  url: string;
   length: number;
 };
 
-const ReviewTitle = ({ os, score, version, length }: ReviewTitleProps) => {
+const ReviewTitle = ({ os, score, version, url, length }: ReviewTitleProps) => {
   return (
-    <ReviewTitleBlick>
+    <ReviewTitleBlock>
       <div>
         <p className="os">
-          {os === 'GooglePlay' ? (
-            <>
-              <SiGoogleplay />
-              <span>{os}</span>
-            </>
-          ) : (
-            <>
-              <SiApple />
-              <span>{os}</span>
-            </>
-          )}
+          <a href={url} target="_blank" title="스토어로 이동하기">
+            {os === 'GooglePlay' ? <SiGoogleplay /> : <SiApple />}
+            <span>{os}</span>
+          </a>
         </p>
         <p>버전: {version}</p>
       </div>
@@ -63,7 +57,7 @@ const ReviewTitle = ({ os, score, version, length }: ReviewTitleProps) => {
         </p>
         <p>조회된 리뷰 수: {length}</p>
       </div>
-    </ReviewTitleBlick>
+    </ReviewTitleBlock>
   );
 };
 

@@ -1,6 +1,7 @@
 import Dotenv from 'dotenv';
 Dotenv.config();
 import express from 'express';
+import session from 'express-session';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
@@ -11,7 +12,7 @@ import Review from './models/review.js';
 import { scraping } from './process/scrap.js';
 import { getCronRule } from './lib/utility.js';
 
-const { PORT, MONGO_URI } = process.env;
+const { PORT, MONGO_URI, COOKIE_SECRET } = process.env;
 
 mongoose
   .connect(MONGO_URI, { dbName: 'review-scraper', useNewUrlParser: true })
@@ -26,6 +27,14 @@ mongoose
 
 const app = express();
 
+app.use(
+  session({
+    secret: COOKIE_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 1000 * 60 * 10 },
+  }),
+);
 app.use(helmet());
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));

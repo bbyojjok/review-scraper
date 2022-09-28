@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
 import ReviewTitle from './ReviewTitle';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 const ReviewsBlock = styled.div`
   display: flex;
@@ -27,16 +27,8 @@ const ReviewsBlock = styled.div`
   }
 
   .list-wrap {
-    /* overflow-y: auto; */
+    overflow-y: auto;
     height: calc(100% - 50px);
-
-    & > div {
-      & > div:nth-of-type(3) {
-        & > div {
-          background-color: rgba(0, 0, 0, 0.5) !important;
-        }
-      }
-    }
   }
 
   .review-list {
@@ -117,54 +109,49 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           os="GooglePlay"
           score={detail.googlePlay.score.toFixed(1)}
           version={detail.googlePlay.version}
+          url={detail.googlePlay.url}
           length={reviews.googlePlay.length}
         />
         <div className="list-wrap">
-          <Scrollbars universal>
-            <ul className="review-list">
-              {reviews.googlePlay.length === 0 && (
-                <li className="center">GooglePlay 리뷰가 없습니다.</li>
-              )}
-              {reviews.googlePlay.map(({ _id, name, os, review }: any) => {
-                const {
-                  userName,
-                  text,
-                  scoreText,
-                  date,
-                  replyText,
-                  replyDate,
-                } = review;
-                return (
-                  <li key={_id}>
-                    <div className="info">
-                      <p className="title"></p>
-                      <p className="date">{date}</p>
-                    </div>
-                    <div className="info">
-                      <p className="rate">
-                        {Array(parseInt(scoreText, 10))
-                          .fill(0)
-                          .map((val, idx) => (
-                            <MdStar key={scoreText + idx} />
-                          ))}
+          {/* <Scrollbar> */}
+          <ul className="review-list">
+            {reviews.googlePlay.length === 0 && (
+              <li className="center">GooglePlay 리뷰가 없습니다.</li>
+            )}
+            {reviews.googlePlay.map(({ _id, name, os, review }: any) => {
+              const { userName, text, scoreText, date, replyText, replyDate } =
+                review;
+              return (
+                <li key={_id}>
+                  <div className="info">
+                    <p className="title"></p>
+                    <p className="date">{date}</p>
+                  </div>
+                  <div className="info">
+                    <p className="rate">
+                      {Array(parseInt(scoreText, 10))
+                        .fill(0)
+                        .map((val, idx) => (
+                          <MdStar key={scoreText + idx} />
+                        ))}
+                    </p>
+                    <p className="author">{userName}</p>
+                  </div>
+                  <div className="text">{text}</div>
+                  {replyText && (
+                    <div className="reply-text">
+                      <p>
+                        <MdSubdirectoryArrowRight />
+                        {replyDate}
                       </p>
-                      <p className="author">{userName}</p>
+                      {replyText}
                     </div>
-                    <div className="text">{text}</div>
-                    {replyText && (
-                      <div className="reply-text">
-                        <p>
-                          <MdSubdirectoryArrowRight />
-                          {replyDate}
-                        </p>
-                        {replyText}
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </Scrollbars>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+          {/* </Scrollbar> */}
         </div>
       </div>
       <div className="review-wrap">
@@ -172,38 +159,39 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           os="AppStore"
           score={detail.appStore.score.toFixed(1)}
           version={detail.appStore.version}
+          url={detail.appStore.url}
           length={reviews.appStore.length}
         />
         <div className="list-wrap">
-          <Scrollbars universal>
-            <ul className="review-list">
-              {reviews.appStore.length === 0 && (
-                <li className="center">AppStore 리뷰가 없습니다.</li>
-              )}
-              {reviews.appStore.map(({ _id, name, os, review }: any) => {
-                const { author, title, comment, rate, date } = review;
-                return (
-                  <li key={_id}>
-                    <div className="info">
-                      <p className="title">{title}</p>
-                      <p className="date">{date}</p>
-                    </div>
-                    <div className="info">
-                      <p className="rate">
-                        {Array(parseInt(rate, 10))
-                          .fill(0)
-                          .map((val, idx) => (
-                            <MdStar key={rate + idx} />
-                          ))}
-                      </p>
-                      <p className="author">{author}</p>
-                    </div>
-                    <div className="text">{comment}</div>
-                  </li>
-                );
-              })}
-            </ul>
-          </Scrollbars>
+          {/* <Scrollbar> */}
+          <ul className="review-list">
+            {reviews.appStore.length === 0 && (
+              <li className="center">AppStore 리뷰가 없습니다.</li>
+            )}
+            {reviews.appStore.map(({ _id, name, os, review }: any) => {
+              const { author, title, comment, rate, date } = review;
+              return (
+                <li key={_id}>
+                  <div className="info">
+                    <p className="title">{title}</p>
+                    <p className="date">{date}</p>
+                  </div>
+                  <div className="info">
+                    <p className="rate">
+                      {Array(parseInt(rate, 10))
+                        .fill(0)
+                        .map((val, idx) => (
+                          <MdStar key={rate + idx} />
+                        ))}
+                    </p>
+                    <p className="author">{author}</p>
+                  </div>
+                  <div className="text">{comment}</div>
+                </li>
+              );
+            })}
+          </ul>
+          {/* </Scrollbar> */}
         </div>
       </div>
     </ReviewsBlock>

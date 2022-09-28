@@ -36,6 +36,14 @@ export default function Login() {
     login({ userId: username, password: password });
   };
 
+  const onLogout = () => {
+    setLoginData({
+      username: '',
+      password: '',
+    });
+    logout();
+  };
+
   return (
     <LoginBlock>
       <h2>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</h2>
@@ -58,6 +66,7 @@ export default function Login() {
         />
         <button>로그인</button>
       </form>
+      <button onClick={onLogout}>로그아웃</button>
     </LoginBlock>
   );
 }
