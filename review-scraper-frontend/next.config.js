@@ -13,7 +13,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: `http://backUrl:8082/api/:path*`,
+        destination: `http://${backUrl}:8082/api/:path*`,
       },
     ];
   },
