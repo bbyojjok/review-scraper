@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const isDevelopment = process.env.NODE_ENV === 'development';
-const backUrl = isDevelopment ? 'localhost' : '43.200.52.112';
-
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -13,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: `http://${backUrl}:8082/api/:path*`,
+        destination: 'http://localhost:8082/api/:path*',
       },
     ];
   },

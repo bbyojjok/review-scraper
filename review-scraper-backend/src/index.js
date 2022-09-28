@@ -2,6 +2,7 @@ import Dotenv from 'dotenv';
 Dotenv.config();
 import express from 'express';
 import session from 'express-session';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
@@ -27,6 +28,18 @@ mongoose
 
 const app = express();
 
+var whitelist = ['http://localhost:8083', 'https://review.stlee.kr'];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 app.use(
   session({
     secret: COOKIE_SECRET,
