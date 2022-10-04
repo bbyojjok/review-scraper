@@ -10,15 +10,17 @@ import 'nprogress/nprogress.css';
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
-    NProgress.configure({ minimum: 0.1, showSpinner: false });
+    NProgress.configure({
+      minimum: 0.1,
+      showSpinner: false,
+      trickleSpeed: 50,
+    });
 
     const progressStart = () => {
-      console.log('progressStart');
       NProgress.start();
     };
 
     const progressDone = () => {
-      console.log('progressDone');
       NProgress.done();
     };
 

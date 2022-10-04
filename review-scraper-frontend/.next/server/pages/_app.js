@@ -114,16 +114,15 @@ function MyApp({
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     nprogress__WEBPACK_IMPORTED_MODULE_5___default().configure({
       minimum: 0.1,
-      showSpinner: false
+      showSpinner: false,
+      trickleSpeed: 50
     });
 
     const progressStart = () => {
-      console.log('progressStart');
       nprogress__WEBPACK_IMPORTED_MODULE_5___default().start();
     };
 
     const progressDone = () => {
-      console.log('progressDone');
       nprogress__WEBPACK_IMPORTED_MODULE_5___default().done();
     };
 
