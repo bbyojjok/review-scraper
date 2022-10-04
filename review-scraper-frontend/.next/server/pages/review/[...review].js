@@ -1,499 +1,155 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 451;
-exports.ids = [451];
+exports.id = "pages/review/[...review]";
+exports.ids = ["pages/review/[...review]"];
 exports.modules = {
 
-/***/ 1074:
+/***/ "./components/ReviewTitle.tsx":
+/*!************************************!*\
+  !*** ./components/ReviewTitle.tsx ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "s": () => (/* binding */ findList),
-  "r": () => (/* binding */ findReview)
-});
-
-// EXTERNAL MODULE: external "axios"
-var external_axios_ = __webpack_require__(2167);
-var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
-;// CONCATENATED MODULE: ./lib/api/client.ts
-
-const client = external_axios_default().create();
-client.defaults.withCredentials = true;
-client.defaults.baseURL =  true ? 'https://review.stlee.kr' : 0;
-/* harmony default export */ const api_client = (client);
-;// CONCATENATED MODULE: ./lib/api/index.ts
-
-const findList = name => {
-  let url = '/api/list';
-
-  if (name) {
-    url += `/${name}`;
-  }
-
-  return api_client.get(url);
-};
-const findReview = url => api_client.get(`/api/review/day${url}`);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled/base */ \"@emotion/styled/base\");\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/md */ \"react-icons/md\");\n/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_icons_si__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/si */ \"react-icons/si\");\n/* harmony import */ var react_icons_si__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_icons_si__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__);\n\nvar _jsxFileName = \"/Users/matchless/Dev/review-scraper/review-scraper-frontend/components/ReviewTitle.tsx\";\n\nfunction _EMOTION_STRINGIFIED_CSS_ERROR__() { return \"You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop).\"; }\n\n\n\n\n\nconst ReviewTitleBlock = /*#__PURE__*/_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default()(\"div\",  false ? 0 : {\n  target: \"e3tklkn0\",\n  label: \"ReviewTitleBlock\"\n})( false ? 0 : {\n  name: \"1rx0vm\",\n  styles: \"height:50px;font-size:12px;line-height:1.4;&>div{display:flex;justify-content:space-between;p{display:flex;align-items:center;}}&>div:nth-of-type(1){.os{svg{margin-right:4px;}}}&>div:nth-of-type(2){text-align:right;}\",\n  map: \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tYXRjaGxlc3MvRGV2L3Jldmlldy1zY3JhcGVyL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kL2NvbXBvbmVudHMvUmV2aWV3VGl0bGUudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUltQyIsImZpbGUiOiIvVXNlcnMvbWF0Y2hsZXNzL0Rldi9yZXZpZXctc2NyYXBlci9yZXZpZXctc2NyYXBlci1mcm9udGVuZC9jb21wb25lbnRzL1Jldmlld1RpdGxlLnRzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IE1kU3RhciB9IGZyb20gJ3JlYWN0LWljb25zL21kJztcbmltcG9ydCB7IFNpR29vZ2xlcGxheSwgU2lBcHBsZSB9IGZyb20gJ3JlYWN0LWljb25zL3NpJztcblxuY29uc3QgUmV2aWV3VGl0bGVCbG9jayA9IHN0eWxlZC5kaXZgXG4gIGhlaWdodDogNTBweDtcbiAgZm9udC1zaXplOiAxMnB4O1xuICBsaW5lLWhlaWdodDogMS40O1xuXG4gICYgPiBkaXYge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuXG4gICAgcCB7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB9XG4gIH1cblxuICAmID4gZGl2Om50aC1vZi10eXBlKDEpIHtcbiAgICAub3Mge1xuICAgICAgc3ZnIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA0cHg7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgJiA+IGRpdjpudGgtb2YtdHlwZSgyKSB7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIH1cbmA7XG5cbnR5cGUgUmV2aWV3VGl0bGVQcm9wcyA9IHtcbiAgb3M6IHN0cmluZztcbiAgc2NvcmU6IG51bWJlcjtcbiAgdmVyc2lvbjogc3RyaW5nO1xuICB1cmw6IHN0cmluZztcbiAgbGVuZ3RoOiBudW1iZXI7XG59O1xuXG5jb25zdCBSZXZpZXdUaXRsZSA9ICh7IG9zLCBzY29yZSwgdmVyc2lvbiwgdXJsLCBsZW5ndGggfTogUmV2aWV3VGl0bGVQcm9wcykgPT4ge1xuICByZXR1cm4gKFxuICAgIDxSZXZpZXdUaXRsZUJsb2NrPlxuICAgICAgPGRpdj5cbiAgICAgICAgPHAgY2xhc3NOYW1lPVwib3NcIj5cbiAgICAgICAgICA8YSBocmVmPXt1cmx9IHRhcmdldD1cIl9ibGFua1wiIHRpdGxlPVwi7Iqk7Yag7Ja066GcIOydtOuPme2VmOq4sFwiPlxuICAgICAgICAgICAge29zID09PSAnR29vZ2xlUGxheScgPyA8U2lHb29nbGVwbGF5IC8+IDogPFNpQXBwbGUgLz59XG4gICAgICAgICAgICA8c3Bhbj57b3N9PC9zcGFuPlxuICAgICAgICAgIDwvYT5cbiAgICAgICAgPC9wPlxuICAgICAgICA8cD7rsoTsoIQ6IHt2ZXJzaW9ufTwvcD5cbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdj5cbiAgICAgICAgPHA+XG4gICAgICAgICAgPHNwYW4+e3Njb3JlfTwvc3Bhbj5cbiAgICAgICAgICA8TWRTdGFyIC8+XG4gICAgICAgIDwvcD5cbiAgICAgICAgPHA+7KGw7ZqM65CcIOumrOu3sCDsiJg6IHtsZW5ndGh9PC9wPlxuICAgICAgPC9kaXY+XG4gICAgPC9SZXZpZXdUaXRsZUJsb2NrPlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgUmV2aWV3VGl0bGU7XG4iXX0= */\",\n  toString: _EMOTION_STRINGIFIED_CSS_ERROR__\n});\n\nconst ReviewTitle = ({\n  os,\n  score,\n  version,\n  url,\n  length\n}) => {\n  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(ReviewTitleBlock, {\n    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n        className: \"os\",\n        children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"a\", {\n          href: url,\n          target: \"_blank\",\n          title: \"\\uC2A4\\uD1A0\\uC5B4\\uB85C \\uC774\\uB3D9\\uD558\\uAE30\",\n          children: [os === 'GooglePlay' ? /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(react_icons_si__WEBPACK_IMPORTED_MODULE_2__.SiGoogleplay, {}, void 0, false, {\n            fileName: _jsxFileName,\n            lineNumber: 47,\n            columnNumber: 36\n          }, undefined) : /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(react_icons_si__WEBPACK_IMPORTED_MODULE_2__.SiApple, {}, void 0, false, {\n            fileName: _jsxFileName,\n            lineNumber: 47,\n            columnNumber: 55\n          }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"span\", {\n            children: os\n          }, void 0, false, {\n            fileName: _jsxFileName,\n            lineNumber: 48,\n            columnNumber: 13\n          }, undefined)]\n        }, void 0, true, {\n          fileName: _jsxFileName,\n          lineNumber: 46,\n          columnNumber: 11\n        }, undefined)\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 45,\n        columnNumber: 9\n      }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n        children: [\"\\uBC84\\uC804: \", version]\n      }, void 0, true, {\n        fileName: _jsxFileName,\n        lineNumber: 51,\n        columnNumber: 9\n      }, undefined)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 44,\n      columnNumber: 7\n    }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n        children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"span\", {\n          children: score\n        }, void 0, false, {\n          fileName: _jsxFileName,\n          lineNumber: 55,\n          columnNumber: 11\n        }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdStar, {}, void 0, false, {\n          fileName: _jsxFileName,\n          lineNumber: 56,\n          columnNumber: 11\n        }, undefined)]\n      }, void 0, true, {\n        fileName: _jsxFileName,\n        lineNumber: 54,\n        columnNumber: 9\n      }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n        children: [\"\\uC870\\uD68C\\uB41C \\uB9AC\\uBDF0 \\uC218: \", length]\n      }, void 0, true, {\n        fileName: _jsxFileName,\n        lineNumber: 58,\n        columnNumber: 9\n      }, undefined)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 53,\n      columnNumber: 7\n    }, undefined)]\n  }, void 0, true, {\n    fileName: _jsxFileName,\n    lineNumber: 43,\n    columnNumber: 5\n  }, undefined);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewTitle);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL1Jldmlld1RpdGxlLnRzeC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7OztBQUNBO0FBQ0E7OztBQUVBLE1BQU1HLGdCQUFnQjtFQUFBO0VBQUE7QUFBQTtFQUFBO0VBQUE7RUFBQTtFQUFBO0FBQUEsRUFBdEI7O0FBb0NBLE1BQU1DLFdBQVcsR0FBRyxDQUFDO0VBQUVDLEVBQUY7RUFBTUMsS0FBTjtFQUFhQyxPQUFiO0VBQXNCQyxHQUF0QjtFQUEyQkM7QUFBM0IsQ0FBRCxLQUEyRDtFQUM3RSxvQkFDRSw4REFBQyxnQkFBRDtJQUFBLHdCQUNFO01BQUEsd0JBQ0U7UUFBRyxTQUFTLEVBQUMsSUFBYjtRQUFBLHVCQUNFO1VBQUcsSUFBSSxFQUFFRCxHQUFUO1VBQWMsTUFBTSxFQUFDLFFBQXJCO1VBQThCLEtBQUssRUFBQyxtREFBcEM7VUFBQSxXQUNHSCxFQUFFLEtBQUssWUFBUCxnQkFBc0IsOERBQUMsd0RBQUQ7WUFBQTtZQUFBO1lBQUE7VUFBQSxhQUF0QixnQkFBeUMsOERBQUMsbURBQUQ7WUFBQTtZQUFBO1lBQUE7VUFBQSxhQUQ1QyxlQUVFO1lBQUEsVUFBT0E7VUFBUDtZQUFBO1lBQUE7WUFBQTtVQUFBLGFBRkY7UUFBQTtVQUFBO1VBQUE7VUFBQTtRQUFBO01BREY7UUFBQTtRQUFBO1FBQUE7TUFBQSxhQURGLGVBT0U7UUFBQSw2QkFBUUUsT0FBUjtNQUFBO1FBQUE7UUFBQTtRQUFBO01BQUEsYUFQRjtJQUFBO01BQUE7TUFBQTtNQUFBO0lBQUEsYUFERixlQVVFO01BQUEsd0JBQ0U7UUFBQSx3QkFDRTtVQUFBLFVBQU9EO1FBQVA7VUFBQTtVQUFBO1VBQUE7UUFBQSxhQURGLGVBRUUsOERBQUMsa0RBQUQ7VUFBQTtVQUFBO1VBQUE7UUFBQSxhQUZGO01BQUE7UUFBQTtRQUFBO1FBQUE7TUFBQSxhQURGLGVBS0U7UUFBQSx1REFBY0csTUFBZDtNQUFBO1FBQUE7UUFBQTtRQUFBO01BQUEsYUFMRjtJQUFBO01BQUE7TUFBQTtNQUFBO0lBQUEsYUFWRjtFQUFBO0lBQUE7SUFBQTtJQUFBO0VBQUEsYUFERjtBQW9CRCxDQXJCRDs7QUF1QkEsaUVBQWVMLFdBQWYiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9yZXZpZXctc2NyYXBlci1mcm9udGVuZC8uL2NvbXBvbmVudHMvUmV2aWV3VGl0bGUudHN4P2ZlNjQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgTWRTdGFyIH0gZnJvbSAncmVhY3QtaWNvbnMvbWQnO1xuaW1wb3J0IHsgU2lHb29nbGVwbGF5LCBTaUFwcGxlIH0gZnJvbSAncmVhY3QtaWNvbnMvc2knO1xuXG5jb25zdCBSZXZpZXdUaXRsZUJsb2NrID0gc3R5bGVkLmRpdmBcbiAgaGVpZ2h0OiA1MHB4O1xuICBmb250LXNpemU6IDEycHg7XG4gIGxpbmUtaGVpZ2h0OiAxLjQ7XG5cbiAgJiA+IGRpdiB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG5cbiAgICBwIHtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIH1cbiAgfVxuXG4gICYgPiBkaXY6bnRoLW9mLXR5cGUoMSkge1xuICAgIC5vcyB7XG4gICAgICBzdmcge1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IDRweDtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICAmID4gZGl2Om50aC1vZi10eXBlKDIpIHtcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcbiAgfVxuYDtcblxudHlwZSBSZXZpZXdUaXRsZVByb3BzID0ge1xuICBvczogc3RyaW5nO1xuICBzY29yZTogbnVtYmVyO1xuICB2ZXJzaW9uOiBzdHJpbmc7XG4gIHVybDogc3RyaW5nO1xuICBsZW5ndGg6IG51bWJlcjtcbn07XG5cbmNvbnN0IFJldmlld1RpdGxlID0gKHsgb3MsIHNjb3JlLCB2ZXJzaW9uLCB1cmwsIGxlbmd0aCB9OiBSZXZpZXdUaXRsZVByb3BzKSA9PiB7XG4gIHJldHVybiAoXG4gICAgPFJldmlld1RpdGxlQmxvY2s+XG4gICAgICA8ZGl2PlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJvc1wiPlxuICAgICAgICAgIDxhIGhyZWY9e3VybH0gdGFyZ2V0PVwiX2JsYW5rXCIgdGl0bGU9XCLsiqTthqDslrTroZwg7J2064+Z7ZWY6riwXCI+XG4gICAgICAgICAgICB7b3MgPT09ICdHb29nbGVQbGF5JyA/IDxTaUdvb2dsZXBsYXkgLz4gOiA8U2lBcHBsZSAvPn1cbiAgICAgICAgICAgIDxzcGFuPntvc308L3NwYW4+XG4gICAgICAgICAgPC9hPlxuICAgICAgICA8L3A+XG4gICAgICAgIDxwPuuyhOyghDoge3ZlcnNpb259PC9wPlxuICAgICAgPC9kaXY+XG4gICAgICA8ZGl2PlxuICAgICAgICA8cD5cbiAgICAgICAgICA8c3Bhbj57c2NvcmV9PC9zcGFuPlxuICAgICAgICAgIDxNZFN0YXIgLz5cbiAgICAgICAgPC9wPlxuICAgICAgICA8cD7sobDtmozrkJwg66as67ewIOyImDoge2xlbmd0aH08L3A+XG4gICAgICA8L2Rpdj5cbiAgICA8L1Jldmlld1RpdGxlQmxvY2s+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBSZXZpZXdUaXRsZTtcbiJdLCJuYW1lcyI6WyJNZFN0YXIiLCJTaUdvb2dsZXBsYXkiLCJTaUFwcGxlIiwiUmV2aWV3VGl0bGVCbG9jayIsIlJldmlld1RpdGxlIiwib3MiLCJzY29yZSIsInZlcnNpb24iLCJ1cmwiLCJsZW5ndGgiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./components/ReviewTitle.tsx\n");
 
 /***/ }),
 
-/***/ 9476:
+/***/ "./components/Reviews.tsx":
+/*!********************************!*\
+  !*** ./components/Reviews.tsx ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ _review_),
-  "getServerSideProps": () => (/* binding */ getServerSideProps)
-});
-
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__(1853);
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(6689);
-// EXTERNAL MODULE: external "@emotion/styled/base"
-var base_ = __webpack_require__(777);
-var base_default = /*#__PURE__*/__webpack_require__.n(base_);
-// EXTERNAL MODULE: external "react-icons/md"
-var md_ = __webpack_require__(4041);
-;// CONCATENATED MODULE: external "react-icons/si"
-const si_namespaceObject = require("react-icons/si");
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(997);
-;// CONCATENATED MODULE: ./components/ReviewTitle.tsx
-
-
-function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
-
-
-
-
-
-
-const ReviewTitleBlock = /*#__PURE__*/base_default()("div",  true ? {
-  target: "e3tklkn0"
-} : 0)( true ? {
-  name: "1rx0vm",
-  styles: "height:50px;font-size:12px;line-height:1.4;&>div{display:flex;justify-content:space-between;p{display:flex;align-items:center;}}&>div:nth-of-type(1){.os{svg{margin-right:4px;}}}&>div:nth-of-type(2){text-align:right;}"
-} : 0);
-
-const ReviewTitle = ({
-  os,
-  score,
-  version,
-  url,
-  length
-}) => {
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(ReviewTitleBlock, {
-    children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-      children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
-        className: "os",
-        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("a", {
-          href: url,
-          target: "_blank",
-          title: "\uC2A4\uD1A0\uC5B4\uB85C \uC774\uB3D9\uD558\uAE30",
-          children: [os === 'GooglePlay' ? /*#__PURE__*/jsx_runtime_.jsx(si_namespaceObject.SiGoogleplay, {}) : /*#__PURE__*/jsx_runtime_.jsx(si_namespaceObject.SiApple, {}), /*#__PURE__*/jsx_runtime_.jsx("span", {
-            children: os
-          })]
-        })
-      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
-        children: ["\uBC84\uC804: ", version]
-      })]
-    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
-        children: [/*#__PURE__*/jsx_runtime_.jsx("span", {
-          children: score
-        }), /*#__PURE__*/jsx_runtime_.jsx(md_.MdStar, {})]
-      }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
-        children: ["\uC870\uD68C\uB41C \uB9AC\uBDF0 \uC218: ", length]
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ const components_ReviewTitle = (ReviewTitle);
-;// CONCATENATED MODULE: ./components/Reviews.tsx
-
-
-function Reviews_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
-
-
-
-
-
-
-const ReviewsBlock = /*#__PURE__*/base_default()("div",  true ? {
-  target: "e1f9pyf00"
-} : 0)( true ? {
-  name: "99opuv",
-  styles: "display:flex;flex-wrap:wrap;margin:0 20px;position:absolute;left:0;right:0;top:190px;bottom:0;.review-wrap{width:50%;height:100%;padding-bottom:20px;&:nth-of-type(1){padding-right:10px;}&:nth-of-type(2){padding-left:10px;}}.list-wrap{overflow-y:auto;height:calc(100% - 50px);}.review-list{li{margin-top:15px;padding:10px;font-size:12px;background-color:#333;border-radius:5px;&:first-of-type{margin-top:0;}&.center{padding-top:20px;padding-bottom:20px;text-align:center;}.info{display:flex;flex-wrap:wrap;padding-bottom:10px;.title{width:calc(100% - 80px);}.date{text-align:right;width:80px;}.rate{width:65px;}.author{text-align:right;width:calc(100% - 65px);word-break:break-all;}}.text{line-height:1.4;word-break:break-all;}.reply-text{margin-top:15px;padding:10px;background-color:#444;border-radius:5px;word-break:break-all;p{display:flex;justify-content:space-between;padding-bottom:5px;}}}}"
-} : 0);
-
-const Reviews = ({
-  detail,
-  reviews
-}) => {
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(ReviewsBlock, {
-    children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-      className: "review-wrap",
-      children: [/*#__PURE__*/jsx_runtime_.jsx(components_ReviewTitle, {
-        os: "GooglePlay",
-        score: detail.googlePlay.score.toFixed(1),
-        version: detail.googlePlay.version,
-        url: detail.googlePlay.url,
-        length: reviews.googlePlay.length
-      }), /*#__PURE__*/jsx_runtime_.jsx("div", {
-        className: "list-wrap",
-        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("ul", {
-          className: "review-list",
-          children: [reviews.googlePlay.length === 0 && /*#__PURE__*/jsx_runtime_.jsx("li", {
-            className: "center",
-            children: "GooglePlay \uB9AC\uBDF0\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4."
-          }), reviews.googlePlay.map(({
-            _id,
-            name,
-            os,
-            review
-          }) => {
-            const {
-              userName,
-              text,
-              scoreText,
-              date,
-              replyText,
-              replyDate
-            } = review;
-            return /*#__PURE__*/(0,jsx_runtime_.jsxs)("li", {
-              children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-                className: "info",
-                children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "title"
-                }), /*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "date",
-                  children: date
-                })]
-              }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-                className: "info",
-                children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "rate",
-                  children: Array(parseInt(scoreText, 10)).fill(0).map((val, idx) => /*#__PURE__*/jsx_runtime_.jsx(md_.MdStar, {}, scoreText + idx))
-                }), /*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "author",
-                  children: userName
-                })]
-              }), /*#__PURE__*/jsx_runtime_.jsx("div", {
-                className: "text",
-                children: text
-              }), replyText && /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-                className: "reply-text",
-                children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("p", {
-                  children: [/*#__PURE__*/jsx_runtime_.jsx(md_.MdSubdirectoryArrowRight, {}), replyDate]
-                }), replyText]
-              })]
-            }, _id);
-          })]
-        })
-      })]
-    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-      className: "review-wrap",
-      children: [/*#__PURE__*/jsx_runtime_.jsx(components_ReviewTitle, {
-        os: "AppStore",
-        score: detail.appStore.score.toFixed(1),
-        version: detail.appStore.version,
-        url: detail.appStore.url,
-        length: reviews.appStore.length
-      }), /*#__PURE__*/jsx_runtime_.jsx("div", {
-        className: "list-wrap",
-        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("ul", {
-          className: "review-list",
-          children: [reviews.appStore.length === 0 && /*#__PURE__*/jsx_runtime_.jsx("li", {
-            className: "center",
-            children: "AppStore \uB9AC\uBDF0\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4."
-          }), reviews.appStore.map(({
-            _id,
-            name,
-            os,
-            review
-          }) => {
-            const {
-              author,
-              title,
-              comment,
-              rate,
-              date
-            } = review;
-            return /*#__PURE__*/(0,jsx_runtime_.jsxs)("li", {
-              children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-                className: "info",
-                children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "title",
-                  children: title
-                }), /*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "date",
-                  children: date
-                })]
-              }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-                className: "info",
-                children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "rate",
-                  children: Array(parseInt(rate, 10)).fill(0).map((val, idx) => /*#__PURE__*/jsx_runtime_.jsx(md_.MdStar, {}, rate + idx))
-                }), /*#__PURE__*/jsx_runtime_.jsx("p", {
-                  className: "author",
-                  children: author
-                })]
-              }), /*#__PURE__*/jsx_runtime_.jsx("div", {
-                className: "text",
-                children: comment
-              })]
-            }, _id);
-          })]
-        })
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ const components_Reviews = (Reviews);
-;// CONCATENATED MODULE: ./components/SortLabel.tsx
-
-
-function SortLabel_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
-
-
-
-
-
-const SortLabelBlock = /*#__PURE__*/base_default()("label",  true ? {
-  target: "epltgrh0"
-} : 0)( true ? {
-  name: "q4i4y9",
-  styles: "display:block;position:relative;cursor:pointer;input{position:absolute;z-index:-1;opacity:0;}span{display:flex;justify-content:center;align-items:center;width:50px;height:46px;font-size:12px;color:#666;border:1px solid #666;transition:all 0.2s;}input:focus-visible+span{outline:1px solid;}&:first-of-type span{border-radius:10% 0 0 10%;}&:last-child span{border-radius:0 10% 10% 0;}&:not(:last-child) span{border-right:none;}input:checked+span{color:#fff;background-color:#000;}@media (hover: hover){&:hover{span{color:#fff;border:1px solid #fff;}&:not(:last-child) span{border-right:none;}}&:hover+label span{border-left:1px solid #fff;}}"
-} : 0);
-
-const SortLabel = ({
-  type,
-  value,
-  onChange,
-  checked
-}) => {
-  const isCheckbox = type === 'checkbox';
-  const name = isCheckbox ? 'score' : 'days';
-  const text = isCheckbox ? `별점${value}` : `${value}일`;
-  return /*#__PURE__*/jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-    children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(SortLabelBlock, {
-      title: text,
-      children: [/*#__PURE__*/jsx_runtime_.jsx("input", {
-        type: type,
-        name: name,
-        value: value,
-        checked: checked,
-        onChange: onChange
-      }), /*#__PURE__*/jsx_runtime_.jsx("span", {
-        children: text
-      })]
-    }, value)
-  });
-};
-
-/* harmony default export */ const components_SortLabel = (SortLabel);
-;// CONCATENATED MODULE: ./components/Sort.tsx
-
-
-function Sort_EMOTION_STRINGIFIED_CSS_ERROR_() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
-
-
-
-
-
-const SortBlock = /*#__PURE__*/base_default()("div",  true ? {
-  target: "e1dmyr2i0"
-} : 0)( true ? {
-  name: "136gejd",
-  styles: "position:sticky;top:50px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:20px;background-color:#222;.info{flex:1;text-align:center;max-width:100px;width:100%;img{vertical-align:top;width:100%;border-radius:10%;box-shadow:0 1px 1px rgba(0, 0, 0, 0.05),0 1px 1px rgba(0, 0, 0, 0.1);}span{display:inline-block;padding:10px 0 0;font-size:13px;}}.btns{padding-left:8px;}.score-box{display:flex;padding-bottom:4px;}.days-box{display:flex;padding-top:4px;}"
-} : 0);
-
-const scores = ['1', '2', '3', '4', '5'];
-const days = ['7', '15', '30', '60', '90'];
-
-const Sort = ({
-  detail,
-  selectedScore,
-  selectedDay,
-  changeScore,
-  changeDays
-}) => {
-  const {
-    icon,
-    title
-  } = detail.appStore;
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(SortBlock, {
-    children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
-      className: "info",
-      children: /*#__PURE__*/jsx_runtime_.jsx("img", {
-        src: icon,
-        alt: title
-      })
-    }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-      className: "btns",
-      children: [/*#__PURE__*/jsx_runtime_.jsx("div", {
-        className: "score-box",
-        children: scores.map(score => {
-          const findScore = selectedScore.find(selectScore => score === selectScore);
-          return /*#__PURE__*/jsx_runtime_.jsx(components_SortLabel, {
-            type: "checkbox",
-            value: score,
-            onChange: changeScore,
-            checked: findScore === score
-          }, score);
-        })
-      }), /*#__PURE__*/jsx_runtime_.jsx("div", {
-        className: "days-box",
-        children: days.map(day => /*#__PURE__*/jsx_runtime_.jsx(components_SortLabel, {
-          type: "radio",
-          value: day,
-          onChange: changeDays,
-          checked: day === selectedDay
-        }, day))
-      })]
-    })]
-  });
-};
-
-/* harmony default export */ const components_Sort = (Sort);
-// EXTERNAL MODULE: ./lib/api/index.ts + 1 modules
-var api = __webpack_require__(1074);
-;// CONCATENATED MODULE: ./pages/review/[...review].tsx
-
-
-
-
-
-
-
-
-
-const Review = ({
-  detail,
-  reviews,
-  name: selectedName,
-  day: selectedDay,
-  score: selectedScore
-}) => {
-  const router = (0,router_.useRouter)();
-  const [name, day, score] = router.query.review;
-  (0,external_react_.useEffect)(() => {
-    if (!day || !score) {
-      router.replace(`/review/${name}/${selectedDay}/${selectedScore}`);
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  }, []);
-
-  const changeScore = async e => {
-    const val = e.target.value;
-
-    if (selectedScore === val) {
-      return;
-    }
-
-    const findScore = selectedScore.split('').find(score => score === val);
-    console.log('findScore:', findScore);
-    let calScore = '';
-
-    if (findScore) {
-      calScore = selectedScore.split('').filter(score => score !== findScore).sort().join('');
-    } else {
-      calScore = selectedScore.split('').concat(val).sort().join('');
-    }
-
-    console.log(calScore);
-    router.push(`/review/${selectedName}/${selectedDay}/${calScore}`);
-  };
-
-  const changeDays = async e => {
-    router.push(`/review/${selectedName}/${e.target.value}/${selectedScore}`);
-  };
-
-  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
-    children: [/*#__PURE__*/jsx_runtime_.jsx(components_Sort, {
-      detail: detail,
-      selectedScore: selectedScore.split(''),
-      selectedDay: selectedDay,
-      changeScore: changeScore,
-      changeDays: changeDays
-    }), /*#__PURE__*/jsx_runtime_.jsx(components_Reviews, {
-      detail: detail,
-      reviews: reviews
-    })]
-  });
-};
-
-/* harmony default export */ const _review_ = (Review);
-const getServerSideProps = async ({
-  params
-}) => {
-  const [name, day = '7', score = '12345'] = params?.review;
-  const {
-    data: detail
-  } = await (0,api/* findList */.s)(name);
-  const {
-    data: reviews
-  } = await (0,api/* findReview */.r)(`/${name}/${day}/${score}`);
-  return {
-    props: {
-      reviews,
-      detail,
-      name,
-      day,
-      score
-    }
-  };
-};
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled/base */ \"@emotion/styled/base\");\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/md */ \"react-icons/md\");\n/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _ReviewTitle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReviewTitle */ \"./components/ReviewTitle.tsx\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__);\n\nvar _jsxFileName = \"/Users/matchless/Dev/review-scraper/review-scraper-frontend/components/Reviews.tsx\";\n\nfunction _EMOTION_STRINGIFIED_CSS_ERROR__() { return \"You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop).\"; }\n\n\n\n\n\nconst ReviewsBlock = /*#__PURE__*/_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default()(\"div\",  false ? 0 : {\n  target: \"e1f9pyf00\",\n  label: \"ReviewsBlock\"\n})( false ? 0 : {\n  name: \"99opuv\",\n  styles: \"display:flex;flex-wrap:wrap;margin:0 20px;position:absolute;left:0;right:0;top:190px;bottom:0;.review-wrap{width:50%;height:100%;padding-bottom:20px;&:nth-of-type(1){padding-right:10px;}&:nth-of-type(2){padding-left:10px;}}.list-wrap{overflow-y:auto;height:calc(100% - 50px);}.review-list{li{margin-top:15px;padding:10px;font-size:12px;background-color:#333;border-radius:5px;&:first-of-type{margin-top:0;}&.center{padding-top:20px;padding-bottom:20px;text-align:center;}.info{display:flex;flex-wrap:wrap;padding-bottom:10px;.title{width:calc(100% - 80px);}.date{text-align:right;width:80px;}.rate{width:65px;}.author{text-align:right;width:calc(100% - 65px);word-break:break-all;}}.text{line-height:1.4;word-break:break-all;}.reply-text{margin-top:15px;padding:10px;background-color:#444;border-radius:5px;word-break:break-all;p{display:flex;justify-content:space-between;padding-bottom:5px;}}}}\",\n  map: \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tYXRjaGxlc3MvRGV2L3Jldmlldy1zY3JhcGVyL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kL2NvbXBvbmVudHMvUmV2aWV3cy50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSytCIiwiZmlsZSI6Ii9Vc2Vycy9tYXRjaGxlc3MvRGV2L3Jldmlldy1zY3JhcGVyL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kL2NvbXBvbmVudHMvUmV2aWV3cy50c3giLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgeyBNZFN0YXIsIE1kU3ViZGlyZWN0b3J5QXJyb3dSaWdodCB9IGZyb20gJ3JlYWN0LWljb25zL21kJztcbmltcG9ydCBSZXZpZXdUaXRsZSBmcm9tICcuL1Jldmlld1RpdGxlJztcbmltcG9ydCB7IFNjcm9sbGJhciB9IGZyb20gJ3JlYWN0LXNjcm9sbGJhcnMtY3VzdG9tJztcblxuY29uc3QgUmV2aWV3c0Jsb2NrID0gc3R5bGVkLmRpdmBcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICBtYXJnaW46IDAgMjBweDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgdG9wOiAxOTBweDtcbiAgYm90dG9tOiAwO1xuXG4gIC5yZXZpZXctd3JhcCB7XG4gICAgd2lkdGg6IDUwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgcGFkZGluZy1ib3R0b206IDIwcHg7XG5cbiAgICAmOm50aC1vZi10eXBlKDEpIHtcbiAgICAgIHBhZGRpbmctcmlnaHQ6IDEwcHg7XG4gICAgfVxuICAgICY6bnRoLW9mLXR5cGUoMikge1xuICAgICAgcGFkZGluZy1sZWZ0OiAxMHB4O1xuICAgIH1cbiAgfVxuXG4gIC5saXN0LXdyYXAge1xuICAgIG92ZXJmbG93LXk6IGF1dG87XG4gICAgaGVpZ2h0OiBjYWxjKDEwMCUgLSA1MHB4KTtcbiAgfVxuXG4gIC5yZXZpZXctbGlzdCB7XG4gICAgbGkge1xuICAgICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICAgIHBhZGRpbmc6IDEwcHg7XG4gICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xuXG4gICAgICAmOmZpcnN0LW9mLXR5cGUge1xuICAgICAgICBtYXJnaW4tdG9wOiAwO1xuICAgICAgfVxuXG4gICAgICAmLmNlbnRlciB7XG4gICAgICAgIHBhZGRpbmctdG9wOiAyMHB4O1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgICAgfVxuXG4gICAgICAuaW5mbyB7XG4gICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgIGZsZXgtd3JhcDogd3JhcDtcbiAgICAgICAgcGFkZGluZy1ib3R0b206IDEwcHg7XG5cbiAgICAgICAgLnRpdGxlIHtcbiAgICAgICAgICB3aWR0aDogY2FsYygxMDAlIC0gODBweCk7XG4gICAgICAgIH1cblxuICAgICAgICAuZGF0ZSB7XG4gICAgICAgICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gICAgICAgICAgd2lkdGg6IDgwcHg7XG4gICAgICAgIH1cblxuICAgICAgICAucmF0ZSB7XG4gICAgICAgICAgd2lkdGg6IDY1cHg7XG4gICAgICAgIH1cblxuICAgICAgICAuYXV0aG9yIHtcbiAgICAgICAgICB0ZXh0LWFsaWduOiByaWdodDtcbiAgICAgICAgICB3aWR0aDogY2FsYygxMDAlIC0gNjVweCk7XG4gICAgICAgICAgd29yZC1icmVhazogYnJlYWstYWxsO1xuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC50ZXh0IHtcbiAgICAgICAgbGluZS1oZWlnaHQ6IDEuNDtcbiAgICAgICAgd29yZC1icmVhazogYnJlYWstYWxsO1xuICAgICAgfVxuXG4gICAgICAucmVwbHktdGV4dCB7XG4gICAgICAgIG1hcmdpbi10b3A6IDE1cHg7XG4gICAgICAgIHBhZGRpbmc6IDEwcHg7XG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6ICM0NDQ7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICAgICAgd29yZC1icmVhazogYnJlYWstYWxsO1xuXG4gICAgICAgIHAge1xuICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgICAgICAgIHBhZGRpbmctYm90dG9tOiA1cHg7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbmA7XG5cbnR5cGUgUmV2aWV3c1Byb3BzID0ge1xuICBkZXRhaWw6IGFueTtcbiAgcmV2aWV3czogYW55O1xufTtcblxuY29uc3QgUmV2aWV3cyA9ICh7IGRldGFpbCwgcmV2aWV3cyB9OiBSZXZpZXdzUHJvcHMpID0+IHtcbiAgcmV0dXJuIChcbiAgICA8UmV2aWV3c0Jsb2NrPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZXZpZXctd3JhcFwiPlxuICAgICAgICA8UmV2aWV3VGl0bGVcbiAgICAgICAgICBvcz1cIkdvb2dsZVBsYXlcIlxuICAgICAgICAgIHNjb3JlPXtkZXRhaWwuZ29vZ2xlUGxheS5zY29yZS50b0ZpeGVkKDEpfVxuICAgICAgICAgIHZlcnNpb249e2RldGFpbC5nb29nbGVQbGF5LnZlcnNpb259XG4gICAgICAgICAgdXJsPXtkZXRhaWwuZ29vZ2xlUGxheS51cmx9XG4gICAgICAgICAgbGVuZ3RoPXtyZXZpZXdzLmdvb2dsZVBsYXkubGVuZ3RofVxuICAgICAgICAvPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImxpc3Qtd3JhcFwiPlxuICAgICAgICAgIHsvKiA8U2Nyb2xsYmFyPiAqL31cbiAgICAgICAgICA8dWwgY2xhc3NOYW1lPVwicmV2aWV3LWxpc3RcIj5cbiAgICAgICAgICAgIHtyZXZpZXdzLmdvb2dsZVBsYXkubGVuZ3RoID09PSAwICYmIChcbiAgICAgICAgICAgICAgPGxpIGNsYXNzTmFtZT1cImNlbnRlclwiPkdvb2dsZVBsYXkg66as67ew6rCAIOyXhuyKteuLiOuLpC48L2xpPlxuICAgICAgICAgICAgKX1cbiAgICAgICAgICAgIHtyZXZpZXdzLmdvb2dsZVBsYXkubWFwKCh7IF9pZCwgbmFtZSwgb3MsIHJldmlldyB9OiBhbnkpID0+IHtcbiAgICAgICAgICAgICAgY29uc3QgeyB1c2VyTmFtZSwgdGV4dCwgc2NvcmVUZXh0LCBkYXRlLCByZXBseVRleHQsIHJlcGx5RGF0ZSB9ID1cbiAgICAgICAgICAgICAgICByZXZpZXc7XG4gICAgICAgICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICAgICAgPGxpIGtleT17X2lkfT5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaW5mb1wiPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0aXRsZVwiPjwvcD5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwiZGF0ZVwiPntkYXRlfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJpbmZvXCI+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInJhdGVcIj5cbiAgICAgICAgICAgICAgICAgICAgICB7QXJyYXkocGFyc2VJbnQoc2NvcmVUZXh0LCAxMCkpXG4gICAgICAgICAgICAgICAgICAgICAgICAuZmlsbCgwKVxuICAgICAgICAgICAgICAgICAgICAgICAgLm1hcCgodmFsLCBpZHgpID0+IChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgPE1kU3RhciBrZXk9e3Njb3JlVGV4dCArIGlkeH0gLz5cbiAgICAgICAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImF1dGhvclwiPnt1c2VyTmFtZX08L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dFwiPnt0ZXh0fTwvZGl2PlxuICAgICAgICAgICAgICAgICAge3JlcGx5VGV4dCAmJiAoXG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVwbHktdGV4dFwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxwPlxuICAgICAgICAgICAgICAgICAgICAgICAgPE1kU3ViZGlyZWN0b3J5QXJyb3dSaWdodCAvPlxuICAgICAgICAgICAgICAgICAgICAgICAge3JlcGx5RGF0ZX1cbiAgICAgICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgICAgICAge3JlcGx5VGV4dH1cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgIDwvbGk+XG4gICAgICAgICAgICAgICk7XG4gICAgICAgICAgICB9KX1cbiAgICAgICAgICA8L3VsPlxuICAgICAgICAgIHsvKiA8L1Njcm9sbGJhcj4gKi99XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJldmlldy13cmFwXCI+XG4gICAgICAgIDxSZXZpZXdUaXRsZVxuICAgICAgICAgIG9zPVwiQXBwU3RvcmVcIlxuICAgICAgICAgIHNjb3JlPXtkZXRhaWwuYXBwU3RvcmUuc2NvcmUudG9GaXhlZCgxKX1cbiAgICAgICAgICB2ZXJzaW9uPXtkZXRhaWwuYXBwU3RvcmUudmVyc2lvbn1cbiAgICAgICAgICB1cmw9e2RldGFpbC5hcHBTdG9yZS51cmx9XG4gICAgICAgICAgbGVuZ3RoPXtyZXZpZXdzLmFwcFN0b3JlLmxlbmd0aH1cbiAgICAgICAgLz5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJsaXN0LXdyYXBcIj5cbiAgICAgICAgICB7LyogPFNjcm9sbGJhcj4gKi99XG4gICAgICAgICAgPHVsIGNsYXNzTmFtZT1cInJldmlldy1saXN0XCI+XG4gICAgICAgICAgICB7cmV2aWV3cy5hcHBTdG9yZS5sZW5ndGggPT09IDAgJiYgKFxuICAgICAgICAgICAgICA8bGkgY2xhc3NOYW1lPVwiY2VudGVyXCI+QXBwU3RvcmUg66as67ew6rCAIOyXhuyKteuLiOuLpC48L2xpPlxuICAgICAgICAgICAgKX1cbiAgICAgICAgICAgIHtyZXZpZXdzLmFwcFN0b3JlLm1hcCgoeyBfaWQsIG5hbWUsIG9zLCByZXZpZXcgfTogYW55KSA9PiB7XG4gICAgICAgICAgICAgIGNvbnN0IHsgYXV0aG9yLCB0aXRsZSwgY29tbWVudCwgcmF0ZSwgZGF0ZSB9ID0gcmV2aWV3O1xuICAgICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICAgIDxsaSBrZXk9e19pZH0+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImluZm9cIj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGl0bGVcIj57dGl0bGV9PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJkYXRlXCI+e2RhdGV9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImluZm9cIj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwicmF0ZVwiPlxuICAgICAgICAgICAgICAgICAgICAgIHtBcnJheShwYXJzZUludChyYXRlLCAxMCkpXG4gICAgICAgICAgICAgICAgICAgICAgICAuZmlsbCgwKVxuICAgICAgICAgICAgICAgICAgICAgICAgLm1hcCgodmFsLCBpZHgpID0+IChcbiAgICAgICAgICAgICAgICAgICAgICAgICAgPE1kU3RhciBrZXk9e3JhdGUgKyBpZHh9IC8+XG4gICAgICAgICAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJhdXRob3JcIj57YXV0aG9yfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0XCI+e2NvbW1lbnR9PC9kaXY+XG4gICAgICAgICAgICAgICAgPC9saT5cbiAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgIH0pfVxuICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgey8qIDwvU2Nyb2xsYmFyPiAqL31cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L1Jldmlld3NCbG9jaz5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IFJldmlld3M7XG4iXX0= */\",\n  toString: _EMOTION_STRINGIFIED_CSS_ERROR__\n});\n\nconst Reviews = ({\n  detail,\n  reviews\n}) => {\n  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(ReviewsBlock, {\n    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n      className: \"review-wrap\",\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(_ReviewTitle__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n        os: \"GooglePlay\",\n        score: detail.googlePlay.score.toFixed(1),\n        version: detail.googlePlay.version,\n        url: detail.googlePlay.url,\n        length: reviews.googlePlay.length\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 108,\n        columnNumber: 9\n      }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n        className: \"list-wrap\",\n        children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"ul\", {\n          className: \"review-list\",\n          children: [reviews.googlePlay.length === 0 && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"li\", {\n            className: \"center\",\n            children: \"GooglePlay \\uB9AC\\uBDF0\\uAC00 \\uC5C6\\uC2B5\\uB2C8\\uB2E4.\"\n          }, void 0, false, {\n            fileName: _jsxFileName,\n            lineNumber: 119,\n            columnNumber: 15\n          }, undefined), reviews.googlePlay.map(({\n            _id,\n            name,\n            os,\n            review\n          }) => {\n            const {\n              userName,\n              text,\n              scoreText,\n              date,\n              replyText,\n              replyDate\n            } = review;\n            return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"li\", {\n              children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"info\",\n                children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"title\"\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 127,\n                  columnNumber: 21\n                }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"date\",\n                  children: date\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 128,\n                  columnNumber: 21\n                }, undefined)]\n              }, void 0, true, {\n                fileName: _jsxFileName,\n                lineNumber: 126,\n                columnNumber: 19\n              }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"info\",\n                children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"rate\",\n                  children: Array(parseInt(scoreText, 10)).fill(0).map((val, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdStar, {}, scoreText + idx, false, {\n                    fileName: _jsxFileName,\n                    lineNumber: 135,\n                    columnNumber: 27\n                  }, undefined))\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 131,\n                  columnNumber: 21\n                }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"author\",\n                  children: userName\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 138,\n                  columnNumber: 21\n                }, undefined)]\n              }, void 0, true, {\n                fileName: _jsxFileName,\n                lineNumber: 130,\n                columnNumber: 19\n              }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"text\",\n                children: text\n              }, void 0, false, {\n                fileName: _jsxFileName,\n                lineNumber: 140,\n                columnNumber: 19\n              }, undefined), replyText && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"reply-text\",\n                children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdSubdirectoryArrowRight, {}, void 0, false, {\n                    fileName: _jsxFileName,\n                    lineNumber: 144,\n                    columnNumber: 25\n                  }, undefined), replyDate]\n                }, void 0, true, {\n                  fileName: _jsxFileName,\n                  lineNumber: 143,\n                  columnNumber: 23\n                }, undefined), replyText]\n              }, void 0, true, {\n                fileName: _jsxFileName,\n                lineNumber: 142,\n                columnNumber: 21\n              }, undefined)]\n            }, _id, true, {\n              fileName: _jsxFileName,\n              lineNumber: 125,\n              columnNumber: 17\n            }, undefined);\n          })]\n        }, void 0, true, {\n          fileName: _jsxFileName,\n          lineNumber: 117,\n          columnNumber: 11\n        }, undefined)\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 115,\n        columnNumber: 9\n      }, undefined)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 107,\n      columnNumber: 7\n    }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n      className: \"review-wrap\",\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(_ReviewTitle__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n        os: \"AppStore\",\n        score: detail.appStore.score.toFixed(1),\n        version: detail.appStore.version,\n        url: detail.appStore.url,\n        length: reviews.appStore.length\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 158,\n        columnNumber: 9\n      }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n        className: \"list-wrap\",\n        children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"ul\", {\n          className: \"review-list\",\n          children: [reviews.appStore.length === 0 && /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"li\", {\n            className: \"center\",\n            children: \"AppStore \\uB9AC\\uBDF0\\uAC00 \\uC5C6\\uC2B5\\uB2C8\\uB2E4.\"\n          }, void 0, false, {\n            fileName: _jsxFileName,\n            lineNumber: 169,\n            columnNumber: 15\n          }, undefined), reviews.appStore.map(({\n            _id,\n            name,\n            os,\n            review\n          }) => {\n            const {\n              author,\n              title,\n              comment,\n              rate,\n              date\n            } = review;\n            return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"li\", {\n              children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"info\",\n                children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"title\",\n                  children: title\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 176,\n                  columnNumber: 21\n                }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"date\",\n                  children: date\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 177,\n                  columnNumber: 21\n                }, undefined)]\n              }, void 0, true, {\n                fileName: _jsxFileName,\n                lineNumber: 175,\n                columnNumber: 19\n              }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"info\",\n                children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"rate\",\n                  children: Array(parseInt(rate, 10)).fill(0).map((val, idx) => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdStar, {}, rate + idx, false, {\n                    fileName: _jsxFileName,\n                    lineNumber: 184,\n                    columnNumber: 27\n                  }, undefined))\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 180,\n                  columnNumber: 21\n                }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"p\", {\n                  className: \"author\",\n                  children: author\n                }, void 0, false, {\n                  fileName: _jsxFileName,\n                  lineNumber: 187,\n                  columnNumber: 21\n                }, undefined)]\n              }, void 0, true, {\n                fileName: _jsxFileName,\n                lineNumber: 179,\n                columnNumber: 19\n              }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxDEV)(\"div\", {\n                className: \"text\",\n                children: comment\n              }, void 0, false, {\n                fileName: _jsxFileName,\n                lineNumber: 189,\n                columnNumber: 19\n              }, undefined)]\n            }, _id, true, {\n              fileName: _jsxFileName,\n              lineNumber: 174,\n              columnNumber: 17\n            }, undefined);\n          })]\n        }, void 0, true, {\n          fileName: _jsxFileName,\n          lineNumber: 167,\n          columnNumber: 11\n        }, undefined)\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 165,\n        columnNumber: 9\n      }, undefined)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 157,\n      columnNumber: 7\n    }, undefined)]\n  }, void 0, true, {\n    fileName: _jsxFileName,\n    lineNumber: 106,\n    columnNumber: 5\n  }, undefined);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Reviews);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QUE7a0JBQUE7a0JBQUE7Z0JBQUEsYUFERixlQUVFO2tCQUFHLFNBQVMsRUFBQyxNQUFiO2tCQUFBLFVBQXFCVjtnQkFBckI7a0JBQUE7a0JBQUE7a0JBQUE7Z0JBQUEsYUFGRjtjQUFBO2dCQUFBO2dCQUFBO2dCQUFBO2NBQUEsYUFERixlQUtFO2dCQUFLLFNBQVMsRUFBQyxNQUFmO2dCQUFBLHdCQUNFO2tCQUFHLFNBQVMsRUFBQyxNQUFiO2tCQUFBLFVBQ0dHLEtBQUssQ0FBQ0MsUUFBUSxDQUFDUSxJQUFELEVBQU8sRUFBUCxDQUFULENBQUwsQ0FDRVAsSUFERixDQUNPLENBRFAsRUFFRWIsR0FGRixDQUVNLENBQUNjLEdBQUQsRUFBTUMsR0FBTixrQkFDSCw4REFBQyxrREFBRCxNQUFhSyxJQUFJLEdBQUdMLEdBQXBCO29CQUFBO29CQUFBO29CQUFBO2tCQUFBLGFBSEg7Z0JBREg7a0JBQUE7a0JBQUE7a0JBQUE7Z0JBQUEsYUFERixlQVFFO2tCQUFHLFNBQVMsRUFBQyxRQUFiO2tCQUFBLFVBQXVCRTtnQkFBdkI7a0JBQUE7a0JBQUE7a0JBQUE7Z0JBQUEsYUFSRjtjQUFBO2dCQUFBO2dCQUFBO2dCQUFBO2NBQUEsYUFMRixlQWVFO2dCQUFLLFNBQVMsRUFBQyxNQUFmO2dCQUFBLFVBQXVCRTtjQUF2QjtnQkFBQTtnQkFBQTtnQkFBQTtjQUFBLGFBZkY7WUFBQSxHQUFTbEIsR0FBVDtjQUFBO2NBQUE7Y0FBQTtZQUFBLGFBREY7VUFtQkQsQ0FyQkEsQ0FKSDtRQUFBO1VBQUE7VUFBQTtVQUFBO1FBQUE7TUFGRjtRQUFBO1FBQUE7UUFBQTtNQUFBLGFBUkY7SUFBQTtNQUFBO01BQUE7TUFBQTtJQUFBLGFBbkRGO0VBQUE7SUFBQTtJQUFBO0lBQUE7RUFBQSxhQURGO0FBOEZELENBL0ZEOztBQWlHQSxpRUFBZVYsT0FBZiIsInNvdXJjZXMiOlsid2VicGFjazovL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kLy4vY29tcG9uZW50cy9SZXZpZXdzLnRzeD83ODJkIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IE1kU3RhciwgTWRTdWJkaXJlY3RvcnlBcnJvd1JpZ2h0IH0gZnJvbSAncmVhY3QtaWNvbnMvbWQnO1xuaW1wb3J0IFJldmlld1RpdGxlIGZyb20gJy4vUmV2aWV3VGl0bGUnO1xuaW1wb3J0IHsgU2Nyb2xsYmFyIH0gZnJvbSAncmVhY3Qtc2Nyb2xsYmFycy1jdXN0b20nO1xuXG5jb25zdCBSZXZpZXdzQmxvY2sgPSBzdHlsZWQuZGl2YFxuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIG1hcmdpbjogMCAyMHB4O1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDE5MHB4O1xuICBib3R0b206IDA7XG5cbiAgLnJldmlldy13cmFwIHtcbiAgICB3aWR0aDogNTAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgICBwYWRkaW5nLWJvdHRvbTogMjBweDtcblxuICAgICY6bnRoLW9mLXR5cGUoMSkge1xuICAgICAgcGFkZGluZy1yaWdodDogMTBweDtcbiAgICB9XG4gICAgJjpudGgtb2YtdHlwZSgyKSB7XG4gICAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XG4gICAgfVxuICB9XG5cbiAgLmxpc3Qtd3JhcCB7XG4gICAgb3ZlcmZsb3cteTogYXV0bztcbiAgICBoZWlnaHQ6IGNhbGMoMTAwJSAtIDUwcHgpO1xuICB9XG5cbiAgLnJldmlldy1saXN0IHtcbiAgICBsaSB7XG4gICAgICBtYXJnaW4tdG9wOiAxNXB4O1xuICAgICAgcGFkZGluZzogMTBweDtcbiAgICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICAgIGJhY2tncm91bmQtY29sb3I6ICMzMzM7XG4gICAgICBib3JkZXItcmFkaXVzOiA1cHg7XG5cbiAgICAgICY6Zmlyc3Qtb2YtdHlwZSB7XG4gICAgICAgIG1hcmdpbi10b3A6IDA7XG4gICAgICB9XG5cbiAgICAgICYuY2VudGVyIHtcbiAgICAgICAgcGFkZGluZy10b3A6IDIwcHg7XG4gICAgICAgIHBhZGRpbmctYm90dG9tOiAyMHB4O1xuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICB9XG5cbiAgICAgIC5pbmZvIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgZmxleC13cmFwOiB3cmFwO1xuICAgICAgICBwYWRkaW5nLWJvdHRvbTogMTBweDtcblxuICAgICAgICAudGl0bGUge1xuICAgICAgICAgIHdpZHRoOiBjYWxjKDEwMCUgLSA4MHB4KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC5kYXRlIHtcbiAgICAgICAgICB0ZXh0LWFsaWduOiByaWdodDtcbiAgICAgICAgICB3aWR0aDogODBweDtcbiAgICAgICAgfVxuXG4gICAgICAgIC5yYXRlIHtcbiAgICAgICAgICB3aWR0aDogNjVweDtcbiAgICAgICAgfVxuXG4gICAgICAgIC5hdXRob3Ige1xuICAgICAgICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuICAgICAgICAgIHdpZHRoOiBjYWxjKDEwMCUgLSA2NXB4KTtcbiAgICAgICAgICB3b3JkLWJyZWFrOiBicmVhay1hbGw7XG4gICAgICAgIH1cbiAgICAgIH1cblxuICAgICAgLnRleHQge1xuICAgICAgICBsaW5lLWhlaWdodDogMS40O1xuICAgICAgICB3b3JkLWJyZWFrOiBicmVhay1hbGw7XG4gICAgICB9XG5cbiAgICAgIC5yZXBseS10ZXh0IHtcbiAgICAgICAgbWFyZ2luLXRvcDogMTVweDtcbiAgICAgICAgcGFkZGluZzogMTBweDtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzQ0NDtcbiAgICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xuICAgICAgICB3b3JkLWJyZWFrOiBicmVhay1hbGw7XG5cbiAgICAgICAgcCB7XG4gICAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgICAgICAgcGFkZGluZy1ib3R0b206IDVweDtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxuYDtcblxudHlwZSBSZXZpZXdzUHJvcHMgPSB7XG4gIGRldGFpbDogYW55O1xuICByZXZpZXdzOiBhbnk7XG59O1xuXG5jb25zdCBSZXZpZXdzID0gKHsgZGV0YWlsLCByZXZpZXdzIH06IFJldmlld3NQcm9wcykgPT4ge1xuICByZXR1cm4gKFxuICAgIDxSZXZpZXdzQmxvY2s+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJldmlldy13cmFwXCI+XG4gICAgICAgIDxSZXZpZXdUaXRsZVxuICAgICAgICAgIG9zPVwiR29vZ2xlUGxheVwiXG4gICAgICAgICAgc2NvcmU9e2RldGFpbC5nb29nbGVQbGF5LnNjb3JlLnRvRml4ZWQoMSl9XG4gICAgICAgICAgdmVyc2lvbj17ZGV0YWlsLmdvb2dsZVBsYXkudmVyc2lvbn1cbiAgICAgICAgICB1cmw9e2RldGFpbC5nb29nbGVQbGF5LnVybH1cbiAgICAgICAgICBsZW5ndGg9e3Jldmlld3MuZ29vZ2xlUGxheS5sZW5ndGh9XG4gICAgICAgIC8+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibGlzdC13cmFwXCI+XG4gICAgICAgICAgey8qIDxTY3JvbGxiYXI+ICovfVxuICAgICAgICAgIDx1bCBjbGFzc05hbWU9XCJyZXZpZXctbGlzdFwiPlxuICAgICAgICAgICAge3Jldmlld3MuZ29vZ2xlUGxheS5sZW5ndGggPT09IDAgJiYgKFxuICAgICAgICAgICAgICA8bGkgY2xhc3NOYW1lPVwiY2VudGVyXCI+R29vZ2xlUGxheSDrpqzrt7DqsIAg7JeG7Iq164uI64ukLjwvbGk+XG4gICAgICAgICAgICApfVxuICAgICAgICAgICAge3Jldmlld3MuZ29vZ2xlUGxheS5tYXAoKHsgX2lkLCBuYW1lLCBvcywgcmV2aWV3IH06IGFueSkgPT4ge1xuICAgICAgICAgICAgICBjb25zdCB7IHVzZXJOYW1lLCB0ZXh0LCBzY29yZVRleHQsIGRhdGUsIHJlcGx5VGV4dCwgcmVwbHlEYXRlIH0gPVxuICAgICAgICAgICAgICAgIHJldmlldztcbiAgICAgICAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgICAgICA8bGkga2V5PXtfaWR9PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJpbmZvXCI+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRpdGxlXCI+PC9wPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJkYXRlXCI+e2RhdGV9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImluZm9cIj5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwicmF0ZVwiPlxuICAgICAgICAgICAgICAgICAgICAgIHtBcnJheShwYXJzZUludChzY29yZVRleHQsIDEwKSlcbiAgICAgICAgICAgICAgICAgICAgICAgIC5maWxsKDApXG4gICAgICAgICAgICAgICAgICAgICAgICAubWFwKCh2YWwsIGlkeCkgPT4gKFxuICAgICAgICAgICAgICAgICAgICAgICAgICA8TWRTdGFyIGtleT17c2NvcmVUZXh0ICsgaWR4fSAvPlxuICAgICAgICAgICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwiYXV0aG9yXCI+e3VzZXJOYW1lfTwvcD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0XCI+e3RleHR9PC9kaXY+XG4gICAgICAgICAgICAgICAgICB7cmVwbHlUZXh0ICYmIChcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZXBseS10ZXh0XCI+XG4gICAgICAgICAgICAgICAgICAgICAgPHA+XG4gICAgICAgICAgICAgICAgICAgICAgICA8TWRTdWJkaXJlY3RvcnlBcnJvd1JpZ2h0IC8+XG4gICAgICAgICAgICAgICAgICAgICAgICB7cmVwbHlEYXRlfVxuICAgICAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgICAgICB7cmVwbHlUZXh0fVxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgPC9saT5cbiAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgIH0pfVxuICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgey8qIDwvU2Nyb2xsYmFyPiAqL31cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmV2aWV3LXdyYXBcIj5cbiAgICAgICAgPFJldmlld1RpdGxlXG4gICAgICAgICAgb3M9XCJBcHBTdG9yZVwiXG4gICAgICAgICAgc2NvcmU9e2RldGFpbC5hcHBTdG9yZS5zY29yZS50b0ZpeGVkKDEpfVxuICAgICAgICAgIHZlcnNpb249e2RldGFpbC5hcHBTdG9yZS52ZXJzaW9ufVxuICAgICAgICAgIHVybD17ZGV0YWlsLmFwcFN0b3JlLnVybH1cbiAgICAgICAgICBsZW5ndGg9e3Jldmlld3MuYXBwU3RvcmUubGVuZ3RofVxuICAgICAgICAvPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImxpc3Qtd3JhcFwiPlxuICAgICAgICAgIHsvKiA8U2Nyb2xsYmFyPiAqL31cbiAgICAgICAgICA8dWwgY2xhc3NOYW1lPVwicmV2aWV3LWxpc3RcIj5cbiAgICAgICAgICAgIHtyZXZpZXdzLmFwcFN0b3JlLmxlbmd0aCA9PT0gMCAmJiAoXG4gICAgICAgICAgICAgIDxsaSBjbGFzc05hbWU9XCJjZW50ZXJcIj5BcHBTdG9yZSDrpqzrt7DqsIAg7JeG7Iq164uI64ukLjwvbGk+XG4gICAgICAgICAgICApfVxuICAgICAgICAgICAge3Jldmlld3MuYXBwU3RvcmUubWFwKCh7IF9pZCwgbmFtZSwgb3MsIHJldmlldyB9OiBhbnkpID0+IHtcbiAgICAgICAgICAgICAgY29uc3QgeyBhdXRob3IsIHRpdGxlLCBjb21tZW50LCByYXRlLCBkYXRlIH0gPSByZXZpZXc7XG4gICAgICAgICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICAgICAgPGxpIGtleT17X2lkfT5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaW5mb1wiPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0aXRsZVwiPnt0aXRsZX08L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImRhdGVcIj57ZGF0ZX08L3A+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaW5mb1wiPlxuICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJyYXRlXCI+XG4gICAgICAgICAgICAgICAgICAgICAge0FycmF5KHBhcnNlSW50KHJhdGUsIDEwKSlcbiAgICAgICAgICAgICAgICAgICAgICAgIC5maWxsKDApXG4gICAgICAgICAgICAgICAgICAgICAgICAubWFwKCh2YWwsIGlkeCkgPT4gKFxuICAgICAgICAgICAgICAgICAgICAgICAgICA8TWRTdGFyIGtleT17cmF0ZSArIGlkeH0gLz5cbiAgICAgICAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImF1dGhvclwiPnthdXRob3J9PC9wPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHRcIj57Y29tbWVudH08L2Rpdj5cbiAgICAgICAgICAgICAgICA8L2xpPlxuICAgICAgICAgICAgICApO1xuICAgICAgICAgICAgfSl9XG4gICAgICAgICAgPC91bD5cbiAgICAgICAgICB7LyogPC9TY3JvbGxiYXI+ICovfVxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvUmV2aWV3c0Jsb2NrPlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgUmV2aWV3cztcbiJdLCJuYW1lcyI6WyJNZFN0YXIiLCJNZFN1YmRpcmVjdG9yeUFycm93UmlnaHQiLCJSZXZpZXdUaXRsZSIsIlJldmlld3NCbG9jayIsIlJldmlld3MiLCJkZXRhaWwiLCJyZXZpZXdzIiwiZ29vZ2xlUGxheSIsInNjb3JlIiwidG9GaXhlZCIsInZlcnNpb24iLCJ1cmwiLCJsZW5ndGgiLCJtYXAiLCJfaWQiLCJuYW1lIiwib3MiLCJyZXZpZXciLCJ1c2VyTmFtZSIsInRleHQiLCJzY29yZVRleHQiLCJkYXRlIiwicmVwbHlUZXh0IiwicmVwbHlEYXRlIiwiQXJyYXkiLCJwYXJzZUludCIsImZpbGwiLCJ2YWwiLCJpZHgiLCJhcHBTdG9yZSIsImF1dGhvciIsInRpdGxlIiwiY29tbWVudCIsInJhdGUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./components/Reviews.tsx\n");
 
 /***/ }),
 
-/***/ 777:
+/***/ "./components/Sort.tsx":
+/*!*****************************!*\
+  !*** ./components/Sort.tsx ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled/base */ \"@emotion/styled/base\");\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _SortLabel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SortLabel */ \"./components/SortLabel.tsx\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__);\n\nvar _jsxFileName = \"/Users/matchless/Dev/review-scraper/review-scraper-frontend/components/Sort.tsx\";\n\nfunction _EMOTION_STRINGIFIED_CSS_ERROR__() { return \"You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop).\"; }\n\n\n\n\nconst SortBlock = /*#__PURE__*/_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default()(\"div\",  false ? 0 : {\n  target: \"e1dmyr2i0\",\n  label: \"SortBlock\"\n})( false ? 0 : {\n  name: \"136gejd\",\n  styles: \"position:sticky;top:50px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:20px;background-color:#222;.info{flex:1;text-align:center;max-width:100px;width:100%;img{vertical-align:top;width:100%;border-radius:10%;box-shadow:0 1px 1px rgba(0, 0, 0, 0.05),0 1px 1px rgba(0, 0, 0, 0.1);}span{display:inline-block;padding:10px 0 0;font-size:13px;}}.btns{padding-left:8px;}.score-box{display:flex;padding-bottom:4px;}.days-box{display:flex;padding-top:4px;}\",\n  map: \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tYXRjaGxlc3MvRGV2L3Jldmlldy1zY3JhcGVyL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kL2NvbXBvbmVudHMvU29ydC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRzRCIiwiZmlsZSI6Ii9Vc2Vycy9tYXRjaGxlc3MvRGV2L3Jldmlldy1zY3JhcGVyL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kL2NvbXBvbmVudHMvU29ydC50c3giLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgU29ydExhYmVsIGZyb20gJy4vU29ydExhYmVsJztcblxuY29uc3QgU29ydEJsb2NrID0gc3R5bGVkLmRpdmBcbiAgcG9zaXRpb246IHN0aWNreTtcbiAgdG9wOiA1MHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBwYWRkaW5nOiAyMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjIyO1xuXG4gIC5pbmZvIHtcbiAgICBmbGV4OiAxO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBtYXgtd2lkdGg6IDEwMHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuXG4gICAgaW1nIHtcbiAgICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgICB3aWR0aDogMTAwJTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IDEwJTtcbiAgICAgIGJveC1zaGFkb3c6IDAgMXB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMDUpLCAwIDFweCAxcHggcmdiYSgwLCAwLCAwLCAwLjEpO1xuICAgIH1cbiAgICBzcGFuIHtcbiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICAgIHBhZGRpbmc6IDEwcHggMCAwO1xuICAgICAgZm9udC1zaXplOiAxM3B4O1xuICAgIH1cbiAgfVxuXG4gIC5idG5zIHtcbiAgICBwYWRkaW5nLWxlZnQ6IDhweDtcbiAgfVxuXG4gIC5zY29yZS1ib3gge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgcGFkZGluZy1ib3R0b206IDRweDtcbiAgfVxuXG4gIC5kYXlzLWJveCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBwYWRkaW5nLXRvcDogNHB4O1xuICB9XG5gO1xuXG5jb25zdCBzY29yZXM6IHN0cmluZ1tdID0gWycxJywgJzInLCAnMycsICc0JywgJzUnXTtcbmNvbnN0IGRheXM6IHN0cmluZ1tdID0gWyc3JywgJzE1JywgJzMwJywgJzYwJywgJzkwJ107XG5cbnR5cGUgU29ydFByb3BzID0ge1xuICBkZXRhaWw6IGFueTtcbiAgc2VsZWN0ZWRTY29yZTogc3RyaW5nW107XG4gIHNlbGVjdGVkRGF5OiBzdHJpbmc7XG4gIGNoYW5nZVNjb3JlOiAoZTogUmVhY3QuQ2hhbmdlRXZlbnQ8SFRNTElucHV0RWxlbWVudD4pID0+IHZvaWQ7XG4gIGNoYW5nZURheXM6IChlOiBSZWFjdC5DaGFuZ2VFdmVudDxIVE1MSW5wdXRFbGVtZW50PikgPT4gdm9pZDtcbn07XG5cbmNvbnN0IFNvcnQgPSAoe1xuICBkZXRhaWwsXG4gIHNlbGVjdGVkU2NvcmUsXG4gIHNlbGVjdGVkRGF5LFxuICBjaGFuZ2VTY29yZSxcbiAgY2hhbmdlRGF5cyxcbn06IFNvcnRQcm9wcykgPT4ge1xuICBjb25zdCB7IGljb24sIHRpdGxlIH0gPSBkZXRhaWwuYXBwU3RvcmU7XG5cbiAgcmV0dXJuIChcbiAgICA8U29ydEJsb2NrPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJpbmZvXCI+XG4gICAgICAgIDxpbWcgc3JjPXtpY29ufSBhbHQ9e3RpdGxlfSAvPlxuICAgICAgPC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJ0bnNcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzY29yZS1ib3hcIj5cbiAgICAgICAgICB7c2NvcmVzLm1hcCgoc2NvcmUpID0+IHtcbiAgICAgICAgICAgIGNvbnN0IGZpbmRTY29yZSA9IHNlbGVjdGVkU2NvcmUuZmluZChcbiAgICAgICAgICAgICAgKHNlbGVjdFNjb3JlKSA9PiBzY29yZSA9PT0gc2VsZWN0U2NvcmUsXG4gICAgICAgICAgICApO1xuICAgICAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgICAgPFNvcnRMYWJlbFxuICAgICAgICAgICAgICAgIGtleT17c2NvcmV9XG4gICAgICAgICAgICAgICAgdHlwZT1cImNoZWNrYm94XCJcbiAgICAgICAgICAgICAgICB2YWx1ZT17c2NvcmV9XG4gICAgICAgICAgICAgICAgb25DaGFuZ2U9e2NoYW5nZVNjb3JlfVxuICAgICAgICAgICAgICAgIGNoZWNrZWQ9e2ZpbmRTY29yZSA9PT0gc2NvcmV9XG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICApO1xuICAgICAgICAgIH0pfVxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJkYXlzLWJveFwiPlxuICAgICAgICAgIHtkYXlzLm1hcCgoZGF5KSA9PiAoXG4gICAgICAgICAgICA8U29ydExhYmVsXG4gICAgICAgICAgICAgIGtleT17ZGF5fVxuICAgICAgICAgICAgICB0eXBlPVwicmFkaW9cIlxuICAgICAgICAgICAgICB2YWx1ZT17ZGF5fVxuICAgICAgICAgICAgICBvbkNoYW5nZT17Y2hhbmdlRGF5c31cbiAgICAgICAgICAgICAgY2hlY2tlZD17ZGF5ID09PSBzZWxlY3RlZERheX1cbiAgICAgICAgICAgIC8+XG4gICAgICAgICAgKSl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgPC9Tb3J0QmxvY2s+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBTb3J0O1xuIl19 */\",\n  toString: _EMOTION_STRINGIFIED_CSS_ERROR__\n});\n\nconst scores = ['1', '2', '3', '4', '5'];\nconst days = ['7', '15', '30', '60', '90'];\n\nconst Sort = ({\n  detail,\n  selectedScore,\n  selectedDay,\n  changeScore,\n  changeDays\n}) => {\n  const {\n    icon,\n    title\n  } = detail.appStore;\n  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(SortBlock, {\n    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(\"div\", {\n      className: \"info\",\n      children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(\"img\", {\n        src: icon,\n        alt: title\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 71,\n        columnNumber: 9\n      }, undefined)\n    }, void 0, false, {\n      fileName: _jsxFileName,\n      lineNumber: 70,\n      columnNumber: 7\n    }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(\"div\", {\n      className: \"btns\",\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(\"div\", {\n        className: \"score-box\",\n        children: scores.map(score => {\n          const findScore = selectedScore.find(selectScore => score === selectScore);\n          return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(_SortLabel__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n            type: \"checkbox\",\n            value: score,\n            onChange: changeScore,\n            checked: findScore === score\n          }, score, false, {\n            fileName: _jsxFileName,\n            lineNumber: 80,\n            columnNumber: 15\n          }, undefined);\n        })\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 74,\n        columnNumber: 9\n      }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(\"div\", {\n        className: \"days-box\",\n        children: days.map(day => /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxDEV)(_SortLabel__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n          type: \"radio\",\n          value: day,\n          onChange: changeDays,\n          checked: day === selectedDay\n        }, day, false, {\n          fileName: _jsxFileName,\n          lineNumber: 92,\n          columnNumber: 13\n        }, undefined))\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 90,\n        columnNumber: 9\n      }, undefined)]\n    }, void 0, true, {\n      fileName: _jsxFileName,\n      lineNumber: 73,\n      columnNumber: 7\n    }, undefined)]\n  }, void 0, true, {\n    fileName: _jsxFileName,\n    lineNumber: 69,\n    columnNumber: 5\n  }, undefined);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sort);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL1NvcnQudHN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7O0FBQ0E7OztBQUVBLE1BQU1DLFNBQVM7RUFBQTtFQUFBO0FBQUE7RUFBQTtFQUFBO0VBQUE7RUFBQTtBQUFBLEVBQWY7O0FBNENBLE1BQU1DLE1BQWdCLEdBQUcsQ0FBQyxHQUFELEVBQU0sR0FBTixFQUFXLEdBQVgsRUFBZ0IsR0FBaEIsRUFBcUIsR0FBckIsQ0FBekI7QUFDQSxNQUFNQyxJQUFjLEdBQUcsQ0FBQyxHQUFELEVBQU0sSUFBTixFQUFZLElBQVosRUFBa0IsSUFBbEIsRUFBd0IsSUFBeEIsQ0FBdkI7O0FBVUEsTUFBTUMsSUFBSSxHQUFHLENBQUM7RUFDWkMsTUFEWTtFQUVaQyxhQUZZO0VBR1pDLFdBSFk7RUFJWkMsV0FKWTtFQUtaQztBQUxZLENBQUQsS0FNSTtFQUNmLE1BQU07SUFBRUMsSUFBRjtJQUFRQztFQUFSLElBQWtCTixNQUFNLENBQUNPLFFBQS9CO0VBRUEsb0JBQ0UsOERBQUMsU0FBRDtJQUFBLHdCQUNFO01BQUssU0FBUyxFQUFDLE1BQWY7TUFBQSx1QkFDRTtRQUFLLEdBQUcsRUFBRUYsSUFBVjtRQUFnQixHQUFHLEVBQUVDO01BQXJCO1FBQUE7UUFBQTtRQUFBO01BQUE7SUFERjtNQUFBO01BQUE7TUFBQTtJQUFBLGFBREYsZUFJRTtNQUFLLFNBQVMsRUFBQyxNQUFmO01BQUEsd0JBQ0U7UUFBSyxTQUFTLEVBQUMsV0FBZjtRQUFBLFVBQ0dULE1BQU0sQ0FBQ1csR0FBUCxDQUFZQyxLQUFELElBQVc7VUFDckIsTUFBTUMsU0FBUyxHQUFHVCxhQUFhLENBQUNVLElBQWQsQ0FDZkMsV0FBRCxJQUFpQkgsS0FBSyxLQUFLRyxXQURYLENBQWxCO1VBR0Esb0JBQ0UsOERBQUMsa0RBQUQ7WUFFRSxJQUFJLEVBQUMsVUFGUDtZQUdFLEtBQUssRUFBRUgsS0FIVDtZQUlFLFFBQVEsRUFBRU4sV0FKWjtZQUtFLE9BQU8sRUFBRU8sU0FBUyxLQUFLRDtVQUx6QixHQUNPQSxLQURQO1lBQUE7WUFBQTtZQUFBO1VBQUEsYUFERjtRQVNELENBYkE7TUFESDtRQUFBO1FBQUE7UUFBQTtNQUFBLGFBREYsZUFpQkU7UUFBSyxTQUFTLEVBQUMsVUFBZjtRQUFBLFVBQ0dYLElBQUksQ0FBQ1UsR0FBTCxDQUFVSyxHQUFELGlCQUNSLDhEQUFDLGtEQUFEO1VBRUUsSUFBSSxFQUFDLE9BRlA7VUFHRSxLQUFLLEVBQUVBLEdBSFQ7VUFJRSxRQUFRLEVBQUVULFVBSlo7VUFLRSxPQUFPLEVBQUVTLEdBQUcsS0FBS1g7UUFMbkIsR0FDT1csR0FEUDtVQUFBO1VBQUE7VUFBQTtRQUFBLGFBREQ7TUFESDtRQUFBO1FBQUE7UUFBQTtNQUFBLGFBakJGO0lBQUE7TUFBQTtNQUFBO01BQUE7SUFBQSxhQUpGO0VBQUE7SUFBQTtJQUFBO0lBQUE7RUFBQSxhQURGO0FBb0NELENBN0NEOztBQStDQSxpRUFBZWQsSUFBZiIsInNvdXJjZXMiOlsid2VicGFjazovL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kLy4vY29tcG9uZW50cy9Tb3J0LnRzeD8zZWY4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCBTb3J0TGFiZWwgZnJvbSAnLi9Tb3J0TGFiZWwnO1xuXG5jb25zdCBTb3J0QmxvY2sgPSBzdHlsZWQuZGl2YFxuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDUwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDIwcHg7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMjI7XG5cbiAgLmluZm8ge1xuICAgIGZsZXg6IDE7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIG1heC13aWR0aDogMTAwcHg7XG4gICAgd2lkdGg6IDEwMCU7XG5cbiAgICBpbWcge1xuICAgICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICAgIHdpZHRoOiAxMDAlO1xuICAgICAgYm9yZGVyLXJhZGl1czogMTAlO1xuICAgICAgYm94LXNoYWRvdzogMCAxcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4wNSksIDAgMXB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG4gICAgfVxuICAgIHNwYW4ge1xuICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgICAgcGFkZGluZzogMTBweCAwIDA7XG4gICAgICBmb250LXNpemU6IDEzcHg7XG4gICAgfVxuICB9XG5cbiAgLmJ0bnMge1xuICAgIHBhZGRpbmctbGVmdDogOHB4O1xuICB9XG5cbiAgLnNjb3JlLWJveCB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBwYWRkaW5nLWJvdHRvbTogNHB4O1xuICB9XG5cbiAgLmRheXMtYm94IHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIHBhZGRpbmctdG9wOiA0cHg7XG4gIH1cbmA7XG5cbmNvbnN0IHNjb3Jlczogc3RyaW5nW10gPSBbJzEnLCAnMicsICczJywgJzQnLCAnNSddO1xuY29uc3QgZGF5czogc3RyaW5nW10gPSBbJzcnLCAnMTUnLCAnMzAnLCAnNjAnLCAnOTAnXTtcblxudHlwZSBTb3J0UHJvcHMgPSB7XG4gIGRldGFpbDogYW55O1xuICBzZWxlY3RlZFNjb3JlOiBzdHJpbmdbXTtcbiAgc2VsZWN0ZWREYXk6IHN0cmluZztcbiAgY2hhbmdlU2NvcmU6IChlOiBSZWFjdC5DaGFuZ2VFdmVudDxIVE1MSW5wdXRFbGVtZW50PikgPT4gdm9pZDtcbiAgY2hhbmdlRGF5czogKGU6IFJlYWN0LkNoYW5nZUV2ZW50PEhUTUxJbnB1dEVsZW1lbnQ+KSA9PiB2b2lkO1xufTtcblxuY29uc3QgU29ydCA9ICh7XG4gIGRldGFpbCxcbiAgc2VsZWN0ZWRTY29yZSxcbiAgc2VsZWN0ZWREYXksXG4gIGNoYW5nZVNjb3JlLFxuICBjaGFuZ2VEYXlzLFxufTogU29ydFByb3BzKSA9PiB7XG4gIGNvbnN0IHsgaWNvbiwgdGl0bGUgfSA9IGRldGFpbC5hcHBTdG9yZTtcblxuICByZXR1cm4gKFxuICAgIDxTb3J0QmxvY2s+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImluZm9cIj5cbiAgICAgICAgPGltZyBzcmM9e2ljb259IGFsdD17dGl0bGV9IC8+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYnRuc1wiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNjb3JlLWJveFwiPlxuICAgICAgICAgIHtzY29yZXMubWFwKChzY29yZSkgPT4ge1xuICAgICAgICAgICAgY29uc3QgZmluZFNjb3JlID0gc2VsZWN0ZWRTY29yZS5maW5kKFxuICAgICAgICAgICAgICAoc2VsZWN0U2NvcmUpID0+IHNjb3JlID09PSBzZWxlY3RTY29yZSxcbiAgICAgICAgICAgICk7XG4gICAgICAgICAgICByZXR1cm4gKFxuICAgICAgICAgICAgICA8U29ydExhYmVsXG4gICAgICAgICAgICAgICAga2V5PXtzY29yZX1cbiAgICAgICAgICAgICAgICB0eXBlPVwiY2hlY2tib3hcIlxuICAgICAgICAgICAgICAgIHZhbHVlPXtzY29yZX1cbiAgICAgICAgICAgICAgICBvbkNoYW5nZT17Y2hhbmdlU2NvcmV9XG4gICAgICAgICAgICAgICAgY2hlY2tlZD17ZmluZFNjb3JlID09PSBzY29yZX1cbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICk7XG4gICAgICAgICAgfSl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImRheXMtYm94XCI+XG4gICAgICAgICAge2RheXMubWFwKChkYXkpID0+IChcbiAgICAgICAgICAgIDxTb3J0TGFiZWxcbiAgICAgICAgICAgICAga2V5PXtkYXl9XG4gICAgICAgICAgICAgIHR5cGU9XCJyYWRpb1wiXG4gICAgICAgICAgICAgIHZhbHVlPXtkYXl9XG4gICAgICAgICAgICAgIG9uQ2hhbmdlPXtjaGFuZ2VEYXlzfVxuICAgICAgICAgICAgICBjaGVja2VkPXtkYXkgPT09IHNlbGVjdGVkRGF5fVxuICAgICAgICAgICAgLz5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L1NvcnRCbG9jaz5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IFNvcnQ7XG4iXSwibmFtZXMiOlsiU29ydExhYmVsIiwiU29ydEJsb2NrIiwic2NvcmVzIiwiZGF5cyIsIlNvcnQiLCJkZXRhaWwiLCJzZWxlY3RlZFNjb3JlIiwic2VsZWN0ZWREYXkiLCJjaGFuZ2VTY29yZSIsImNoYW5nZURheXMiLCJpY29uIiwidGl0bGUiLCJhcHBTdG9yZSIsIm1hcCIsInNjb3JlIiwiZmluZFNjb3JlIiwiZmluZCIsInNlbGVjdFNjb3JlIiwiZGF5Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./components/Sort.tsx\n");
+
+/***/ }),
+
+/***/ "./components/SortLabel.tsx":
+/*!**********************************!*\
+  !*** ./components/SortLabel.tsx ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled/base */ \"@emotion/styled/base\");\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__);\n\nvar _jsxFileName = \"/Users/matchless/Dev/review-scraper/review-scraper-frontend/components/SortLabel.tsx\";\n\nfunction _EMOTION_STRINGIFIED_CSS_ERROR__() { return \"You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop).\"; }\n\n\n\n\nconst SortLabelBlock = /*#__PURE__*/_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0___default()(\"label\",  false ? 0 : {\n  target: \"epltgrh0\",\n  label: \"SortLabelBlock\"\n})( false ? 0 : {\n  name: \"q4i4y9\",\n  styles: \"display:block;position:relative;cursor:pointer;input{position:absolute;z-index:-1;opacity:0;}span{display:flex;justify-content:center;align-items:center;width:50px;height:46px;font-size:12px;color:#666;border:1px solid #666;transition:all 0.2s;}input:focus-visible+span{outline:1px solid;}&:first-of-type span{border-radius:10% 0 0 10%;}&:last-child span{border-radius:0 10% 10% 0;}&:not(:last-child) span{border-right:none;}input:checked+span{color:#fff;background-color:#000;}@media (hover: hover){&:hover{span{color:#fff;border:1px solid #fff;}&:not(:last-child) span{border-right:none;}}&:hover+label span{border-left:1px solid #fff;}}\",\n  map: \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9tYXRjaGxlc3MvRGV2L3Jldmlldy1zY3JhcGVyL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kL2NvbXBvbmVudHMvU29ydExhYmVsLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFbUMiLCJmaWxlIjoiL1VzZXJzL21hdGNobGVzcy9EZXYvcmV2aWV3LXNjcmFwZXIvcmV2aWV3LXNjcmFwZXItZnJvbnRlbmQvY29tcG9uZW50cy9Tb3J0TGFiZWwudHN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG5jb25zdCBTb3J0TGFiZWxCbG9jayA9IHN0eWxlZC5sYWJlbGBcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xuXG4gIGlucHV0IHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgei1pbmRleDogLTE7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuXG4gIHNwYW4ge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB3aWR0aDogNTBweDtcbiAgICBoZWlnaHQ6IDQ2cHg7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiAjNjY2O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICM2NjY7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMnM7XG4gIH1cblxuICBpbnB1dDpmb2N1cy12aXNpYmxlICsgc3BhbiB7XG4gICAgb3V0bGluZTogMXB4IHNvbGlkO1xuICB9XG5cbiAgJjpmaXJzdC1vZi10eXBlIHNwYW4ge1xuICAgIGJvcmRlci1yYWRpdXM6IDEwJSAwIDAgMTAlO1xuICB9XG5cbiAgJjpsYXN0LWNoaWxkIHNwYW4ge1xuICAgIGJvcmRlci1yYWRpdXM6IDAgMTAlIDEwJSAwO1xuICB9XG5cbiAgJjpub3QoOmxhc3QtY2hpbGQpIHNwYW4ge1xuICAgIGJvcmRlci1yaWdodDogbm9uZTtcbiAgfVxuXG4gIGlucHV0OmNoZWNrZWQgKyBzcGFuIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwO1xuICB9XG5cbiAgQG1lZGlhIChob3ZlcjogaG92ZXIpIHtcbiAgICAmOmhvdmVyIHtcbiAgICAgIHNwYW4ge1xuICAgICAgICBjb2xvcjogI2ZmZjtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2ZmZjtcbiAgICAgIH1cblxuICAgICAgJjpub3QoOmxhc3QtY2hpbGQpIHNwYW4ge1xuICAgICAgICBib3JkZXItcmlnaHQ6IG5vbmU7XG4gICAgICB9XG4gICAgfVxuXG4gICAgJjpob3ZlciArIGxhYmVsIHNwYW4ge1xuICAgICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZmZmO1xuICAgIH1cbiAgfVxuYDtcblxudHlwZSBTb3J0TGFiZWxQcm9wID0ge1xuICB0eXBlOiBzdHJpbmc7XG4gIHZhbHVlOiBzdHJpbmc7XG4gIGNoZWNrZWQ6IGJvb2xlYW47XG4gIG9uQ2hhbmdlOiAoZTogUmVhY3QuQ2hhbmdlRXZlbnQ8SFRNTElucHV0RWxlbWVudD4pID0+IHZvaWQ7XG59O1xuXG5jb25zdCBTb3J0TGFiZWwgPSAoeyB0eXBlLCB2YWx1ZSwgb25DaGFuZ2UsIGNoZWNrZWQgfTogU29ydExhYmVsUHJvcCkgPT4ge1xuICBjb25zdCBpc0NoZWNrYm94ID0gdHlwZSA9PT0gJ2NoZWNrYm94JztcbiAgY29uc3QgbmFtZSA9IGlzQ2hlY2tib3ggPyAnc2NvcmUnIDogJ2RheXMnO1xuICBjb25zdCB0ZXh0ID0gaXNDaGVja2JveCA/IGDrs4TsoJAke3ZhbHVlfWAgOiBgJHt2YWx1ZX3snbxgO1xuXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxTb3J0TGFiZWxCbG9jayB0aXRsZT17dGV4dH0ga2V5PXt2YWx1ZX0+XG4gICAgICAgIDxpbnB1dFxuICAgICAgICAgIHR5cGU9e3R5cGV9XG4gICAgICAgICAgbmFtZT17bmFtZX1cbiAgICAgICAgICB2YWx1ZT17dmFsdWV9XG4gICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH1cbiAgICAgICAgICBvbkNoYW5nZT17b25DaGFuZ2V9XG4gICAgICAgIC8+XG4gICAgICAgIDxzcGFuPnt0ZXh0fTwvc3Bhbj5cbiAgICAgIDwvU29ydExhYmVsQmxvY2s+XG4gICAgPC8+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBTb3J0TGFiZWw7XG4iXX0= */\",\n  toString: _EMOTION_STRINGIFIED_CSS_ERROR__\n});\n\nconst SortLabel = ({\n  type,\n  value,\n  onChange,\n  checked\n}) => {\n  const isCheckbox = type === 'checkbox';\n  const name = isCheckbox ? 'score' : 'days';\n  const text = isCheckbox ? `별점${value}` : `${value}일`;\n  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {\n    children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxDEV)(SortLabelBlock, {\n      title: text,\n      children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxDEV)(\"input\", {\n        type: type,\n        name: name,\n        value: value,\n        checked: checked,\n        onChange: onChange\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 80,\n        columnNumber: 9\n      }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxDEV)(\"span\", {\n        children: text\n      }, void 0, false, {\n        fileName: _jsxFileName,\n        lineNumber: 87,\n        columnNumber: 9\n      }, undefined)]\n    }, value, true, {\n      fileName: _jsxFileName,\n      lineNumber: 79,\n      columnNumber: 7\n    }, undefined)\n  }, void 0, false);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SortLabel);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9jb21wb25lbnRzL1NvcnRMYWJlbC50c3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7OztBQUVBLE1BQU1BLGNBQWM7RUFBQTtFQUFBO0FBQUE7RUFBQTtFQUFBO0VBQUE7RUFBQTtBQUFBLEVBQXBCOztBQXFFQSxNQUFNQyxTQUFTLEdBQUcsQ0FBQztFQUFFQyxJQUFGO0VBQVFDLEtBQVI7RUFBZUMsUUFBZjtFQUF5QkM7QUFBekIsQ0FBRCxLQUF1RDtFQUN2RSxNQUFNQyxVQUFVLEdBQUdKLElBQUksS0FBSyxVQUE1QjtFQUNBLE1BQU1LLElBQUksR0FBR0QsVUFBVSxHQUFHLE9BQUgsR0FBYSxNQUFwQztFQUNBLE1BQU1FLElBQUksR0FBR0YsVUFBVSxHQUFJLEtBQUlILEtBQU0sRUFBZCxHQUFtQixHQUFFQSxLQUFNLEdBQWxEO0VBRUEsb0JBQ0U7SUFBQSx1QkFDRSw4REFBQyxjQUFEO01BQWdCLEtBQUssRUFBRUssSUFBdkI7TUFBQSx3QkFDRTtRQUNFLElBQUksRUFBRU4sSUFEUjtRQUVFLElBQUksRUFBRUssSUFGUjtRQUdFLEtBQUssRUFBRUosS0FIVDtRQUlFLE9BQU8sRUFBRUUsT0FKWDtRQUtFLFFBQVEsRUFBRUQ7TUFMWjtRQUFBO1FBQUE7UUFBQTtNQUFBLGFBREYsZUFRRTtRQUFBLFVBQU9JO01BQVA7UUFBQTtRQUFBO1FBQUE7TUFBQSxhQVJGO0lBQUEsR0FBa0NMLEtBQWxDO01BQUE7TUFBQTtNQUFBO0lBQUE7RUFERixpQkFERjtBQWNELENBbkJEOztBQXFCQSxpRUFBZUYsU0FBZiIsInNvdXJjZXMiOlsid2VicGFjazovL3Jldmlldy1zY3JhcGVyLWZyb250ZW5kLy4vY29tcG9uZW50cy9Tb3J0TGFiZWwudHN4PzI3YzciXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuXG5jb25zdCBTb3J0TGFiZWxCbG9jayA9IHN0eWxlZC5sYWJlbGBcbiAgZGlzcGxheTogYmxvY2s7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgY3Vyc29yOiBwb2ludGVyO1xuXG4gIGlucHV0IHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgei1pbmRleDogLTE7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuXG4gIHNwYW4ge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB3aWR0aDogNTBweDtcbiAgICBoZWlnaHQ6IDQ2cHg7XG4gICAgZm9udC1zaXplOiAxMnB4O1xuICAgIGNvbG9yOiAjNjY2O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkICM2NjY7XG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMnM7XG4gIH1cblxuICBpbnB1dDpmb2N1cy12aXNpYmxlICsgc3BhbiB7XG4gICAgb3V0bGluZTogMXB4IHNvbGlkO1xuICB9XG5cbiAgJjpmaXJzdC1vZi10eXBlIHNwYW4ge1xuICAgIGJvcmRlci1yYWRpdXM6IDEwJSAwIDAgMTAlO1xuICB9XG5cbiAgJjpsYXN0LWNoaWxkIHNwYW4ge1xuICAgIGJvcmRlci1yYWRpdXM6IDAgMTAlIDEwJSAwO1xuICB9XG5cbiAgJjpub3QoOmxhc3QtY2hpbGQpIHNwYW4ge1xuICAgIGJvcmRlci1yaWdodDogbm9uZTtcbiAgfVxuXG4gIGlucHV0OmNoZWNrZWQgKyBzcGFuIHtcbiAgICBjb2xvcjogI2ZmZjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDAwO1xuICB9XG5cbiAgQG1lZGlhIChob3ZlcjogaG92ZXIpIHtcbiAgICAmOmhvdmVyIHtcbiAgICAgIHNwYW4ge1xuICAgICAgICBjb2xvcjogI2ZmZjtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2ZmZjtcbiAgICAgIH1cblxuICAgICAgJjpub3QoOmxhc3QtY2hpbGQpIHNwYW4ge1xuICAgICAgICBib3JkZXItcmlnaHQ6IG5vbmU7XG4gICAgICB9XG4gICAgfVxuXG4gICAgJjpob3ZlciArIGxhYmVsIHNwYW4ge1xuICAgICAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZmZmO1xuICAgIH1cbiAgfVxuYDtcblxudHlwZSBTb3J0TGFiZWxQcm9wID0ge1xuICB0eXBlOiBzdHJpbmc7XG4gIHZhbHVlOiBzdHJpbmc7XG4gIGNoZWNrZWQ6IGJvb2xlYW47XG4gIG9uQ2hhbmdlOiAoZTogUmVhY3QuQ2hhbmdlRXZlbnQ8SFRNTElucHV0RWxlbWVudD4pID0+IHZvaWQ7XG59O1xuXG5jb25zdCBTb3J0TGFiZWwgPSAoeyB0eXBlLCB2YWx1ZSwgb25DaGFuZ2UsIGNoZWNrZWQgfTogU29ydExhYmVsUHJvcCkgPT4ge1xuICBjb25zdCBpc0NoZWNrYm94ID0gdHlwZSA9PT0gJ2NoZWNrYm94JztcbiAgY29uc3QgbmFtZSA9IGlzQ2hlY2tib3ggPyAnc2NvcmUnIDogJ2RheXMnO1xuICBjb25zdCB0ZXh0ID0gaXNDaGVja2JveCA/IGDrs4TsoJAke3ZhbHVlfWAgOiBgJHt2YWx1ZX3snbxgO1xuXG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxTb3J0TGFiZWxCbG9jayB0aXRsZT17dGV4dH0ga2V5PXt2YWx1ZX0+XG4gICAgICAgIDxpbnB1dFxuICAgICAgICAgIHR5cGU9e3R5cGV9XG4gICAgICAgICAgbmFtZT17bmFtZX1cbiAgICAgICAgICB2YWx1ZT17dmFsdWV9XG4gICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH1cbiAgICAgICAgICBvbkNoYW5nZT17b25DaGFuZ2V9XG4gICAgICAgIC8+XG4gICAgICAgIDxzcGFuPnt0ZXh0fTwvc3Bhbj5cbiAgICAgIDwvU29ydExhYmVsQmxvY2s+XG4gICAgPC8+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBTb3J0TGFiZWw7XG4iXSwibmFtZXMiOlsiU29ydExhYmVsQmxvY2siLCJTb3J0TGFiZWwiLCJ0eXBlIiwidmFsdWUiLCJvbkNoYW5nZSIsImNoZWNrZWQiLCJpc0NoZWNrYm94IiwibmFtZSIsInRleHQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./components/SortLabel.tsx\n");
+
+/***/ }),
+
+/***/ "./lib/api/client.ts":
+/*!***************************!*\
+  !*** ./lib/api/client.ts ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"axios\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\nconst client = axios__WEBPACK_IMPORTED_MODULE_0___default().create();\nclient.defaults.withCredentials = true;\nclient.defaults.baseURL =  false ? 0 : 'http://localhost:8083';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (client);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9saWIvYXBpL2NsaWVudC50cy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUVBLE1BQU1DLE1BQU0sR0FBR0QsbURBQUEsRUFBZjtBQUNBQyxNQUFNLENBQUNFLFFBQVAsQ0FBZ0JDLGVBQWhCLEdBQWtDLElBQWxDO0FBQ0FILE1BQU0sQ0FBQ0UsUUFBUCxDQUFnQkUsT0FBaEIsR0FDRSxTQUNJLENBREosR0FFSSx1QkFITjtBQUtBLGlFQUFlSixNQUFmIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vcmV2aWV3LXNjcmFwZXItZnJvbnRlbmQvLi9saWIvYXBpL2NsaWVudC50cz83MjY1Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBheGlvcyBmcm9tICdheGlvcyc7XG5cbmNvbnN0IGNsaWVudCA9IGF4aW9zLmNyZWF0ZSgpO1xuY2xpZW50LmRlZmF1bHRzLndpdGhDcmVkZW50aWFscyA9IHRydWU7XG5jbGllbnQuZGVmYXVsdHMuYmFzZVVSTCA9XG4gIHByb2Nlc3MuZW52Lk5PREVfRU5WID09PSAncHJvZHVjdGlvbidcbiAgICA/ICdodHRwczovL3Jldmlldy5zdGxlZS5rcidcbiAgICA6ICdodHRwOi8vbG9jYWxob3N0OjgwODMnO1xuXG5leHBvcnQgZGVmYXVsdCBjbGllbnQ7XG4iXSwibmFtZXMiOlsiYXhpb3MiLCJjbGllbnQiLCJjcmVhdGUiLCJkZWZhdWx0cyIsIndpdGhDcmVkZW50aWFscyIsImJhc2VVUkwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./lib/api/client.ts\n");
+
+/***/ }),
+
+/***/ "./lib/api/index.ts":
+/*!**************************!*\
+  !*** ./lib/api/index.ts ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"findList\": () => (/* binding */ findList),\n/* harmony export */   \"findReview\": () => (/* binding */ findReview)\n/* harmony export */ });\n/* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./client */ \"./lib/api/client.ts\");\n\nconst findList = name => {\n  let url = '/api/list';\n\n  if (name) {\n    url += `/${name}`;\n  }\n\n  return _client__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get(url);\n};\nconst findReview = url => _client__WEBPACK_IMPORTED_MODULE_0__[\"default\"].get(`/api/review/day${url}`);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9saWIvYXBpL2luZGV4LnRzLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFBO0FBRU8sTUFBTUMsUUFBUSxHQUFJQyxJQUFELElBQW1CO0VBQ3pDLElBQUlDLEdBQUcsR0FBRyxXQUFWOztFQUNBLElBQUlELElBQUosRUFBVTtJQUNSQyxHQUFHLElBQUssSUFBR0QsSUFBSyxFQUFoQjtFQUNEOztFQUNELE9BQU9GLG1EQUFBLENBQVdHLEdBQVgsQ0FBUDtBQUNELENBTk07QUFRQSxNQUFNRSxVQUFVLEdBQUlGLEdBQUQsSUFBaUJILG1EQUFBLENBQVksa0JBQWlCRyxHQUFJLEVBQWpDLENBQXBDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vcmV2aWV3LXNjcmFwZXItZnJvbnRlbmQvLi9saWIvYXBpL2luZGV4LnRzPzBiM2EiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGNsaWVudCBmcm9tICcuL2NsaWVudCc7XG5cbmV4cG9ydCBjb25zdCBmaW5kTGlzdCA9IChuYW1lPzogc3RyaW5nKSA9PiB7XG4gIGxldCB1cmwgPSAnL2FwaS9saXN0JztcbiAgaWYgKG5hbWUpIHtcbiAgICB1cmwgKz0gYC8ke25hbWV9YDtcbiAgfVxuICByZXR1cm4gY2xpZW50LmdldCh1cmwpO1xufTtcblxuZXhwb3J0IGNvbnN0IGZpbmRSZXZpZXcgPSAodXJsOiBzdHJpbmcpID0+IGNsaWVudC5nZXQoYC9hcGkvcmV2aWV3L2RheSR7dXJsfWApO1xuIl0sIm5hbWVzIjpbImNsaWVudCIsImZpbmRMaXN0IiwibmFtZSIsInVybCIsImdldCIsImZpbmRSZXZpZXciXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./lib/api/index.ts\n");
+
+/***/ }),
+
+/***/ "./pages/review/[...review].tsx":
+/*!**************************************!*\
+  !*** ./pages/review/[...review].tsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _components_Reviews__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Reviews */ \"./components/Reviews.tsx\");\n/* harmony import */ var _components_Sort__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Sort */ \"./components/Sort.tsx\");\n/* harmony import */ var _lib_api_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../lib/api/index */ \"./lib/api/index.ts\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__);\nvar _jsxFileName = \"/Users/matchless/Dev/review-scraper/review-scraper-frontend/pages/review/[...review].tsx\";\n\n\n\n\n\n\n\n\nconst Review = ({\n  detail,\n  reviews,\n  name: selectedName,\n  day: selectedDay,\n  score: selectedScore\n}) => {\n  const router = (0,next_router__WEBPACK_IMPORTED_MODULE_0__.useRouter)();\n  const [name, day, score] = router.query.review;\n  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {\n    if (!day || !score) {\n      router.replace(`/review/${name}/${selectedDay}/${selectedScore}`);\n    } // eslint-disable-next-line react-hooks/exhaustive-deps\n\n  }, []);\n\n  const changeScore = async e => {\n    const val = e.target.value;\n\n    if (selectedScore === val) {\n      return;\n    }\n\n    const findScore = selectedScore.split('').find(score => score === val);\n    console.log('findScore:', findScore);\n    let calScore = '';\n\n    if (findScore) {\n      calScore = selectedScore.split('').filter(score => score !== findScore).sort().join('');\n    } else {\n      calScore = selectedScore.split('').concat(val).sort().join('');\n    }\n\n    console.log(calScore);\n    router.push(`/review/${selectedName}/${selectedDay}/${calScore}`);\n  };\n\n  const changeDays = async e => {\n    router.push(`/review/${selectedName}/${e.target.value}/${selectedScore}`);\n  };\n\n  return /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {\n    children: [/*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(_components_Sort__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n      detail: detail,\n      selectedScore: selectedScore.split(''),\n      selectedDay: selectedDay,\n      changeScore: changeScore,\n      changeDays: changeDays\n    }, void 0, false, {\n      fileName: _jsxFileName,\n      lineNumber: 64,\n      columnNumber: 7\n    }, undefined), /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxDEV)(_components_Reviews__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n      detail: detail,\n      reviews: reviews\n    }, void 0, false, {\n      fileName: _jsxFileName,\n      lineNumber: 71,\n      columnNumber: 7\n    }, undefined)]\n  }, void 0, true);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Review);\nconst getServerSideProps = async ({\n  params\n}) => {\n  const [name, day = '7', score = '12345'] = params?.review;\n  const {\n    data: detail\n  } = await (0,_lib_api_index__WEBPACK_IMPORTED_MODULE_4__.findList)(name);\n  const {\n    data: reviews\n  } = await (0,_lib_api_index__WEBPACK_IMPORTED_MODULE_4__.findReview)(`/${name}/${day}/${score}`);\n  return {\n    props: {\n      reviews,\n      detail,\n      name,\n      day,\n      score\n    }\n  };\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QUFLLEdBQUcsT0FBMUIsSUFBcUN3QixNQUFNLEVBQUVwQixNQUFuRDtFQUNBLE1BQU07SUFBRXFCLElBQUksRUFBRS9CO0VBQVIsSUFBbUIsTUFBTUgsd0RBQVEsQ0FBQ0ssSUFBRCxDQUF2QztFQUNBLE1BQU07SUFBRTZCLElBQUksRUFBRTlCO0VBQVIsSUFBb0IsTUFBTUgsMERBQVUsQ0FBRSxJQUFHSSxJQUFLLElBQUdFLEdBQUksSUFBR0UsS0FBTSxFQUExQixDQUExQztFQUVBLE9BQU87SUFDTDBCLEtBQUssRUFBRTtNQUFFL0IsT0FBRjtNQUFXRCxNQUFYO01BQW1CRSxJQUFuQjtNQUF5QkUsR0FBekI7TUFBOEJFO0lBQTlCO0VBREYsQ0FBUDtBQUdELENBUk0iLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9yZXZpZXctc2NyYXBlci1mcm9udGVuZC8uL3BhZ2VzL3Jldmlldy9bLi4ucmV2aWV3XS50c3g/YTAyOCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBHZXRTZXJ2ZXJTaWRlUHJvcHMgfSBmcm9tICduZXh0JztcbmltcG9ydCB7IHVzZVJvdXRlciB9IGZyb20gJ25leHQvcm91dGVyJztcbmltcG9ydCB7IHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBSZXZpZXdzIGZyb20gJy4uLy4uL2NvbXBvbmVudHMvUmV2aWV3cyc7XG5pbXBvcnQgU29ydCBmcm9tICcuLi8uLi9jb21wb25lbnRzL1NvcnQnO1xuaW1wb3J0IHsgZmluZExpc3QsIGZpbmRSZXZpZXcgfSBmcm9tICcuLi8uLi9saWIvYXBpL2luZGV4JztcblxudHlwZSBSZXZpZXdQcm9wcyA9IHtcbiAgZGV0YWlsOiBhbnk7XG4gIHJldmlld3M6IGFueTtcbiAgbmFtZTogc3RyaW5nO1xuICBkYXk6IHN0cmluZztcbiAgc2NvcmU6IHN0cmluZztcbn07XG5cbmNvbnN0IFJldmlldyA9ICh7XG4gIGRldGFpbCxcbiAgcmV2aWV3cyxcbiAgbmFtZTogc2VsZWN0ZWROYW1lLFxuICBkYXk6IHNlbGVjdGVkRGF5LFxuICBzY29yZTogc2VsZWN0ZWRTY29yZSxcbn06IFJldmlld1Byb3BzKSA9PiB7XG4gIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpO1xuICBjb25zdCBbbmFtZSwgZGF5LCBzY29yZV0gPSByb3V0ZXIucXVlcnkucmV2aWV3IGFzIHN0cmluZ1tdO1xuXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgaWYgKCFkYXkgfHwgIXNjb3JlKSB7XG4gICAgICByb3V0ZXIucmVwbGFjZShgL3Jldmlldy8ke25hbWV9LyR7c2VsZWN0ZWREYXl9LyR7c2VsZWN0ZWRTY29yZX1gKTtcbiAgICB9XG5cbiAgICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgcmVhY3QtaG9va3MvZXhoYXVzdGl2ZS1kZXBzXG4gIH0sIFtdKTtcblxuICBjb25zdCBjaGFuZ2VTY29yZSA9IGFzeW5jIChlOiBSZWFjdC5DaGFuZ2VFdmVudDxIVE1MSW5wdXRFbGVtZW50PikgPT4ge1xuICAgIGNvbnN0IHZhbCA9IGUudGFyZ2V0LnZhbHVlO1xuICAgIGlmIChzZWxlY3RlZFNjb3JlID09PSB2YWwpIHtcbiAgICAgIHJldHVybjtcbiAgICB9XG5cbiAgICBjb25zdCBmaW5kU2NvcmUgPSBzZWxlY3RlZFNjb3JlLnNwbGl0KCcnKS5maW5kKChzY29yZSkgPT4gc2NvcmUgPT09IHZhbCk7XG4gICAgY29uc29sZS5sb2coJ2ZpbmRTY29yZTonLCBmaW5kU2NvcmUpO1xuXG4gICAgbGV0IGNhbFNjb3JlID0gJyc7XG4gICAgaWYgKGZpbmRTY29yZSkge1xuICAgICAgY2FsU2NvcmUgPSBzZWxlY3RlZFNjb3JlXG4gICAgICAgIC5zcGxpdCgnJylcbiAgICAgICAgLmZpbHRlcigoc2NvcmUpID0+IHNjb3JlICE9PSBmaW5kU2NvcmUpXG4gICAgICAgIC5zb3J0KClcbiAgICAgICAgLmpvaW4oJycpO1xuICAgIH0gZWxzZSB7XG4gICAgICBjYWxTY29yZSA9IHNlbGVjdGVkU2NvcmUuc3BsaXQoJycpLmNvbmNhdCh2YWwpLnNvcnQoKS5qb2luKCcnKTtcbiAgICB9XG4gICAgY29uc29sZS5sb2coY2FsU2NvcmUpO1xuXG4gICAgcm91dGVyLnB1c2goYC9yZXZpZXcvJHtzZWxlY3RlZE5hbWV9LyR7c2VsZWN0ZWREYXl9LyR7Y2FsU2NvcmV9YCk7XG4gIH07XG5cbiAgY29uc3QgY2hhbmdlRGF5cyA9IGFzeW5jIChlOiBSZWFjdC5DaGFuZ2VFdmVudDxIVE1MSW5wdXRFbGVtZW50PikgPT4ge1xuICAgIHJvdXRlci5wdXNoKGAvcmV2aWV3LyR7c2VsZWN0ZWROYW1lfS8ke2UudGFyZ2V0LnZhbHVlfS8ke3NlbGVjdGVkU2NvcmV9YCk7XG4gIH07XG5cbiAgcmV0dXJuIChcbiAgICA8PlxuICAgICAgPFNvcnRcbiAgICAgICAgZGV0YWlsPXtkZXRhaWx9XG4gICAgICAgIHNlbGVjdGVkU2NvcmU9e3NlbGVjdGVkU2NvcmUuc3BsaXQoJycpfVxuICAgICAgICBzZWxlY3RlZERheT17c2VsZWN0ZWREYXl9XG4gICAgICAgIGNoYW5nZVNjb3JlPXtjaGFuZ2VTY29yZX1cbiAgICAgICAgY2hhbmdlRGF5cz17Y2hhbmdlRGF5c31cbiAgICAgIC8+XG4gICAgICA8UmV2aWV3cyBkZXRhaWw9e2RldGFpbH0gcmV2aWV3cz17cmV2aWV3c30gLz5cbiAgICA8Lz5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IFJldmlldztcblxuZXhwb3J0IGNvbnN0IGdldFNlcnZlclNpZGVQcm9wczogR2V0U2VydmVyU2lkZVByb3BzID0gYXN5bmMgKHsgcGFyYW1zIH0pID0+IHtcbiAgY29uc3QgW25hbWUsIGRheSA9ICc3Jywgc2NvcmUgPSAnMTIzNDUnXSA9IHBhcmFtcz8ucmV2aWV3IGFzIEFycmF5PHN0cmluZz47XG4gIGNvbnN0IHsgZGF0YTogZGV0YWlsIH0gPSBhd2FpdCBmaW5kTGlzdChuYW1lKTtcbiAgY29uc3QgeyBkYXRhOiByZXZpZXdzIH0gPSBhd2FpdCBmaW5kUmV2aWV3KGAvJHtuYW1lfS8ke2RheX0vJHtzY29yZX1gKTtcblxuICByZXR1cm4ge1xuICAgIHByb3BzOiB7IHJldmlld3MsIGRldGFpbCwgbmFtZSwgZGF5LCBzY29yZSB9LFxuICB9O1xufTtcbiJdLCJuYW1lcyI6WyJ1c2VSb3V0ZXIiLCJ1c2VFZmZlY3QiLCJSZXZpZXdzIiwiU29ydCIsImZpbmRMaXN0IiwiZmluZFJldmlldyIsIlJldmlldyIsImRldGFpbCIsInJldmlld3MiLCJuYW1lIiwic2VsZWN0ZWROYW1lIiwiZGF5Iiwic2VsZWN0ZWREYXkiLCJzY29yZSIsInNlbGVjdGVkU2NvcmUiLCJyb3V0ZXIiLCJxdWVyeSIsInJldmlldyIsInJlcGxhY2UiLCJjaGFuZ2VTY29yZSIsImUiLCJ2YWwiLCJ0YXJnZXQiLCJ2YWx1ZSIsImZpbmRTY29yZSIsInNwbGl0IiwiZmluZCIsImNvbnNvbGUiLCJsb2ciLCJjYWxTY29yZSIsImZpbHRlciIsInNvcnQiLCJqb2luIiwiY29uY2F0IiwicHVzaCIsImNoYW5nZURheXMiLCJnZXRTZXJ2ZXJTaWRlUHJvcHMiLCJwYXJhbXMiLCJkYXRhIiwicHJvcHMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/review/[...review].tsx\n");
+
+/***/ }),
+
+/***/ "@emotion/styled/base":
+/*!***************************************!*\
+  !*** external "@emotion/styled/base" ***!
+  \***************************************/
 /***/ ((module) => {
 
 module.exports = require("@emotion/styled/base");
 
 /***/ }),
 
-/***/ 2167:
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("axios");
 
 /***/ }),
 
-/***/ 1853:
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("next/router");
 
 /***/ }),
 
-/***/ 6689:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 4041:
+/***/ "react-icons/md":
+/*!*********************************!*\
+  !*** external "react-icons/md" ***!
+  \*********************************/
 /***/ ((module) => {
 
 module.exports = require("react-icons/md");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react-icons/si":
+/*!*********************************!*\
+  !*** external "react-icons/si" ***!
+  \*********************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+module.exports = require("react-icons/si");
+
+/***/ }),
+
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
+/***/ ((module) => {
+
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ })
 
@@ -504,7 +160,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(9476));
+var __webpack_exports__ = (__webpack_exec__("./pages/review/[...review].tsx"));
 module.exports = __webpack_exports__;
 
 })();
