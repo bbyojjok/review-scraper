@@ -85,13 +85,13 @@ const ReviewsBlock = styled.div`
         .author {
           text-align: right;
           width: calc(100% - 65px);
-          word-break: break-all;
+          word-break: break-word;
         }
       }
 
       .text {
         line-height: 1.4;
-        word-break: break-all;
+        word-break: break-word;
       }
 
       .reply-text {
@@ -99,7 +99,7 @@ const ReviewsBlock = styled.div`
         padding: 10px;
         background-color: #444;
         border-radius: 5px;
-        word-break: break-all;
+        word-break: break-word;
 
         p {
           display: flex;
