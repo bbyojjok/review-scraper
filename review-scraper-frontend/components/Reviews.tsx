@@ -31,15 +31,19 @@ const ReviewsBlock = styled.div`
     height: calc(100% - 50px);
     padding-right: 5px;
 
+    .thumb-vertical {
+      cursor: pointer;
+      border-radius: inherit;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
     /* &::-webkit-scrollbar {
       width: 6px;
     }
-
     &::-webkit-scrollbar-track {
       background: none;
       border: none;
     }
-
     &::-webkit-scrollbar-thumb {
       background: rgba(0, 0, 0, 0.9);
       border-radius: 3px;
@@ -128,7 +132,12 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           length={reviews.googlePlay.length}
         />
         <div className="list-wrap">
-          <Scrollbars universal>
+          <Scrollbars
+            universal
+            renderThumbVertical={(props) => (
+              <div {...props} className="thumb-vertical" />
+            )}
+          >
             <ul className="review-list">
               {reviews.googlePlay.length === 0 && (
                 <li className="center">GooglePlay 리뷰가 없습니다.</li>
