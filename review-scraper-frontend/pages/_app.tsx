@@ -9,6 +9,7 @@ import 'nprogress/nprogress.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
   useEffect(() => {
     NProgress.configure({
       minimum: 0.1,

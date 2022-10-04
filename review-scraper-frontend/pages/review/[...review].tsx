@@ -37,20 +37,15 @@ const Review = ({
       return;
     }
 
-    const findScore = selectedScore.split('').find((score) => score === val);
-    console.log('findScore:', findScore);
-
-    let calScore = '';
+    const arrSelectedScore = selectedScore.split('');
+    const findScore = arrSelectedScore.find((score) => score === val);
+    let calScore = arrSelectedScore.concat(val).sort().join('');
     if (findScore) {
-      calScore = selectedScore
-        .split('')
+      calScore = arrSelectedScore
         .filter((score) => score !== findScore)
         .sort()
         .join('');
-    } else {
-      calScore = selectedScore.split('').concat(val).sort().join('');
     }
-    console.log(calScore);
 
     router.push(`/review/${selectedName}/${selectedDay}/${calScore}`);
   };
