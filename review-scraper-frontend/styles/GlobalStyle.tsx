@@ -81,6 +81,7 @@ const globals = css`
 
   #nprogress {
     .bar {
+      top: 50px;
       background: #eee;
       height: 1px;
     }
