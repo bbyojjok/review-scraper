@@ -87,7 +87,9 @@ const globals = css`
     }
 
     .peg {
+      width: 100%;
       box-shadow: 0 0 10px #eee, 0 0 5px #eee;
+      transform: rotate(0deg) translate(0px, 0px);
     }
   }
 `;
