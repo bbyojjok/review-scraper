@@ -78,6 +78,17 @@ const globals = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  #nprogress {
+    .bar {
+      background: #eee;
+      height: 1px;
+    }
+
+    .peg {
+      box-shadow: 0 0 10px #eee, 0 0 5px #eee;
+    }
+  }
 `;
 
 const GlobalStyle = () => {

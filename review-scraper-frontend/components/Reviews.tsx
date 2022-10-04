@@ -6,7 +6,7 @@ import { Scrollbar } from 'react-scrollbars-custom';
 const ReviewsBlock = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 0 20px;
+  margin: 0 20px;
   position: absolute;
   left: 0;
   right: 0;

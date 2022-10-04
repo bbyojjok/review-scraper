@@ -15,16 +15,19 @@
     "axios": "^0.27.2",
     "next": "12.2.5",
     "next-redux-wrapper": "^8.0.0",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-scrollbars-custom": "^4.1.1",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "redux-saga": "^1.2.1"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.2",
     "@types/node": "18.7.14",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "eslint": "8.23.0",

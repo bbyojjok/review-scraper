@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Reviews from '../../components/Reviews';
 import Sort from '../../components/Sort';
 import { findList, findReview } from '../../lib/api/index';
@@ -21,9 +21,6 @@ const Review = ({
   score: selectedScore,
 }: ReviewProps) => {
   const router = useRouter();
-  const [currentReview, setCurrentReview] = useState<any>(reviews);
-  const [currentDay, setCurrentDay] = useState<string>(selectedDay);
-  const [currentScore, setCurrentScore] = useState<string>(selectedScore);
   const [name, day, score] = router.query.review as string[];
 
   useEffect(() => {
@@ -36,65 +33,42 @@ const Review = ({
 
   const changeScore = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
-    if (currentScore === val) {
+    if (selectedScore === val) {
       return;
     }
 
-    const findScore = currentScore.split('').find((score) => score === val);
+    const findScore = selectedScore.split('').find((score) => score === val);
+    console.log('findScore:', findScore);
+
     let calScore = '';
     if (findScore) {
-      calScore = currentScore
+      calScore = selectedScore
         .split('')
         .filter((score) => score !== findScore)
         .sort()
         .join('');
     } else {
-      calScore = currentScore.split('').concat(val).sort().join('');
+      calScore = selectedScore.split('').concat(val).sort().join('');
     }
+    console.log(calScore);
 
-    const { data: reviews } = await findReview(
-      `/${selectedName}/${currentDay}/${calScore}`,
-    );
-
-    setCurrentScore(calScore);
-    setCurrentReview(reviews);
-
-    console.log('calScore:', calScore);
-    console.log('currentScore:', currentScore);
-
-    router.push(
-      `/review/${selectedName}/${currentDay}/${calScore}`,
-      undefined,
-      {
-        shallow: true,
-      },
-    );
+    router.push(`/review/${selectedName}/${selectedDay}/${calScore}`);
   };
 
   const changeDays = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    const { data: reviews } = await findReview(
-      `/${selectedName}/${val}/${currentScore}`,
-    );
-
-    setCurrentDay(val);
-    setCurrentReview(reviews);
-
-    router.push(`/review/${selectedName}/${val}/${currentScore}`, undefined, {
-      shallow: true,
-    });
+    router.push(`/review/${selectedName}/${e.target.value}/${selectedScore}`);
   };
 
   return (
     <>
       <Sort
         detail={detail}
-        selectedScore={currentScore.split('')}
-        selectedDay={currentDay}
+        selectedScore={selectedScore.split('')}
+        selectedDay={selectedDay}
         changeScore={changeScore}
         changeDays={changeDays}
       />
-      <Reviews detail={detail} reviews={currentReview} />
+      <Reviews detail={detail} reviews={reviews} />
     </>
   );
 };
