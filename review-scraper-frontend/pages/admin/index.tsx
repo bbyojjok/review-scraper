@@ -46,7 +46,8 @@ export default function Login() {
 
   return (
     <LoginBlock>
-      <h2>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</h2>
+      <h2>[# TODO] 어드민 계정 로그인 페이지</h2>
+      <p>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
       <form onSubmit={onSubmit}>
         <StyledInput
           type="text"

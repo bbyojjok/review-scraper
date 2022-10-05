@@ -5,7 +5,6 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 const ReviewListBlock = styled.div`
   overflow-y: auto;
   height: calc(100% - 50px);
-  padding-right: 5px;
 
   .thumb-vertical {
     cursor: pointer;
