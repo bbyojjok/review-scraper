@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Seo from '../../components/Seo';
 
 const AddBlock = styled.div`
   padding: 20px;
@@ -6,8 +7,11 @@ const AddBlock = styled.div`
 
 export default function Add() {
   return (
-    <AddBlock>
-      <h2>[# TODO] 리뷰 스크랩할 사이트 추가 페이지</h2>
-    </AddBlock>
+    <>
+      <Seo title="Add" />
+      <AddBlock>
+        <h2>[# TODO] 리뷰 스크랩할 사이트 추가 페이지</h2>
+      </AddBlock>
+    </>
   );
 }

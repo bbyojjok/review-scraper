@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import Seo from '../components/Seo';
 import Lists from '../components/Lists';
 import { findList } from '../lib/api/index';
 import wrapper from '../store';
@@ -10,7 +11,12 @@ type HomeProps = {
 };
 
 const Home: NextPage = ({ lists }: HomeProps) => {
-  return <Lists lists={lists} />;
+  return (
+    <>
+      <Seo title="Home" />
+      <Lists lists={lists} />;
+    </>
+  );
 };
 
 export default Home;

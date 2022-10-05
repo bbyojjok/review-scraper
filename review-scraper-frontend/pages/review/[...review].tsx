@@ -1,6 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import Seo from '../../components/Seo';
 import Reviews from '../../components/Reviews';
 import Sort from '../../components/Sort';
 import { findList, findReview } from '../../lib/api/index';
@@ -56,6 +57,7 @@ const Review = ({
 
   return (
     <>
+      <Seo title={detail.appStore.title} />
       <Sort
         detail={detail}
         selectedScore={selectedScore.split('')}

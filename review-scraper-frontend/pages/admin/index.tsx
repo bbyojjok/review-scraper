@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import Seo from '../../components/Seo';
 import useUser from '../../store/modules/userHook';
 
 const StyledInput = styled.input``;
@@ -45,29 +46,32 @@ export default function Login() {
   };
 
   return (
-    <LoginBlock>
-      <h2>[# TODO] 어드민 계정 로그인 페이지</h2>
-      <p>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
-      <form onSubmit={onSubmit}>
-        <StyledInput
-          type="text"
-          name="username"
-          value={loginData.username}
-          onChange={onChange}
-          placeholder="야이디"
-          autoComplete="off"
-        />
-        <StyledInput
-          type="password"
-          name="password"
-          value={loginData.password}
-          onChange={onChange}
-          placeholder="비밀번호"
-          autoComplete="off"
-        />
-        <button>로그인</button>
-      </form>
-      <button onClick={onLogout}>로그아웃</button>
-    </LoginBlock>
+    <>
+      <Seo title="Admin" />
+      <LoginBlock>
+        <h2>[# TODO] 어드민 계정 로그인 페이지</h2>
+        <p>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
+        <form onSubmit={onSubmit}>
+          <StyledInput
+            type="text"
+            name="username"
+            value={loginData.username}
+            onChange={onChange}
+            placeholder="야이디"
+            autoComplete="off"
+          />
+          <StyledInput
+            type="password"
+            name="password"
+            value={loginData.password}
+            onChange={onChange}
+            placeholder="비밀번호"
+            autoComplete="off"
+          />
+          <button>로그인</button>
+        </form>
+        <button onClick={onLogout}>로그아웃</button>
+      </LoginBlock>
+    </>
   );
 }
