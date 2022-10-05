@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import { BiLoaderAlt } from 'react-icons/bi';
+import InfiniteScroll from 'react-infinite-scroller';
 import { useEffect, useRef, useState } from 'react';
 import { findReview } from '../lib/api';
 import { useRouter } from 'next/router';
@@ -10,22 +11,41 @@ const ReviewListBlock = styled.div`
   overflow-y: auto;
   height: calc(100% - 50px);
 
-  ::-webkit-scrollbar {
+  &.customScroll::-webkit-scrollbar {
     width: 5px;
   }
 
-  ::-webkit-scrollbar-thumb {
+  &.customScroll::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.5);
   }
-  ::-webkit-scrollbar-thumb:hover {
+  &.customScroll::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.7);
   }
 
   .message-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 15px 0;
-    text-align: center;
-    font-size: 13px;
+
+    span {
+      font-size: 13px;
+      margin-right: 5px;
+    }
+
+    .icon {
+      animation: rotate 0.75s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
   }
 
   .review-list {
@@ -137,11 +157,16 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   return (
     <ReviewListBlock id={`scrollableDiv${os}`} ref={scrollableDivRef}>
       <InfiniteScroll
-        dataLength={reviewList.length}
-        next={fetchMoreData}
+        pageStart={reviewPage}
+        loadMore={fetchMoreData}
         hasMore={hasMore}
-        loader={<div className="message-loading">loading...</div>}
-        scrollableTarget={`scrollableDiv${os}`}
+        loader={
+          <div className="message-loading" key={0}>
+            <span>loading...</span>
+            <BiLoaderAlt className="icon" />
+          </div>
+        }
+        useWindow={false}
       >
         <ul className="review-list">
           {reviewList.length === 0 && (
