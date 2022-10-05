@@ -10,15 +10,15 @@ const ReviewListBlock = styled.div`
   overflow-y: auto;
   height: calc(100% - 50px);
 
-  &.customScroll::-webkit-scrollbar {
+  ::-webkit-scrollbar {
     width: 5px;
   }
 
-  &.customScroll::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.5);
   }
-  &.customScroll::-webkit-scrollbar-thumb:hover {
+  ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.7);
   }
 
