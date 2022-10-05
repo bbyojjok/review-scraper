@@ -87,62 +87,62 @@ const ReviewList = ({ os, list }: ReviewListProps) => {
 
   return (
     <ReviewListBlock>
-      <Scrollbars
+      {/* <Scrollbars
         universal
         renderThumbVertical={(props) => (
           <div {...props} className="thumb-vertical" />
         )}
-      >
-        <ul className="review-list">
-          {list.length === 0 && (
-            <li className="center">${os} 리뷰가 없습니다.</li>
-          )}
-          {list.map(({ _id, review }: any) => {
-            const {
-              author,
-              title,
-              comment,
-              rate,
-              userName,
-              text,
-              scoreText,
-              date,
-              replyText,
-              replyDate,
-            } = review;
-            const star = isGooglePlay ? scoreText : rate;
+      > */}
+      <ul className="review-list">
+        {list.length === 0 && (
+          <li className="center">${os} 리뷰가 없습니다.</li>
+        )}
+        {list.map(({ _id, review }: any) => {
+          const {
+            author,
+            title,
+            comment,
+            rate,
+            userName,
+            text,
+            scoreText,
+            date,
+            replyText,
+            replyDate,
+          } = review;
+          const star = isGooglePlay ? scoreText : rate;
 
-            return (
-              <li key={_id}>
-                <div className="info">
-                  <p className="title">{isGooglePlay || title}</p>
-                  <p className="date">{date}</p>
-                </div>
-                <div className="info">
-                  <p className="rate">
-                    {Array(parseInt(star, 10))
-                      .fill(0)
-                      .map((val, idx) => (
-                        <MdStar key={star + idx} />
-                      ))}
+          return (
+            <li key={_id}>
+              <div className="info">
+                <p className="title">{isGooglePlay || title}</p>
+                <p className="date">{date}</p>
+              </div>
+              <div className="info">
+                <p className="rate">
+                  {Array(parseInt(star, 10))
+                    .fill(0)
+                    .map((val, idx) => (
+                      <MdStar key={star + idx} />
+                    ))}
+                </p>
+                <p className="author">{isGooglePlay ? userName : author}</p>
+              </div>
+              <div className="text">{isGooglePlay ? text : comment}</div>
+              {isGooglePlay && replyText && (
+                <div className="reply-text">
+                  <p>
+                    <MdSubdirectoryArrowRight />
+                    {replyDate}
                   </p>
-                  <p className="author">{isGooglePlay ? userName : author}</p>
+                  {replyText}
                 </div>
-                <div className="text">{isGooglePlay ? text : comment}</div>
-                {isGooglePlay && replyText && (
-                  <div className="reply-text">
-                    <p>
-                      <MdSubdirectoryArrowRight />
-                      {replyDate}
-                    </p>
-                    {replyText}
-                  </div>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </Scrollbars>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      {/* </Scrollbars> */}
     </ReviewListBlock>
   );
 };
