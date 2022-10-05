@@ -1,11 +1,11 @@
+import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
 import { BiLoaderAlt } from 'react-icons/bi';
 import InfiniteScroll from 'react-infinite-scroller';
-import { useEffect, useRef, useState } from 'react';
-import { findReview } from '../lib/api';
-import { useRouter } from 'next/router';
 import { UAParser } from 'ua-parser-js';
+import { findReview } from '../lib/api';
 
 const ReviewListBlock = styled.div`
   overflow-y: auto;
