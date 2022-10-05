@@ -129,10 +129,10 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   const isGooglePlay = os === 'GooglePlay';
 
   useEffect(() => {
-    scrollableDivRef.current?.scrollTo(0, 0);
     setHasMore(totalCount > 10);
     setReviewList(list);
     setReviwPage(2);
+    scrollableDivRef.current?.scrollTo(0, 0);
   }, [totalCount, list]);
 
   useEffect(() => {
