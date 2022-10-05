@@ -40,9 +40,13 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           score={detail.googlePlay.score.toFixed(1)}
           version={detail.googlePlay.version}
           url={detail.googlePlay.url}
-          length={reviews.googlePlay.length}
+          length={reviews.googlePlay.totalCount}
         />
-        <ReviewList os="GooglePlay" list={reviews.googlePlay} />
+        <ReviewList
+          os="GooglePlay"
+          list={reviews.googlePlay.data}
+          totalCount={reviews.googlePlay.totalCount}
+        />
       </div>
       <div className="review-wrap">
         <ReviewTitle
@@ -50,9 +54,13 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
           score={detail.appStore.score.toFixed(1)}
           version={detail.appStore.version}
           url={detail.appStore.url}
-          length={reviews.appStore.length}
+          length={reviews.appStore.totalCount}
         />
-        <ReviewList os="AppStore" list={reviews.appStore} />
+        <ReviewList
+          os="AppStore"
+          list={reviews.appStore.data}
+          totalCount={reviews.appStore.totalCount}
+        />
       </div>
     </ReviewsBlock>
   );

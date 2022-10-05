@@ -1,15 +1,31 @@
 import styled from '@emotion/styled';
 import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { useEffect, useRef, useState } from 'react';
+import { findReview } from '../lib/api';
+import { useRouter } from 'next/router';
+import { UAParser } from 'ua-parser-js';
 
 const ReviewListBlock = styled.div`
   overflow-y: auto;
   height: calc(100% - 50px);
 
-  .thumb-vertical {
-    cursor: pointer;
-    border-radius: inherit;
-    background-color: rgba(0, 0, 0, 0.8);
+  .customScroll::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .customScroll::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .customScroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .message-loading {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 13px;
   }
 
   .review-list {
@@ -80,69 +96,103 @@ const ReviewListBlock = styled.div`
 type ReviewListProps = {
   os: string;
   list: any;
+  totalCount: number;
 };
 
-const ReviewList = ({ os, list }: ReviewListProps) => {
+const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
+  const router = useRouter();
+  const [name, day, score] = router.query.review as string[];
+  const scrollableDivRef = useRef<HTMLDivElement>(null);
+  const [reviewList, setReviewList] = useState<any>(list);
+  const [reviewPage, setReviwPage] = useState<number>(2);
+  const [hasMore, setHasMore] = useState<boolean>(totalCount >= 10);
   const isGooglePlay = os === 'GooglePlay';
 
-  return (
-    <ReviewListBlock>
-      {/* <Scrollbars
-        universal
-        renderThumbVertical={(props) => (
-          <div {...props} className="thumb-vertical" />
-        )}
-      > */}
-      <ul className="review-list">
-        {list.length === 0 && (
-          <li className="center">${os} 리뷰가 없습니다.</li>
-        )}
-        {list.map(({ _id, review }: any) => {
-          const {
-            author,
-            title,
-            comment,
-            rate,
-            userName,
-            text,
-            scoreText,
-            date,
-            replyText,
-            replyDate,
-          } = review;
-          const star = isGooglePlay ? scoreText : rate;
+  useEffect(() => {
+    scrollableDivRef.current?.scrollTo(0, 0);
+    setHasMore(totalCount > 10);
+    setReviewList(list);
+    setReviwPage(2);
+  }, [totalCount, list]);
 
-          return (
-            <li key={_id}>
-              <div className="info">
-                <p className="title">{isGooglePlay || title}</p>
-                <p className="date">{date}</p>
-              </div>
-              <div className="info">
-                <p className="rate">
-                  {Array(parseInt(star, 10))
-                    .fill(0)
-                    .map((val, idx) => (
-                      <MdStar key={star + idx} />
-                    ))}
-                </p>
-                <p className="author">{isGooglePlay ? userName : author}</p>
-              </div>
-              <div className="text">{isGooglePlay ? text : comment}</div>
-              {isGooglePlay && replyText && (
-                <div className="reply-text">
-                  <p>
-                    <MdSubdirectoryArrowRight />
-                    {replyDate}
-                  </p>
-                  {replyText}
+  useEffect(() => {
+    const parser = UAParser();
+    if (parser.os.name === 'Windows') {
+      scrollableDivRef.current?.classList.add('customScroll');
+    }
+  }, []);
+
+  const fetchMoreData = async () => {
+    const url = `/${name}/${day}/${score}/${
+      os === 'GooglePlay' ? 'googlePlay' : 'appStore'
+    }?page=${reviewPage}`;
+    const { data, headers } = await findReview(url);
+    setReviewList((prevState: any) => prevState.concat(data));
+    if (reviewPage === parseInt(headers['last-page'])) {
+      setHasMore(false);
+    }
+    setReviwPage((prevState) => prevState + 1);
+  };
+
+  return (
+    <ReviewListBlock id={`scrollableDiv${os}`} ref={scrollableDivRef}>
+      <InfiniteScroll
+        dataLength={reviewList.length}
+        next={fetchMoreData}
+        hasMore={hasMore}
+        loader={<div className="message-loading">loading...</div>}
+        scrollableTarget={`scrollableDiv${os}`}
+      >
+        <ul className="review-list">
+          {reviewList.length === 0 && (
+            <li className="center">${os} 리뷰가 없습니다.</li>
+          )}
+          {reviewList.map(({ _id, review }: any) => {
+            const {
+              author,
+              title,
+              comment,
+              rate,
+              userName,
+              text,
+              scoreText,
+              date,
+              replyText,
+              replyDate,
+            } = review;
+            const star = isGooglePlay ? scoreText : rate;
+
+            return (
+              <li key={_id}>
+                <div className="info">
+                  <p className="title">{isGooglePlay || title}</p>
+                  <p className="date">{date}</p>
                 </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-      {/* </Scrollbars> */}
+                <div className="info">
+                  <p className="rate">
+                    {Array(parseInt(star, 10))
+                      .fill(0)
+                      .map((val, idx) => (
+                        <MdStar key={star + idx} />
+                      ))}
+                  </p>
+                  <p className="author">{isGooglePlay ? userName : author}</p>
+                </div>
+                <div className="text">{isGooglePlay ? text : comment}</div>
+                {isGooglePlay && replyText && (
+                  <div className="reply-text">
+                    <p>
+                      <MdSubdirectoryArrowRight />
+                      {replyDate}
+                    </p>
+                    {replyText}
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </InfiniteScroll>
     </ReviewListBlock>
   );
 };

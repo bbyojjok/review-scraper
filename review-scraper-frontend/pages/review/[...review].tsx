@@ -73,7 +73,23 @@ export default Review;
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const [name, day = '7', score = '12345'] = params?.review as Array<string>;
   const { data: detail } = await findList(name);
-  const { data: reviews } = await findReview(`/${name}/${day}/${score}`);
+  const { data: googlePlayData, headers: googlePlayHeaders } = await findReview(
+    `/${name}/${day}/${score}/googlePlay`,
+  );
+  const { data: appStoreData, headers: appStoreHeaders } = await findReview(
+    `/${name}/${day}/${score}/appStore`,
+  );
+
+  const reviews = {
+    googlePlay: {
+      data: googlePlayData,
+      totalCount: googlePlayHeaders['total-count'],
+    },
+    appStore: {
+      data: appStoreData,
+      totalCount: appStoreHeaders['total-count'],
+    },
+  };
 
   return {
     props: { reviews, detail, name, day, score },

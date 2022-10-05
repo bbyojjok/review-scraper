@@ -24,6 +24,11 @@ GET /api/review/day/thehyundai/7/1/googlePlay
 GET /api/review/day/thehyundai/7/12345/googlePlay
 */
 export const readDay = async (req, res) => {
+  const page = parseInt(req.query.page || '1', 10);
+  if (page < 1) {
+    return res.status(400);
+  }
+
   const { name, day, score, os } = req.params;
   const Review = mongoose.model(`Review-${name}`);
   const today = moment().startOf('day').format();
@@ -54,10 +59,19 @@ export const readDay = async (req, res) => {
   }
 
   try {
-    const queryResult = await Review.find(options).sort({ date: -1 }).exec();
+    const queryResult = await Review.find(options)
+      .sort({ date: -1 })
+      .limit(10)
+      .skip((page - 1) * 10)
+      .lean()
+      .exec();
+    const queryResultCount = await Review.countDocuments(options).exec();
     if (!queryResult) {
       return res.status(404);
     }
+
+    res.set('Last-page', Math.ceil(queryResultCount / 10));
+    res.set('Total-count', queryResultCount);
 
     const result = reviewDateFormat(queryResult);
     if (!os) {
