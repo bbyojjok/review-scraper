@@ -14,6 +14,11 @@ const ReviewTitleBlock = styled.div`
     p {
       display: flex;
       align-items: center;
+
+      a {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
