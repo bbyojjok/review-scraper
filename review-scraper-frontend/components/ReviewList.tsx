@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
-import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
+import ReviewListItem from './ReviewListItem';
+import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { BiLoaderAlt } from 'react-icons/bi';
 import InfiniteScroll from 'react-infinite-scroller';
 import { UAParser } from 'ua-parser-js';
@@ -47,70 +48,6 @@ const ReviewListBlock = styled.div`
       }
     }
   }
-
-  .review-list {
-    li {
-      margin-top: 15px;
-      padding: 10px;
-      font-size: 12px;
-      background-color: #333;
-      border-radius: 5px;
-
-      &:first-of-type {
-        margin-top: 0;
-      }
-
-      &.center {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        text-align: center;
-      }
-
-      .info {
-        display: flex;
-        flex-wrap: wrap;
-        padding-bottom: 10px;
-
-        .title {
-          width: calc(100% - 80px);
-        }
-
-        .date {
-          text-align: right;
-          width: 80px;
-        }
-
-        .rate {
-          width: 65px;
-        }
-
-        .author {
-          text-align: right;
-          width: calc(100% - 65px);
-          word-break: break-word;
-        }
-      }
-
-      .text {
-        line-height: 1.4;
-        word-break: break-word;
-      }
-
-      .reply-text {
-        margin-top: 15px;
-        padding: 10px;
-        background-color: #444;
-        border-radius: 5px;
-        word-break: break-word;
-
-        p {
-          display: flex;
-          justify-content: space-between;
-          padding-bottom: 5px;
-        }
-      }
-    }
-  }
 `;
 
 type ReviewListProps = {
@@ -126,7 +63,35 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   const [reviewList, setReviewList] = useState<any>(list);
   const [reviewPage, setReviwPage] = useState<number>(2);
   const [hasMore, setHasMore] = useState<boolean>(totalCount >= 10);
-  const isGooglePlay = os === 'GooglePlay';
+
+  // 테스트
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error>();
+  const loadMore = async () => {
+    setLoading(true);
+    try {
+      const url = `/${name}/${day}/${score}/${
+        os === 'GooglePlay' ? 'googlePlay' : 'appStore'
+      }?page=${reviewPage}`;
+      const { data, headers } = await findReview(url);
+      setReviewList((prevState: any) => prevState.concat(data));
+      if (reviewPage === parseInt(headers['last-page'])) {
+        setHasMore(false);
+      }
+      setReviwPage((prevState) => prevState + 1);
+    } catch (err: any) {
+      setError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const [sentryRef] = useInfiniteScroll({
+    loading,
+    hasNextPage: hasMore,
+    onLoadMore: loadMore,
+    disabled: !!error,
+    rootMargin: '0px 0px 0px 0px',
+  });
 
   useEffect(() => {
     setHasMore(totalCount > 10);
@@ -156,7 +121,7 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
 
   return (
     <ReviewListBlock id={`scrollableDiv${os}`} ref={scrollableDivRef}>
-      <InfiniteScroll
+      {/* <InfiniteScroll
         pageStart={reviewPage}
         loadMore={fetchMoreData}
         hasMore={hasMore}
@@ -167,57 +132,24 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
           </div>
         }
         useWindow={false}
-      >
-        <ul className="review-list">
-          {reviewList.length === 0 && (
-            <li className="center">${os} 리뷰가 없습니다.</li>
-          )}
-          {reviewList.map(({ _id, review }: any) => {
-            const {
-              author,
-              title,
-              comment,
-              rate,
-              userName,
-              text,
-              scoreText,
-              date,
-              replyText,
-              replyDate,
-            } = review;
-            const star = isGooglePlay ? scoreText : rate;
+      > */}
+      <ul className="review-list">
+        {reviewList.length === 0 && (
+          <ReviewListItem os={os} reviewData={false} />
+        )}
+        {reviewList.map(({ _id, review }: any) => (
+          <ReviewListItem key={_id} os={os} reviewData={review} />
+        ))}
+      </ul>
 
-            return (
-              <li key={_id}>
-                <div className="info">
-                  <p className="title">{isGooglePlay || title}</p>
-                  <p className="date">{date}</p>
-                </div>
-                <div className="info">
-                  <p className="rate">
-                    {Array(parseInt(star, 10))
-                      .fill(0)
-                      .map((val, idx) => (
-                        <MdStar key={star + idx} />
-                      ))}
-                  </p>
-                  <p className="author">{isGooglePlay ? userName : author}</p>
-                </div>
-                <div className="text">{isGooglePlay ? text : comment}</div>
-                {isGooglePlay && replyText && (
-                  <div className="reply-text">
-                    <p>
-                      <MdSubdirectoryArrowRight />
-                      {replyDate}
-                    </p>
-                    {replyText}
-                  </div>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </InfiniteScroll>
+      {(loading || hasMore) && (
+        <div ref={sentryRef} className="message-loading">
+          <span>loading...</span>
+          <BiLoaderAlt className="icon" />
+        </div>
+      )}
+
+      {/* </InfiniteScroll> */}
     </ReviewListBlock>
   );
 };

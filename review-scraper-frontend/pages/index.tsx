@@ -14,7 +14,7 @@ const Home: NextPage = ({ lists }: HomeProps) => {
   return (
     <>
       <Seo title="Home" />
-      <Lists lists={lists} />;
+      <Lists lists={lists} />
     </>
   );
 };
