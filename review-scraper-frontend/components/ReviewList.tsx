@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import ReviewListItem from './ReviewListItem';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { BiLoaderAlt } from 'react-icons/bi';
-import InfiniteScroll from 'react-infinite-scroller';
 import { UAParser } from 'ua-parser-js';
 import { findReview } from '../lib/api';
 
@@ -62,9 +61,7 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   const scrollableDivRef = useRef<HTMLDivElement>(null);
   const [reviewList, setReviewList] = useState<any>(list);
   const [reviewPage, setReviwPage] = useState<number>(2);
-  const [hasMore, setHasMore] = useState<boolean>(totalCount >= 10);
-
-  // 테스트
+  const [hasNextPage, setHasNextPage] = useState<boolean>(totalCount >= 10);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
   const loadMore = async () => {
@@ -76,7 +73,7 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
       const { data, headers } = await findReview(url);
       setReviewList((prevState: any) => prevState.concat(data));
       if (reviewPage === parseInt(headers['last-page'])) {
-        setHasMore(false);
+        setHasNextPage(false);
       }
       setReviwPage((prevState) => prevState + 1);
     } catch (err: any) {
@@ -87,14 +84,14 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   };
   const [sentryRef] = useInfiniteScroll({
     loading,
-    hasNextPage: hasMore,
+    hasNextPage,
     onLoadMore: loadMore,
     disabled: !!error,
     rootMargin: '0px 0px 0px 0px',
   });
 
   useEffect(() => {
-    setHasMore(totalCount > 10);
+    setHasNextPage(totalCount > 10);
     setReviewList(list);
     setReviwPage(2);
     scrollableDivRef.current?.scrollTo(0, 0);
@@ -107,32 +104,8 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
     }
   }, []);
 
-  const fetchMoreData = async () => {
-    const url = `/${name}/${day}/${score}/${
-      os === 'GooglePlay' ? 'googlePlay' : 'appStore'
-    }?page=${reviewPage}`;
-    const { data, headers } = await findReview(url);
-    setReviewList((prevState: any) => prevState.concat(data));
-    if (reviewPage === parseInt(headers['last-page'])) {
-      setHasMore(false);
-    }
-    setReviwPage((prevState) => prevState + 1);
-  };
-
   return (
-    <ReviewListBlock id={`scrollableDiv${os}`} ref={scrollableDivRef}>
-      {/* <InfiniteScroll
-        pageStart={reviewPage}
-        loadMore={fetchMoreData}
-        hasMore={hasMore}
-        loader={
-          <div className="message-loading" key={0}>
-            <span>loading...</span>
-            <BiLoaderAlt className="icon" />
-          </div>
-        }
-        useWindow={false}
-      > */}
+    <ReviewListBlock ref={scrollableDivRef}>
       <ul className="review-list">
         {reviewList.length === 0 && (
           <ReviewListItem os={os} reviewData={false} />
@@ -141,15 +114,12 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
           <ReviewListItem key={_id} os={os} reviewData={review} />
         ))}
       </ul>
-
-      {(loading || hasMore) && (
+      {(loading || hasNextPage) && (
         <div ref={sentryRef} className="message-loading">
           <span>loading...</span>
           <BiLoaderAlt className="icon" />
         </div>
       )}
-
-      {/* </InfiniteScroll> */}
     </ReviewListBlock>
   );
 };
