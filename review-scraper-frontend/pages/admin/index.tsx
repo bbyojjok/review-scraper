@@ -1,5 +1,6 @@
-import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import styled from '@emotion/styled';
 import Seo from '../../components/Seo';
 import useUser from '../../store/modules/userHook';
 
@@ -14,6 +15,7 @@ const LoginBlock = styled.div`
 `;
 
 export default function Login() {
+  const router = useRouter();
   const [loginData, setLoginData] = useState<any>({
     username: '',
     password: '',
@@ -47,7 +49,7 @@ export default function Login() {
 
   return (
     <>
-      <Seo title="Admin" />
+      <Seo title="Admin" url={router.asPath} />
       <LoginBlock>
         <h2>[# TODO] 어드민 계정 로그인 페이지</h2>
         <p>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>

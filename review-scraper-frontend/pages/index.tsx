@@ -2,18 +2,19 @@ import type { NextPage } from 'next';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import Seo from '../components/Seo';
 import Lists from '../components/Lists';
-import { findList } from '../lib/api/index';
-import wrapper from '../store';
-import { END } from 'redux-saga';
+import { getLists } from '../lib/api/index';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 
 type HomeProps = {
   lists?: any;
 };
 
-const Home: NextPage = ({ lists }: HomeProps) => {
+const Home: NextPage = ({}: HomeProps) => {
+  const { data: lists } = useQuery(['lists'], () => getLists());
+
   return (
     <>
-      <Seo title="Home" />
+      <Seo title="Home" url="" />
       <Lists lists={lists} />
     </>
   );
@@ -21,19 +22,15 @@ const Home: NextPage = ({ lists }: HomeProps) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps =
-  wrapper.getServerSideProps(
-    (store) => async (context: GetServerSidePropsContext) => {
-      // store.dispatch();
-      // store.dispatch(END);
-      // await store.sagaTasks.toPromise();
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(['lists'], () => getLists());
 
-      const { data: lists } = await findList();
-
-      return {
-        props: {
-          lists,
-        },
-      };
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
     },
-  );
+  };
+};

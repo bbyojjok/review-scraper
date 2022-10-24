@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MdOutlineArrowForward, MdAdd } from 'react-icons/md';
 
 const ListItemBlock = styled.li`
@@ -143,7 +144,7 @@ const ListItemBlock = styled.li`
 `;
 
 type ListItemProps = {
-  icon?: string;
+  icon?: string | any;
   name?: string;
   title?: string;
 };
@@ -157,7 +158,7 @@ const ListItem = ({ icon, name, title }: ListItemProps) => {
           <Link href={href}>
             <a>
               <span className="img">
-                <img src={icon} alt={name} />
+                <Image src={icon} alt={name} width={256} height={256} />
                 <span className="over-box">
                   <span className="icon">
                     <MdOutlineArrowForward color="#000" />

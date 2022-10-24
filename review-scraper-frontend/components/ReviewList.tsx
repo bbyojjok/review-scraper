@@ -1,11 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
-import styled from '@emotion/styled';
-import ReviewListItem from './ReviewListItem';
+import { useEffect, useRef, useState } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
-import { BiLoaderAlt } from 'react-icons/bi';
 import { UAParser } from 'ua-parser-js';
-import { findReview } from '../lib/api';
+import styled from '@emotion/styled';
+import { BiLoaderAlt } from 'react-icons/bi';
+import { useQuery } from '@tanstack/react-query';
+import ReviewListItem from './ReviewListItem';
+import { findReview, getReview } from '../lib/api';
+
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInView } from 'react-intersection-observer';
 
 const ReviewListBlock = styled.div`
   overflow-y: auto;
@@ -70,6 +74,12 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
       const url = `/${name}/${day}/${score}/${
         os === 'GooglePlay' ? 'googlePlay' : 'appStore'
       }?page=${reviewPage}`;
+
+      // TODO 유즈쿼리 스크롤링 로드모어 이벤트에서는 작동안함
+      // const response = useQuery(['reviews', url], () => getReview(url));
+      // console.log(response.error);
+      // console.log('## response:', response);
+
       const { data, headers } = await findReview(url);
       setReviewList((prevState: any) => prevState.concat(data));
       if (reviewPage === parseInt(headers['last-page'])) {
@@ -104,8 +114,27 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
     }
   }, []);
 
+  /*
+  // TODO react-intersection-observer 라이브러리를 이용해서 스크롤 엔드시점을 알고 useInfiniteQuery를 이용하여 무한스크롤 작업 확인하기
+  const { ref, inView } = useInView();
+  const { data } = useInfiniteQuery(
+    [`reviewsInfinite-${reviewPage}`],
+    async () => {
+      const url = `/${name}/${day}/${score}/${
+        os === 'GooglePlay' ? 'googlePlay' : 'appStore'
+      }?page=${reviewPage}`;
+      const { data } = await getReview(url);
+      return data;
+    },
+    {},
+  );
+  console.log(data);
+  */
+
   return (
     <ReviewListBlock ref={scrollableDivRef}>
+      {/* <h2>{`Header inside viewport ${inView}.`}</h2> */}
+
       <ul className="review-list">
         {reviewList.length === 0 && (
           <ReviewListItem os={os} reviewData={false} />
@@ -120,6 +149,10 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
           <BiLoaderAlt className="icon" />
         </div>
       )}
+
+      {/* <div ref={ref}>
+        <h2>{`Header inside viewport ${inView}.`}</h2>
+      </div> */}
     </ReviewListBlock>
   );
 };

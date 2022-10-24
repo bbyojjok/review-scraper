@@ -85,7 +85,7 @@ const ReviewListItem = ({ os, reviewData }: ReviewListItemProps) => {
   const star = isGooglePlay ? scoreText : rate;
 
   return (
-    <ReviewListItemBlock className={reviewData || 'center'}>
+    <ReviewListItemBlock className={reviewData ? '' : 'center'}>
       {reviewData ? (
         <>
           <div className="info">

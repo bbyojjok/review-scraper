@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from '@emotion/styled';
 import SortLabel from './SortLabel';
 
@@ -12,19 +13,20 @@ const SortBlock = styled.div`
   background-color: #222;
 
   .info {
+    overflow: hidden;
     flex: 1;
     text-align: center;
     max-width: 100px;
     width: 100%;
+    border-radius: 10%;
 
     img {
       vertical-align: top;
       width: 100%;
-      border-radius: 10%;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
     }
     span {
       display: inline-block;
+      vertical-align: middle;
       padding: 10px 0 0;
       font-size: 13px;
     }
@@ -46,7 +48,7 @@ const SortBlock = styled.div`
 `;
 
 const scores: string[] = ['1', '2', '3', '4', '5'];
-const days: string[] = ['7', '15', '30', '60', '90'];
+const days: string[] = ['7', '30', '60', '90', '180'];
 
 type SortProps = {
   detail: any;
@@ -68,7 +70,7 @@ const Sort = ({
   return (
     <SortBlock>
       <div className="info">
-        <img src={icon} alt={title} />
+        <Image src={icon} alt={title} width={256} height={256} />
       </div>
       <div className="btns">
         <div className="score-box">
