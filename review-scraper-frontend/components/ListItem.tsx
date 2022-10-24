@@ -25,6 +25,10 @@ const ListItemBlock = styled.li`
       border: 1px solid transparent;
       transition: all 0.2s;
 
+      & > span {
+        vertical-align: middle;
+      }
+
       img {
         border-radius: 10%;
         transition: all 0.3s;
