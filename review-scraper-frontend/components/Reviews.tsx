@@ -5,12 +5,14 @@ import ReviewList from './ReviewList';
 const ReviewsBlock = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 20px;
   position: absolute;
   left: 0;
   right: 0;
   top: 190px;
   bottom: 0;
+  padding: 0 20px;
+  max-width: 750px;
+  margin: 0 auto;
 
   .review-wrap {
     width: 50%;

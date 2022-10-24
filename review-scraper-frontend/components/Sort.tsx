@@ -10,6 +10,8 @@ const SortBlock = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  max-width: 750px;
+  margin: 0 auto;
   background-color: #222;
 
   .info {
