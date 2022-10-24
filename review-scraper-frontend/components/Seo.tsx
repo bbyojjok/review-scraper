@@ -14,7 +14,7 @@ const Seo = ({ title, url }: SeoProps) => {
       <meta property="og:title" content={`${title} | 앱 리뷰 스크래퍼`} />
       <meta
         property="og:image"
-        content="https://review.stlee.kr/logo_black.png"
+        content="https://review.stlee.kr/logo_white.png"
       />
       <meta
         property="og:description"
