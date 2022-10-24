@@ -18,7 +18,7 @@ const Seo = ({ title, url }: SeoProps) => {
       />
       <meta
         property="og:description"
-        content="커머스 앱 리뷰 모아보기. 평점 요일별로 조회해서 리뷰를 확인해보세요."
+        content="커머스 앱 리뷰 모아보기. 평점 및 일자를 조회해서 리뷰를 확인해보세요."
       />
       <meta property="og:site_name" content="stlee" />
       <meta property="og:locale" content="ko-KR" />
