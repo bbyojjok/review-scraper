@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import Seo from '../../components/Seo';
 import useUser from '../../store/modules/userHook';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { signin, check } from '../../lib/api';
+
+function loadUser() {
+  try {
+    const user = localStorage.getItem('user');
+    console.log('# user :', user);
+    if (!user) return;
+    // store.dispatch(check());
+  } catch (e) {
+    console.log('localStorage is not working');
+  }
+}
 
 const StyledInput = styled.input``;
 
 const LoginBlock = styled.div`
   padding: 20px;
+  max-width: 750px;
+  margin: 0 auto;
 
   h2 {
     text-align: center;
@@ -31,19 +46,32 @@ export default function Login() {
     }));
   };
 
+  const { mutate, isLoading, isError, isSuccess } = useMutation(
+    ['signin'],
+    signin,
+    {
+      onSuccess: (data) => {
+        login({ userId: loginData.username });
+        // try {
+        //   localStorage.setItem('user', JSON.stringify(data));
+        // } catch (e) {
+        //   console.log('localStorage is not working');
+        // }
+      },
+      onError: (e: any) => {
+        console.log('로그인에러 에러내용 알려주기', e.response.data);
+      },
+    },
+  );
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('# on submit !!');
-
-    const { username, password } = loginData;
-    login({ userId: username, password: password });
+    mutate(loginData);
   };
 
   const onLogout = () => {
-    setLoginData({
-      username: '',
-      password: '',
-    });
+    setLoginData({ username: '', password: '' });
     logout();
   };
 
@@ -51,9 +79,11 @@ export default function Login() {
     <>
       <Seo title="Admin" url={router.asPath} />
       <LoginBlock>
-        <h2>[# TODO] 어드민 계정 로그인 페이지</h2>
-        <p>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
         <form onSubmit={onSubmit}>
+          <div>{`isLoading: ${isLoading}`}</div>
+          <div>{`isError: ${isError}`}</div>
+          <div>{`isSuccess: ${isSuccess}`}</div>
+
           <StyledInput
             type="text"
             name="username"
@@ -71,6 +101,7 @@ export default function Login() {
             autoComplete="off"
           />
           <button>로그인</button>
+          <p>로그인 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
         </form>
         <button onClick={onLogout}>로그아웃</button>
       </LoginBlock>

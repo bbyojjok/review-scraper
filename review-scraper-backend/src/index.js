@@ -1,9 +1,9 @@
 import Dotenv from 'dotenv';
 Dotenv.config();
 import express from 'express';
-import session from 'express-session';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 import compression from 'compression';
@@ -12,8 +12,9 @@ import route from './api/index.js';
 import Review from './models/review.js';
 import { scraping } from './process/scrap.js';
 import { getCronRule } from './lib/utility.js';
+import { jwtMiddleware } from './lib/jwtMiddleware.js';
 
-const { PORT, MONGO_URI, COOKIE_SECRET } = process.env;
+const { PORT, MONGO_URI } = process.env;
 
 mongoose
   .connect(MONGO_URI, { dbName: 'review-scraper', useNewUrlParser: true })
@@ -41,18 +42,12 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(
-  session({
-    secret: COOKIE_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 1000 * 60 * 10 },
-  }),
-);
 app.use(helmet());
 app.use(compression());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(jwtMiddleware);
 
 // 라우트 설정
 app.use('/api', route);

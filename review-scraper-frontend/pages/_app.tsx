@@ -1,14 +1,22 @@
-import GlobalStyle from '../styles/GlobalStyle';
 import type { AppProps } from 'next/app';
-import Header from '../components/Header';
-import wrapper from '../store';
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetStaticProps,
+  GetStaticPropsContext,
+} from 'next';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   QueryClient,
   Hydrate,
   QueryClientProvider,
+  dehydrate,
+  useQuery,
 } from '@tanstack/react-query';
+import GlobalStyle from '../styles/GlobalStyle';
+import Header from '../components/Header';
+import wrapper from '../store';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -54,3 +62,27 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default wrapper.withRedux(MyApp);
+
+// export const getStaticProps: GetStaticProps = async (
+//   context: GetStaticPropsContext,
+// ) => {
+//   console.log(context);
+
+//   return {
+//     props: {
+//       test: 'test',
+//     },
+//   };
+// };
+
+// export const getServerSideProps: GetServerSideProps = async (
+//   context: GetServerSidePropsContext,
+// ) => {
+//   console.log('context:', context);
+
+//   return {
+//     props: {
+//       test: 'test',
+//     },
+//   };
+// };

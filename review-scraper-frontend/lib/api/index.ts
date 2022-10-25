@@ -26,3 +26,19 @@ export const getReview = async (url: string) => {
     totalCount: headers['total-count'],
   };
 };
+
+export const signin = async ({
+  username,
+  password,
+}: {
+  username: string;
+  password: string;
+}) => {
+  const { data } = await client.post(`/api/auth/login`, { username, password });
+  return data;
+};
+
+export const check = async () => {
+  const { data } = await client.get(`/api/auth/check`);
+  return data;
+};

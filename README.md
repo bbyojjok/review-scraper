@@ -15,3 +15,4 @@
   - React
   - Next
   - Typescript
+  - React-Query

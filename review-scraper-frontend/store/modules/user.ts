@@ -4,18 +4,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export type UserState = {
   isLoggedin: boolean;
   userData: any;
+  checkError: string | null;
 };
 
 // 액션 Payload 타입
 export type LoginPayload = {
   userId: string;
-  password: string;
 };
 
 // 초기 상태
 const initialState: UserState = {
   isLoggedin: false,
   userData: null,
+  checkError: null,
 };
 
 // 리듀서 슬라이스

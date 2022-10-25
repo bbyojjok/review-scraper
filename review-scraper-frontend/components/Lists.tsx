@@ -3,12 +3,12 @@ import ListItem from './ListItem';
 
 const ListsBlock = styled.div`
   padding: 20px;
+  max-width: 750px;
+  margin: 0 auto;
 
   ul {
     display: flex;
     flex-wrap: wrap;
-    max-width: 750px;
-    margin: 0 auto;
   }
 `;
 
