@@ -29,7 +29,12 @@ mongoose
 
 const app = express();
 
-var whitelist = ['http://localhost:8083', 'https://localhost:8083'];
+var whitelist = [
+  'http://localhost:8083',
+  'https://localhost:8083',
+  'http://review.stlee.kr',
+  'https://review.stlee.kr',
+];
 var corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
