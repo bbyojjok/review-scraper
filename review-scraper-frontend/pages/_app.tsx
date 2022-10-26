@@ -7,7 +7,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import GlobalStyle from '../styles/GlobalStyle';
-import Header from '../components/Header';
+import Header from '../components/common/Header';
 import wrapper from '../store';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';

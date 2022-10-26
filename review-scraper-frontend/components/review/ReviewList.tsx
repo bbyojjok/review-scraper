@@ -5,8 +5,8 @@ import { UAParser } from 'ua-parser-js';
 import styled from '@emotion/styled';
 import { useQuery } from '@tanstack/react-query';
 import ReviewListItem from './ReviewListItem';
-import IconLoading from './IconLoading';
-import { findReview, getReview } from '../lib/api';
+import IconLoading from '../common/IconLoading';
+import { findReview, getReview } from '../../lib/api';
 
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useInView } from 'react-intersection-observer';

@@ -1,10 +1,14 @@
 import styled from '@emotion/styled';
-import useUser from '../store/modules/userHook';
+import useUser from '../../store/modules/userHook';
 import { deleteCookie } from 'cookies-next';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { signout } from '../lib/api';
+import { signout } from '../../lib/api';
 
-const AddListBlock = styled.div``;
+const AddListBlock = styled.div`
+  padding: 20px;
+  max-width: 750px;
+  margin: 0 auto;
+`;
 
 const AddList = () => {
   const { isLoggedin, logout } = useUser();

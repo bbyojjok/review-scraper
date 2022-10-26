@@ -2,9 +2,9 @@ import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
-import Seo from '../../components/Seo';
-import Reviews from '../../components/Reviews';
-import Sort from '../../components/Sort';
+import Seo from '../../components/common/Seo';
+import Reviews from '../../components/review/Reviews';
+import Sort from '../../components/review/Sort';
 import { getLists, getReview } from '../../lib/api/index';
 
 type ReviewProps = {

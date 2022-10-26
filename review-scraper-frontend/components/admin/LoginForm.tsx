@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { signin } from '../lib/api';
+import { signin } from '../../lib/api';
 import { setCookie } from 'cookies-next';
-import useUser from '../store/modules/userHook';
+import useUser from '../../store/modules/userHook';
 import styled from '@emotion/styled';
-import IconLoading from './IconLoading';
+import IconLoading from '../common/IconLoading';
 
 const StyledInput = styled.input``;
 
@@ -69,10 +69,7 @@ const LoginForm = () => {
           placeholder="비밀번호"
           autoComplete="off"
         />
-        <button>
-          로그인
-          {isLoading && <IconLoading />}
-        </button>
+        <button>로그인{isLoading && <IconLoading />}</button>
         <p>## 로그인 상태 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
       </form>
     </LoginFormBlock>
