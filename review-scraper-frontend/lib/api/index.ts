@@ -42,3 +42,8 @@ export const check = async () => {
   const { data } = await client.get(`/api/auth/check`);
   return data;
 };
+
+export const signout = async () => {
+  const { data } = await client.get(`/api/auth/logout`);
+  return data;
+};

@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { UAParser } from 'ua-parser-js';
 import styled from '@emotion/styled';
-import { BiLoaderAlt } from 'react-icons/bi';
 import { useQuery } from '@tanstack/react-query';
 import ReviewListItem from './ReviewListItem';
+import IconLoading from './IconLoading';
 import { findReview, getReview } from '../lib/api';
 
 import { useInfiniteQuery } from '@tanstack/react-query';
@@ -36,19 +36,6 @@ const ReviewListBlock = styled.div`
     span {
       font-size: 13px;
       margin-right: 5px;
-    }
-
-    .icon {
-      animation: rotate 0.75s linear infinite;
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
     }
   }
 `;
@@ -146,7 +133,7 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
       {(loading || hasNextPage) && (
         <div ref={sentryRef} className="message-loading">
           <span>loading...</span>
-          <BiLoaderAlt className="icon" />
+          <IconLoading />
         </div>
       )}
 

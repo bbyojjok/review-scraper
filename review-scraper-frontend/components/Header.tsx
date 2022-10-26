@@ -67,9 +67,6 @@ const Header = () => {
           <a>REVIEW-SCRAPER</a>
         </Link>
       </h1>
-      <Link href="/admin">
-        <a className="btn-admin">Admin</a>
-      </Link>
     </HeaderBlock>
   );
 };

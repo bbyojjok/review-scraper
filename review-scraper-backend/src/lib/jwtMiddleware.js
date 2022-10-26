@@ -11,7 +11,9 @@ export const generateToken = () => {
 
 export const jwtMiddleware = (req, res, next) => {
   const token = req.cookies.access_token;
-  if (!token) return next();
+  if (!token) {
+    return next();
+  }
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
