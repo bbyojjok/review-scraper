@@ -1,20 +1,15 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styled from '@emotion/styled';
+import React, { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import useUser from '../../store/modules/userHook';
+import { removeCookies } from 'cookies-next';
+import wrapper from '../../store';
+import { check } from '../../lib/api';
+import { loginAction } from '../../store/modules/user';
 import Seo from '../../components/common/Seo';
 import LoginForm from '../../components/admin/LoginForm';
-import useUser from '../../store/modules/userHook';
-import { useQuery } from '@tanstack/react-query';
-import { check } from '../../lib/api';
-import wrapper from '../../store';
-import { loginAction } from '../../store/modules/user';
-import { removeCookies } from 'cookies-next';
-import AddList from '../../components/admin/AddList';
-
-const AdminBlock = styled.div`
-  padding: 40px 20px;
-`;
+import AdminBox from '../../components/admin/AdminBox';
 
 const Admin = () => {
   const router = useRouter();
@@ -36,13 +31,14 @@ const Admin = () => {
   useEffect(() => {
     if (isLoggedin) {
       refetchCheck();
+      router.replace('/admin/add');
     }
-  }, []);
+  }, [isLoggedin]);
 
   return (
     <>
       <Seo title="Admin" url={router.asPath} />
-      <AdminBlock>{isLoggedin ? <AddList /> : <LoginForm />}</AdminBlock>
+      <AdminBox>{isLoggedin || <LoginForm />}</AdminBox>
     </>
   );
 };
