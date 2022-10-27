@@ -9,6 +9,10 @@ const Seo = ({ title, url }: SeoProps) => {
   return (
     <Head>
       <title>{`${title} | REVIEW-SCRAPER`}</title>
+      <meta
+        name="viewport"
+        content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"
+      />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`https://review.stlee.kr${url}`} />
       <meta property="og:title" content={`${title} | 앱 리뷰 스크래퍼`} />
