@@ -21,6 +21,8 @@ const SortBlock = styled.div`
     max-width: 100px;
     width: 100%;
     border-radius: 10%;
+    transition: all 0.2s;
+    box-shadow: 0px 0px 3px 0px #000;
 
     img {
       vertical-align: top;
@@ -36,16 +38,30 @@ const SortBlock = styled.div`
 
   .btns {
     padding-left: 8px;
+
+    .score-box {
+      margin-bottom: 4px;
+    }
+
+    .days-box {
+      margin-top: 4px;
+    }
+
+    & > div {
+      display: flex;
+      transition: all 0.2s;
+      box-shadow: 0px 0px 3px 0px #000;
+    }
   }
 
-  .score-box {
-    display: flex;
-    padding-bottom: 4px;
-  }
+  @media (hover: hover) {
+    .info:hover {
+      box-shadow: 0px 0px 5px 0px #000;
+    }
 
-  .days-box {
-    display: flex;
-    padding-top: 4px;
+    .btns > div {
+      box-shadow: 0px 0px 5px 0px #000;
+    }
   }
 `;
 

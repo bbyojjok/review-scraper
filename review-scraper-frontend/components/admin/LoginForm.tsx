@@ -5,13 +5,42 @@ import { setCookie } from 'cookies-next';
 import useUser from '../../store/modules/userHook';
 import styled from '@emotion/styled';
 import IconLoading from '../common/IconLoading';
-
-const StyledInput = styled.input``;
+import InputBox from '../common/InputBox';
+import Button from '../common/Button';
 
 const LoginFormBlock = styled.div`
-  padding: 20px;
-  max-width: 750px;
+  padding: 30px 20px;
+  max-width: 350px;
   margin: 0 auto;
+  background-color: #333;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.2s;
+  box-shadow: 0px 0px 3px 0px #000;
+
+  .title {
+    padding-bottom: 20px;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .filed {
+    margin-top: 15px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .icon {
+    margin-left: 5px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0px 0px 10px 2px #000;
+    }
+  }
 `;
 
 const LoginForm = () => {
@@ -19,8 +48,12 @@ const LoginForm = () => {
     username: '',
     password: '',
   });
+  const [error, setError] = useState<any>({
+    username: null,
+    password: null,
+  });
 
-  const { isLoggedin, login } = useUser();
+  const { login } = useUser();
 
   const { mutate, isLoading, isError } = useMutation(['signin'], signin, {
     onSuccess: (data) => {
@@ -29,7 +62,19 @@ const LoginForm = () => {
       setCookie('userId', username);
     },
     onError: (e: any) => {
-      console.log('로그인에러 에러내용 알려주기', e.response.data);
+      const { error } = e.response.data;
+      if (error === 'worng username') {
+        setError((state: any) => ({
+          ...state,
+          username: 'username이 잘못되었습니다.',
+        }));
+      }
+      if (error === 'worng password') {
+        setError((state: any) => ({
+          ...state,
+          password: 'password이 잘못되었습니다.',
+        }));
+      }
     },
   });
 
@@ -39,38 +84,68 @@ const LoginForm = () => {
       ...state,
       [e.target.name]: e.target.value,
     }));
+    setError((state: any) => ({
+      ...state,
+      [e.target.name]: null,
+    }));
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('# on submit !!');
+
+    if (loginData.username === '') {
+      setError((state: any) => ({
+        ...state,
+        username: 'username을 입력해주세요.',
+      }));
+      return;
+    }
+
+    if (loginData.password === '') {
+      setError((state: any) => ({
+        ...state,
+        password: 'password를 입력해주세요.',
+      }));
+      return;
+    }
+
     mutate(loginData);
   };
 
   return (
     <LoginFormBlock>
+      <div className="title">Administrator</div>
       <form onSubmit={onSubmit}>
-        <div>{`isLoading: ${isLoading}`}</div>
-        <div>{`isError: ${isError}`}</div>
-
-        <StyledInput
-          type="text"
-          name="username"
-          value={loginData.username}
-          onChange={onChange}
-          placeholder="야이디"
-          autoComplete="off"
-        />
-        <StyledInput
-          type="password"
-          name="password"
-          value={loginData.password}
-          onChange={onChange}
-          placeholder="비밀번호"
-          autoComplete="off"
-        />
-        <button>로그인{isLoading && <IconLoading />}</button>
-        <p>## 로그인 상태 isLoggedin: {isLoggedin ? 'true' : 'false'}</p>
+        <div className="filed">
+          <InputBox
+            type="text"
+            name="username"
+            value={loginData.username}
+            placeholder="username"
+            error={error.username}
+            onChange={onChange}
+          />
+        </div>
+        <div className="filed">
+          <InputBox
+            type="password"
+            name="password"
+            value={loginData.password}
+            placeholder="password"
+            error={error.password}
+            onChange={onChange}
+          />
+        </div>
+        <div className="filed">
+          <Button>
+            Login
+            {isLoading && (
+              <span className="icon">
+                <IconLoading />
+              </span>
+            )}
+          </Button>
+        </div>
       </form>
     </LoginFormBlock>
   );

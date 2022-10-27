@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import Seo from '../components/common/Seo';
-import Lists from '../components/Lists';
+import Lists from '../components/list/Lists';
 import { getLists } from '../lib/api/index';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 

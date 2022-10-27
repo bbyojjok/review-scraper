@@ -7,6 +7,8 @@ const ReviewListItemBlock = styled.li`
   font-size: 12px;
   background-color: #333;
   border-radius: 5px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
 
   &:first-of-type {
     margin-top: 0;
@@ -33,6 +35,8 @@ const ReviewListItemBlock = styled.li`
     }
 
     .rate {
+      display: flex;
+      align-items: center;
       width: 65px;
     }
 
@@ -59,6 +63,12 @@ const ReviewListItemBlock = styled.li`
       display: flex;
       justify-content: space-between;
       padding-bottom: 5px;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border: 1px solid #fff;
     }
   }
 `;

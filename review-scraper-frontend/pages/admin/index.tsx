@@ -12,6 +12,10 @@ import { loginAction } from '../../store/modules/user';
 import { removeCookies } from 'cookies-next';
 import AddList from '../../components/admin/AddList';
 
+const AdminBlock = styled.div`
+  padding: 40px 20px;
+`;
+
 const Admin = () => {
   const router = useRouter();
   const { isLoggedin, login, logout } = useUser();
@@ -38,7 +42,7 @@ const Admin = () => {
   return (
     <>
       <Seo title="Admin" url={router.asPath} />
-      {isLoggedin ? <AddList /> : <LoginForm />}
+      <AdminBlock>{isLoggedin ? <AddList /> : <LoginForm />}</AdminBlock>
     </>
   );
 };

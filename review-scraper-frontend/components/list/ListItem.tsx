@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
+import styled from '@emotion/styled';
 import { MdOutlineArrowForward, MdAdd } from 'react-icons/md';
 
 const ListItemBlock = styled.li`
@@ -24,6 +24,7 @@ const ListItemBlock = styled.li`
       border-radius: 10%;
       border: 1px solid transparent;
       transition: all 0.2s;
+      box-shadow: 0px 0px 3px 0px #000;
 
       & > span {
         vertical-align: middle;
@@ -97,6 +98,7 @@ const ListItemBlock = styled.li`
       a:hover {
         .img {
           border: 1px solid #fff;
+          box-shadow: 0px 0px 10px 2px #000;
 
           img {
             scale: 1.1;
