@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import useUser from '../../store/modules/userHook';
 import Seo from '../../components/common/Seo';
 import AdminBox from '../../components/admin/AdminBox';
 import AddList from '../../components/admin/AddList';
-import { useEffect } from 'react';
 
 const Add = () => {
   const router = useRouter();

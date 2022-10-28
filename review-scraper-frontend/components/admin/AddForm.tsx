@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import styled from '@emotion/styled';
 import IconLoading from '../common/IconLoading';
@@ -28,10 +28,6 @@ const AddForm = () => {
     googlePlayAppId: null,
     appStoreId: null,
   });
-
-  useEffect(() => {
-    console.log('@@@@@@@ error:', error);
-  }, [error]);
 
   const { mutate, isLoading, isError } = useMutation(['addList'], addList, {
     onSuccess: (data) => {
