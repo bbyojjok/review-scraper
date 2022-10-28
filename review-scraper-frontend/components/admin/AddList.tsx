@@ -102,9 +102,9 @@ const AddList = () => {
         {lists?.map((list: any) => {
           return (
             <li key={list._id}>
-              <p>{list.name}</p>
-              <p>{list.appStoreId}</p>
-              <p>{list.googlePlayAppId}</p>
+              <p>name: {list.name}</p>
+              <p>googlePlayAppId: {list.googlePlayAppId}</p>
+              <p>appStoreId: {list.appStoreId}</p>
             </li>
           );
         })}
