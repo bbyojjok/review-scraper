@@ -18,13 +18,13 @@ const LoginFormBlock = styled.div`
   transition: all 0.2s;
   box-shadow: 0px 0px 3px 0px #000;
 
-  .title {
+  h2 {
     padding-bottom: 20px;
     font-size: 16px;
     color: #fff;
   }
 
-  .filed {
+  .field {
     margin-top: 15px;
 
     &:first-of-type {
@@ -62,6 +62,8 @@ const LoginForm = () => {
       setCookie('userId', username);
     },
     onError: (e: any) => {
+      console.log(e.response);
+
       const { error } = e.response.data;
       if (error === 'worng username') {
         setError((state: any) => ({
@@ -79,7 +81,6 @@ const LoginForm = () => {
   });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.value;
     setLoginData((state: any) => ({
       ...state,
       [e.target.name]: e.target.value,
@@ -114,9 +115,9 @@ const LoginForm = () => {
 
   return (
     <LoginFormBlock>
-      <div className="title">Administrator</div>
+      <h2>Administrator</h2>
       <form onSubmit={onSubmit}>
-        <div className="filed">
+        <div className="field">
           <InputBox
             type="text"
             name="username"
@@ -126,7 +127,7 @@ const LoginForm = () => {
             onChange={onChange}
           />
         </div>
-        <div className="filed">
+        <div className="field">
           <InputBox
             type="password"
             name="password"
@@ -136,7 +137,7 @@ const LoginForm = () => {
             onChange={onChange}
           />
         </div>
-        <div className="filed">
+        <div className="field">
           <Button>
             Login
             {isLoading && (

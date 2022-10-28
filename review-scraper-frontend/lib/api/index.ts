@@ -34,16 +34,52 @@ export const signin = async ({
   username: string;
   password: string;
 }) => {
-  const { data } = await client.post(`/api/auth/login`, { username, password });
+  const { data } = await client.post('/api/auth/login', { username, password });
   return data;
 };
 
 export const check = async () => {
-  const { data } = await client.get(`/api/auth/check`);
+  const { data } = await client.get('/api/auth/check');
   return data;
 };
 
 export const signout = async () => {
-  const { data } = await client.get(`/api/auth/logout`);
+  const { data } = await client.get('/api/auth/logout');
+  return data;
+};
+
+export const addList = async ({
+  name,
+  appStoreId,
+  googlePlayAppId,
+}: {
+  name: string;
+  appStoreId: number;
+  googlePlayAppId: string;
+}) => {
+  const { data } = await client.post('/api/list', {
+    name,
+    appStoreId,
+    googlePlayAppId,
+  });
+  return data;
+
+  /*
+  try {
+    const { data } = await client.post('/api/list', {
+      name,
+      appStoreId,
+      googlePlayAppId,
+    });
+    return data;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+  */
+};
+
+export const scrapStart = async () => {
+  const { data } = await client.post('/api/review/scrap');
   return data;
 };

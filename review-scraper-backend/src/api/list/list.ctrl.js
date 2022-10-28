@@ -11,15 +11,20 @@ const validtationAppId = async ({ googlePlayAppId, appStoreId }) => {
   const googlePlay = await scrapingDetailGooglePlay(googlePlayAppId);
   const appStore = await scrapingDetailAppStore(appStoreId);
 
+  console.log('validtationAppId googlePlay:', googlePlay);
+  console.log('validtationAppId appStore:', appStore);
+
   const result = { googlePlay, appStore, error: null };
   const err = (!googlePlay && 'googlePlayAppId') || (!appStore && 'appStoreId');
   if (err) {
     result.error = `${err} validation failed`;
   }
+
+  console.log('validtationAppId result:', result);
   return result;
 };
 
-/* 리스트 작성
+/* 리스트 추가
 POST /api/list
 {
   "name": "thehyundai",
@@ -47,13 +52,14 @@ export const write = async (req, res) => {
     appStoreId,
   });
   if (error) {
-    return res.status(400).json(error);
+    console.log('에러~~~~~~~~~~~');
+    return res.status(401).json({ error });
   }
 
   // db에 같은 name이 존재하는지 체크
   const existList = await List.findOne({ name }).exec();
   if (existList) {
-    return res.status(400).json({ error: `${name} exist` });
+    return res.status(400).json({ error: `exist` });
   }
 
   // list 저장

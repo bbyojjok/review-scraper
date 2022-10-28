@@ -49,4 +49,14 @@ export const dummyList = [
     googlePlayAppId: 'com.lotte',
     appStoreId: 376622474,
   },
+  {
+    name: 'hpoint',
+    googlePlayAppId: 'kr.co.hpoint.hdgm',
+    appStoreId: 1255389331,
+  },
+  {
+    name: 'ehyundai',
+    googlePlayAppId: 'com.ehyundai.mobile',
+    appStoreId: 836305143,
+  },
 ];
