@@ -57,12 +57,12 @@ export const addList = async ({
   appStoreId: number;
   googlePlayAppId: string;
 }) => {
-  const { data } = await client.post('/api/list', {
+  const response = await client.post('/api/list', {
     name,
     appStoreId,
     googlePlayAppId,
   });
-  return data;
+  return response;
 
   /*
   try {

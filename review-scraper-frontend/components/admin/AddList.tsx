@@ -11,6 +11,7 @@ const AddListBlock = styled.div`
   max-width: 350px;
   margin: 0 auto;
   background-color: #333;
+  border-radius: 5px;
   transition: all 0.2s;
   box-shadow: 0px 0px 3px 0px #000;
 
@@ -21,7 +22,7 @@ const AddListBlock = styled.div`
     color: #fff;
   }
 
-  & > .field {
+  .field {
     margin-top: 15px;
 
     &:first-of-type {
@@ -30,7 +31,8 @@ const AddListBlock = styled.div`
   }
 
   .scrap-list {
-    padding-top: 30px;
+    padding: 30px 0 10px;
+
     li {
       padding: 10px;
       margin-top: 15px;
@@ -71,8 +73,8 @@ const AddList = () => {
     onSuccess: (data) => {
       console.log('성공 data:', data);
     },
-    onError: (e: any) => {
-      console.log('실패 e:', e);
+    onError: (ctx: any) => {
+      console.log('실패 ctx:', ctx);
     },
   });
 
@@ -85,8 +87,6 @@ const AddList = () => {
   const onScrapStart = () => {
     mutate();
   };
-
-  console.log(lists);
 
   return (
     <AddListBlock>

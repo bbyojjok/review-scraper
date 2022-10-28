@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import styled from '@emotion/styled';
 import IconLoading from '../common/IconLoading';
@@ -12,12 +12,8 @@ const AddFormBlock = styled.div`
   border-top: 1px solid #222;
   border-bottom: 1px solid #222;
 
-  .field {
-    margin-top: 15px;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
+  .icon {
+    margin-left: 5px;
   }
 `;
 
@@ -33,18 +29,17 @@ const AddForm = () => {
     appStoreId: null,
   });
 
+  useEffect(() => {
+    console.log('@@@@@@@ error:', error);
+  }, [error]);
+
   const { mutate, isLoading, isError } = useMutation(['addList'], addList, {
     onSuccess: (data) => {
-      console.log('성공?!');
       setScrapData({ name: '', googlePlayAppId: '', appStoreId: '' });
     },
-    onError: (e: any) => {
-      const { error } = e.response.data;
 
-      // 유호성검사
-      console.log('실패 error:', e.response.data.details[0]);
-
-      console.log(e);
+    onError: (ctx: any) => {
+      const { error } = ctx.response.data;
 
       if (error === 'exist') {
         setError((state: any) => ({
@@ -53,12 +48,26 @@ const AddForm = () => {
         }));
       }
 
-      // if (error === 'worng password') {
-      //   setError((state: any) => ({
-      //     ...state,
-      //     password: 'password이 잘못되었습니다.',
-      //   }));
-      // }
+      if (error === 'googlePlayAppId validation failed') {
+        setError((state: any) => ({
+          ...state,
+          googlePlayAppId: '유효하지 않는 googlePlayAppId 입니다.',
+        }));
+      }
+
+      if (error === 'appStoreId validation failed') {
+        setError((state: any) => ({
+          ...state,
+          appStoreId: '유효하지 않는 appStoreId 입니다.',
+        }));
+      }
+
+      if (ctx.response?.data?.details[0]?.type === 'number.base') {
+        setError((state: any) => ({
+          ...state,
+          appStoreId: '유효하지 않는 appStoreId 입니다.',
+        }));
+      }
     },
   });
 

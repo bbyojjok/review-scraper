@@ -19,7 +19,7 @@ const Admin = () => {
     onSuccess: ({ username: userId }) => {
       login({ userId });
     },
-    onError: (e) => {
+    onError: (ctx) => {
       if (isLoggedin) {
         logout();
         removeCookies('userId');

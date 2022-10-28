@@ -54,17 +54,14 @@ const LoginForm = () => {
   });
 
   const { login } = useUser();
-
-  const { mutate, isLoading, isError } = useMutation(['signin'], signin, {
+  const { mutate, isLoading } = useMutation(['signin'], signin, {
     onSuccess: (data) => {
       const { username } = loginData;
       login({ userId: username });
       setCookie('userId', username);
     },
-    onError: (e: any) => {
-      console.log(e.response);
-
-      const { error } = e.response.data;
+    onError: (ctx: any) => {
+      const { error } = ctx.response.data;
       if (error === 'worng username') {
         setError((state: any) => ({
           ...state,
