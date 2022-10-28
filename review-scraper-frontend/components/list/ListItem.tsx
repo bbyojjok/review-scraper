@@ -50,8 +50,11 @@ const ListItemBlock = styled.li`
         transition: opacity 0.2s;
 
         .icon {
-          display: inline-block;
-          padding: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 36px;
+          height: 36px;
           background-color: rgba(255, 255, 255, 0.6);
           border-radius: 50%;
         }
