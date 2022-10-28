@@ -5,6 +5,7 @@ import useUser from '../../store/modules/userHook';
 import styled from '@emotion/styled';
 import AddForm from './AddForm';
 import Button from '../common/Button';
+import IconLoading from '../common/IconLoading';
 
 const AddListBlock = styled.div`
   padding: 20px;
@@ -20,6 +21,10 @@ const AddListBlock = styled.div`
     padding-bottom: 20px;
     font-size: 16px;
     color: #fff;
+  }
+
+  .icon {
+    margin-left: 5px;
   }
 
   .field {
@@ -46,7 +51,7 @@ const AddListBlock = styled.div`
       }
 
       p {
-        font-size: 13px;
+        font-size: 12px;
       }
     }
   }
@@ -69,14 +74,18 @@ const AddList = () => {
   });
 
   const { data: lists } = useQuery(['lists'], () => getLists());
-  const { mutate } = useMutation(['scrapStart'], () => scrapStart(), {
-    onSuccess: (data) => {
-      console.log('성공 data:', data);
+  const { mutate, isLoading } = useMutation(
+    ['scrapStart'],
+    () => scrapStart(),
+    {
+      onSuccess: (data) => {
+        console.log('성공 data:', data);
+      },
+      onError: (ctx: any) => {
+        console.log('실패 ctx:', ctx);
+      },
     },
-    onError: (ctx: any) => {
-      console.log('실패 ctx:', ctx);
-    },
-  });
+  );
 
   const onLogout = () => {
     refetchSignout();
@@ -95,7 +104,14 @@ const AddList = () => {
         <Button onClick={onLogout}>로그아웃</Button>
       </div>
       <div className="field">
-        <Button onClick={onScrapStart}>스크랩 시작</Button>
+        <Button onClick={onScrapStart}>
+          스크랩 시작
+          {isLoading && (
+            <span className="icon">
+              <IconLoading />
+            </span>
+          )}
+        </Button>
       </div>
       <AddForm />
       <ul className="scrap-list">

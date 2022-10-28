@@ -6,6 +6,21 @@ const appStoreReview = async ({ id, country, page }) => {
     const { data } = await axios.get(url);
     const { entry } = data.feed;
 
+    if (!Array.isArray(entry) && entry !== undefined) {
+      const review = {};
+      review.id = entry.id.label;
+      review.app = id;
+      review.author = entry.author.name.label;
+      review.version = entry['im:version'].label;
+      review.rate = entry['im:rating'].label;
+      review.title = entry.title.label;
+      review.comment = entry.content.label;
+      review.vote = entry['im:voteCount'].label;
+      review.date = entry.updated.label;
+      review.country = country;
+      return [review];
+    }
+
     if (entry) {
       return entry.reduce((acc, cur) => {
         const review = {};
