@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import styled from '@emotion/styled';
 import IconLoading from '../common/IconLoading';
@@ -67,7 +67,7 @@ const AddForm = () => {
     },
   });
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setScrapData((state: any) => ({
       ...state,
       [e.target.name]: e.target.value,
@@ -76,38 +76,41 @@ const AddForm = () => {
       ...state,
       [e.target.name]: null,
     }));
-  };
+  }, []);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    if (scrapData.name === '') {
-      setError((state: any) => ({
-        ...state,
-        name: 'name을 입력해주세요.',
-      }));
-      return;
-    }
+      if (scrapData.name === '') {
+        setError((state: any) => ({
+          ...state,
+          name: 'name을 입력해주세요.',
+        }));
+        return;
+      }
 
-    if (scrapData.googlePlayAppId === '') {
-      setError((state: any) => ({
-        ...state,
-        googlePlayAppId: 'googlePlayApp ID를 입력해주세요.',
-      }));
-      return;
-    }
+      if (scrapData.googlePlayAppId === '') {
+        setError((state: any) => ({
+          ...state,
+          googlePlayAppId: 'googlePlayApp ID를 입력해주세요.',
+        }));
+        return;
+      }
 
-    if (scrapData.appStoreId === '') {
-      setError((state: any) => ({
-        ...state,
-        appStoreId: 'appStore ID를 입력해주세요.',
-      }));
-      return;
-    }
+      if (scrapData.appStoreId === '') {
+        setError((state: any) => ({
+          ...state,
+          appStoreId: 'appStore ID를 입력해주세요.',
+        }));
+        return;
+      }
 
-    const { name, appStoreId, googlePlayAppId } = scrapData;
-    mutate({ name, appStoreId: parseInt(appStoreId, 10), googlePlayAppId });
-  };
+      const { name, appStoreId, googlePlayAppId } = scrapData;
+      mutate({ name, appStoreId: parseInt(appStoreId, 10), googlePlayAppId });
+    },
+    [scrapData],
+  );
 
   return (
     <AddFormBlock>

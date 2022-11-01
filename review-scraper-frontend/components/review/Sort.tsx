@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import SortLabel from './SortLabel';
@@ -123,4 +124,4 @@ const Sort = ({
   );
 };
 
-export default Sort;
+export default React.memo(Sort);

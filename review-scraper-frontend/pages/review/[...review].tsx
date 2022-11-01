@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import Seo from '../../components/common/Seo';
 import Reviews from '../../components/review/Reviews';
@@ -55,28 +55,34 @@ const Review = ({
     },
   };
 
-  const changeScore = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    if (selectedScore === val) {
-      return;
-    }
+  const changeScore = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value;
+      if (selectedScore === val) {
+        return;
+      }
 
-    const arrSelectedScore = selectedScore.split('');
-    const findScore = arrSelectedScore.find((score) => score === val);
-    let calScore = arrSelectedScore.concat(val).sort().join('');
-    if (findScore) {
-      calScore = arrSelectedScore
-        .filter((score) => score !== findScore)
-        .sort()
-        .join('');
-    }
+      const arrSelectedScore = selectedScore.split('');
+      const findScore = arrSelectedScore.find((score) => score === val);
+      let calScore = arrSelectedScore.concat(val).sort().join('');
+      if (findScore) {
+        calScore = arrSelectedScore
+          .filter((score) => score !== findScore)
+          .sort()
+          .join('');
+      }
 
-    router.push(`/review/${selectedName}/${selectedDay}/${calScore}`);
-  };
+      router.push(`/review/${selectedName}/${selectedDay}/${calScore}`);
+    },
+    [selectedName, selectedDay, selectedScore],
+  );
 
-  const changeDays = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    router.push(`/review/${selectedName}/${e.target.value}/${selectedScore}`);
-  };
+  const changeDays = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      router.push(`/review/${selectedName}/${e.target.value}/${selectedScore}`);
+    },
+    [selectedName, selectedScore],
+  );
 
   return (
     <>

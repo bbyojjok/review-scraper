@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { signin } from '../../lib/api';
 import { setCookie } from 'cookies-next';
@@ -77,7 +77,7 @@ const LoginForm = () => {
     },
   });
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginData((state: any) => ({
       ...state,
       [e.target.name]: e.target.value,
@@ -86,29 +86,32 @@ const LoginForm = () => {
       ...state,
       [e.target.name]: null,
     }));
-  };
+  }, []);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    if (loginData.username === '') {
-      setError((state: any) => ({
-        ...state,
-        username: 'username을 입력해주세요.',
-      }));
-      return;
-    }
+      if (loginData.username === '') {
+        setError((state: any) => ({
+          ...state,
+          username: 'username을 입력해주세요.',
+        }));
+        return;
+      }
 
-    if (loginData.password === '') {
-      setError((state: any) => ({
-        ...state,
-        password: 'password를 입력해주세요.',
-      }));
-      return;
-    }
+      if (loginData.password === '') {
+        setError((state: any) => ({
+          ...state,
+          password: 'password를 입력해주세요.',
+        }));
+        return;
+      }
 
-    mutate(loginData);
-  };
+      mutate(loginData);
+    },
+    [loginData],
+  );
 
   return (
     <LoginFormBlock>

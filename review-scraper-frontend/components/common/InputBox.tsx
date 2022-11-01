@@ -82,4 +82,4 @@ const InputBox = ({
   );
 };
 
-export default InputBox;
+export default React.memo(InputBox);

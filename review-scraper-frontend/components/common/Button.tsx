@@ -34,4 +34,4 @@ const Button = (props: ButtonProps) => {
   return <StyledButton {...props} />;
 };
 
-export default Button;
+export default React.memo(Button);

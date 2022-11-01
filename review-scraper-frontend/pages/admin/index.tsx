@@ -18,6 +18,7 @@ const Admin = () => {
   const { refetch: refetchCheck } = useQuery(['check'], check, {
     onSuccess: ({ username: userId }) => {
       login({ userId });
+      router.replace('/admin/add');
     },
     onError: (ctx) => {
       if (isLoggedin) {
@@ -31,7 +32,6 @@ const Admin = () => {
   useEffect(() => {
     if (isLoggedin) {
       refetchCheck();
-      router.replace('/admin/add');
     }
   }, [isLoggedin]);
 

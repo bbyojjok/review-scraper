@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import { UAParser } from 'ua-parser-js';
 import styled from '@emotion/styled';
@@ -55,7 +55,8 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   const [hasNextPage, setHasNextPage] = useState<boolean>(totalCount >= 10);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
-  const loadMore = async () => {
+
+  const loadMore = useCallback(async () => {
     setLoading(true);
     try {
       const url = `/${name}/${day}/${score}/${
@@ -78,7 +79,8 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [name, day, score, reviewPage]);
+
   const [sentryRef] = useInfiniteScroll({
     loading,
     hasNextPage,

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import { MdStar } from 'react-icons/md';
 import { SiGoogleplay, SiApple } from 'react-icons/si';
@@ -66,4 +67,4 @@ const ReviewTitle = ({ os, score, version, url, length }: ReviewTitleProps) => {
   );
 };
 
-export default ReviewTitle;
+export default React.memo(ReviewTitle);

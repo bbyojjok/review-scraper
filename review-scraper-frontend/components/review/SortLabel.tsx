@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 
 const SortLabelBlock = styled.label`
@@ -90,4 +91,4 @@ const SortLabel = ({ type, value, onChange, checked }: SortLabelProp) => {
   );
 };
 
-export default SortLabel;
+export default React.memo(SortLabel);

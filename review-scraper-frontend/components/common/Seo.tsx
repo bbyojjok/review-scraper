@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 
 type SeoProps = {
@@ -12,6 +13,10 @@ const Seo = ({ title, url }: SeoProps) => {
       <meta
         name="viewport"
         content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"
+      />
+      <meta
+        name="description"
+        content="커머스 앱 리뷰 모아보기. 평점 및 일자를 조회해서 리뷰를 확인해보세요."
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`https://review.stlee.kr${url}`} />
@@ -32,4 +37,4 @@ const Seo = ({ title, url }: SeoProps) => {
   );
 };
 
-export default Seo;
+export default React.memo(Seo);

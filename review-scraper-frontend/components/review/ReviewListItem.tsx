@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from '@emotion/styled';
 import { MdStar, MdSubdirectoryArrowRight } from 'react-icons/md';
 
@@ -130,4 +131,4 @@ const ReviewListItem = ({ os, reviewData }: ReviewListItemProps) => {
   );
 };
 
-export default ReviewListItem;
+export default React.memo(ReviewListItem);
