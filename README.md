@@ -17,3 +17,4 @@
   - Next
   - Typescript
   - React-Query
+  - Redux
