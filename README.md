@@ -18,3 +18,4 @@
   - Typescript
   - React-Query
   - Redux
+  - Emotion

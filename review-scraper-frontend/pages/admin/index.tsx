@@ -21,10 +21,9 @@ const Admin = () => {
       router.replace('/admin/add');
     },
     onError: (ctx) => {
-      if (isLoggedin) {
-        logout();
-        removeCookies('userId');
-      }
+      console.log('# refetchCheck: 에러~~~~~~~', ctx);
+      logout();
+      removeCookies('userId');
     },
     enabled: false,
   });
