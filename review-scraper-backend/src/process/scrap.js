@@ -168,6 +168,26 @@ const scrapingReview = async (data) => {
   }
 };
 
+const cleaningReview = async (data) => {
+  const { Review } = data;
+
+  const day = 90;
+  const today = moment().startOf('day').format();
+  const prevday = moment(today).subtract(day, 'days').format();
+  const option = {
+    date: {
+      $lte: prevday,
+    },
+  };
+
+  try {
+    const { deletedCount } = await Review.deleteMany(option).lean().exec();
+    // console.log('deletedCount:', deletedCount);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 export const scrapingStart = async (data) => {
   // 스크랩 시작
   const { name } = data;
@@ -177,6 +197,7 @@ export const scrapingStart = async (data) => {
 [SCRAPING/BEGIN] #${name} ${nowDate()}`);
   await scrapingDetail(data);
   await scrapingReview(data);
+  await cleaningReview(data);
   console.log(`[SCRAPING/FINISH] #${name} ${nowDate()}`);
 };
 
