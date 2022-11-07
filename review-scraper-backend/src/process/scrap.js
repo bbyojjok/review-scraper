@@ -171,7 +171,7 @@ const scrapingReview = async (data) => {
 const cleaningReview = async (data) => {
   const { Review } = data;
 
-  const day = 90;
+  const day = 120;
   const today = moment().startOf('day').format();
   const prevday = moment(today).subtract(day, 'days').format();
   const option = {

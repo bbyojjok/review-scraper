@@ -67,7 +67,7 @@ const SortBlock = styled.div`
 `;
 
 const scores: string[] = ['1', '2', '3', '4', '5'];
-const days: string[] = ['7', '15', '30', '60', '90'];
+const days: string[] = ['7', '30', '60', '90', '120'];
 
 type SortProps = {
   detail: any;
