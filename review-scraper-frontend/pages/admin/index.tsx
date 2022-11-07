@@ -26,6 +26,7 @@ const Admin = () => {
       removeCookies('userId');
     },
     enabled: false,
+    retry: 1,
   });
 
   useEffect(() => {
