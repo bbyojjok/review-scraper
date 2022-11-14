@@ -20,7 +20,7 @@ const Lists = ({ lists }: ListsProps) => {
   return (
     <ListsBlock>
       <ul>
-        {lists.map((list: any) => {
+        {lists?.map((list: any) => {
           const { name, appStore } = list;
           const { icon, title } = appStore;
           return <ListItem key={name} icon={icon} name={name} title={title} />;
