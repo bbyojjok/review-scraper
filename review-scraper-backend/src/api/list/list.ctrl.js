@@ -81,7 +81,7 @@ export const write = async (req, res) => {
 };
 
 /* 리스트 조회
-GET /api/list/name?
+GET /api/list/:name?
 GET /api/list/
 GET /api/list/thehyundai
 */
@@ -127,3 +127,26 @@ export const list = async (req, res) => {
     return res.status(500).json(e);
   }
 };
+
+/* 리스트 삭제
+DELETE  /api/list/:name
+*/
+export const remove = async (req, res) => {
+  const { name } = req.params;
+
+  try {
+    await List.findByIdAndRemove(name).exec();
+  } catch (e) {
+    return res.status(500).json(e);
+  }
+};
+
+/*
+리스트 수정
+PATCH /api/list/:name
+{
+  "name": "thehyundai",
+  "googlePlayAppId": "com.hdmallapp.thehyundai",
+  "appStoreId": 1067693191
+}
+*/
