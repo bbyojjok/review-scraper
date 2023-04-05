@@ -129,7 +129,7 @@ export const list = async (req, res) => {
 };
 
 /* 리스트 삭제
-DELETE  /api/list/:name
+DELETE /api/list/:name
 */
 export const remove = async (req, res) => {
   const { name } = req.params;

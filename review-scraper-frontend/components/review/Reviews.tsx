@@ -39,10 +39,10 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
       <div className="review-wrap">
         <ReviewTitle
           os="GooglePlay"
-          score={detail.googlePlay.score.toFixed(1)}
-          version={detail.googlePlay.version}
-          url={detail.googlePlay.url}
-          length={reviews.googlePlay.totalCount}
+          score={detail?.googlePlay?.score.toFixed(1)}
+          version={detail?.googlePlay?.version}
+          url={detail?.googlePlay?.url}
+          length={reviews?.googlePlay?.totalCount}
         />
         <ReviewList
           os="GooglePlay"
@@ -53,10 +53,10 @@ const Reviews = ({ detail, reviews }: ReviewsProps) => {
       <div className="review-wrap">
         <ReviewTitle
           os="AppStore"
-          score={detail.appStore.score.toFixed(1)}
-          version={detail.appStore.version}
-          url={detail.appStore.url}
-          length={reviews.appStore.totalCount}
+          score={detail?.appStore?.score.toFixed(1)}
+          version={detail?.appStore?.version}
+          url={detail?.appStore?.url}
+          length={reviews?.appStore?.totalCount}
         />
         <ReviewList
           os="AppStore"

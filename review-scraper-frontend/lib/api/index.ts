@@ -63,20 +63,12 @@ export const addList = async ({
     googlePlayAppId,
   });
   return response;
+};
 
-  /*
-  try {
-    const { data } = await client.post('/api/list', {
-      name,
-      appStoreId,
-      googlePlayAppId,
-    });
-    return data;
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
-  */
+export const deleteList = async (name: string) => {
+  console.log('name:', name);
+
+  return;
 };
 
 export const scrapStart = async () => {

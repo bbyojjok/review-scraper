@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { deleteCookie } from 'cookies-next';
-import { getLists, signout, scrapStart } from '../../lib/api';
+import { getLists, signout, scrapStart, deleteList } from '../../lib/api';
 import useUser from '../../store/modules/userHook';
 import styled from '@emotion/styled';
 import AddForm from './AddForm';
@@ -52,6 +52,7 @@ const AddListBlock = styled.div`
 
       p {
         font-size: 12px;
+        margin-top: 10px;
       }
     }
   }
@@ -67,6 +68,19 @@ const AddListBlock = styled.div`
   }
 `;
 
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+
+  button {
+    width: auto;
+    margin-left: 10px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+`;
+
 const AddList = () => {
   const { logout } = useUser();
   const { refetch: refetchSignout } = useQuery(['signout'], signout, {
@@ -74,18 +88,21 @@ const AddList = () => {
   });
 
   const { data: lists } = useQuery(['lists'], () => getLists());
-  const { mutate, isLoading } = useMutation(
-    ['scrapStart'],
-    () => scrapStart(),
-    {
-      onSuccess: (data) => {
-        console.log('성공 data:', data);
-      },
-      onError: (ctx: any) => {
-        console.log('실패 ctx:', ctx);
-      },
+  const scrapStartMutation = useMutation(['scrapStart'], () => scrapStart(), {
+    onSuccess: (data) => {
+      console.log('성공 data:', data);
     },
-  );
+    onError: (ctx: any) => {
+      console.log('실패 ctx:', ctx);
+    },
+  });
+
+  const deleteListMutation = useMutation(['deleteList'], deleteList, {
+    onSuccess: (data) => {
+      console.log('성공 data:', data);
+    },
+    onError: (ctx: any) => {},
+  });
 
   const onLogout = () => {
     refetchSignout();
@@ -94,7 +111,12 @@ const AddList = () => {
   };
 
   const onScrapStart = () => {
-    mutate();
+    scrapStartMutation.mutate();
+  };
+
+  const onDelete = (name: string) => {
+    console.log('삭제', name);
+    deleteListMutation.mutate(name);
   };
 
   return (
@@ -106,7 +128,7 @@ const AddList = () => {
       <div className="field">
         <Button onClick={onScrapStart}>
           스크랩 시작
-          {isLoading && (
+          {scrapStartMutation.isLoading && (
             <span className="icon">
               <IconLoading />
             </span>
@@ -121,6 +143,10 @@ const AddList = () => {
               <p>name: {list.name}</p>
               <p>googlePlayAppId: {list.googlePlayAppId}</p>
               <p>appStoreId: {list.appStoreId}</p>
+              <ButtonBox>
+                <Button>수정</Button>
+                <Button onClick={() => onDelete(list.name)}>삭제</Button>
+              </ButtonBox>
             </li>
           );
         })}
