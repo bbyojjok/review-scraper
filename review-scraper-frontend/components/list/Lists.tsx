@@ -22,6 +22,9 @@ const Lists = ({ lists }: ListsProps) => {
       <ul>
         {lists?.map((list: any) => {
           const { name, appStore } = list;
+          if (appStore === null) {
+            return;
+          }
           const { icon, title } = appStore;
           return <ListItem key={name} icon={icon} name={name} title={title} />;
         })}
