@@ -40,6 +40,8 @@ export const login = (req, res) => {
   res.cookie('access_token', token, {
     maxAge: 1000 * 60 * 60 * 24 * 7,
     httpOnly: true,
+    sameSite: 'none',
+    secure: true,
   });
 
   return res.send({ token });

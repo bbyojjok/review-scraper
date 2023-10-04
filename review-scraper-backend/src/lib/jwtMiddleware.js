@@ -25,6 +25,8 @@ export const jwtMiddleware = (req, res, next) => {
       res.cookie('access_token', token, {
         maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true,
+        sameSite: 'none',
+        secure: true,
       });
     }
     return next();

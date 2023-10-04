@@ -50,12 +50,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(helmet());
 app.use(compression());
-app.use(
-  cookieParser({
-    sameSite: 'none',
-    secure: true,
-  }),
-);
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(jwtMiddleware);
