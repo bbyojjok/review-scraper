@@ -27,11 +27,6 @@ export const getLists = async (name?: string) => {
 
 export const getReview = async (url: string) => {
   const { data, headers } = await client.get(`/api/review/day${url}`);
-  console.log('headers:', headers['total-count']);
-  console.log('data:', data);
-  console.log('lastPage:', data.lastPage);
-  console.log('totalCount:', data.totalCount);
-
   return {
     data: data.result,
     totalCount: data.totalCount,
