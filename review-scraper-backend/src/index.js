@@ -52,7 +52,7 @@ app.use(helmet());
 app.use(compression());
 app.use(
   cookieParser({
-    sameSite: 'None',
+    sameSite: 'none',
   }),
 );
 app.use(bodyParser.urlencoded({ extended: true }));
