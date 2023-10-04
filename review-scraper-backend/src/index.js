@@ -53,6 +53,7 @@ app.use(compression());
 app.use(
   cookieParser({
     sameSite: 'none',
+    secure: true,
   }),
 );
 app.use(bodyParser.urlencoded({ extended: true }));
