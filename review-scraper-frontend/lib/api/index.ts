@@ -8,7 +8,13 @@ export const findList = (name?: string) => {
   return client.get(url);
 };
 
-export const findReview = (url: string) => client.get(`/api/review/day${url}`);
+export const findReview = async (url: string) => {
+  const { data } = await client.get(`/api/review/day${url}`);
+  return {
+    data: data.result,
+    lastPage: data.lastPage,
+  };
+};
 
 export const getLists = async (name?: string) => {
   let url = '/api/list';
@@ -21,9 +27,14 @@ export const getLists = async (name?: string) => {
 
 export const getReview = async (url: string) => {
   const { data, headers } = await client.get(`/api/review/day${url}`);
+  console.log('headers:', headers['total-count']);
+  console.log('data:', data);
+  console.log('lastPage:', data.lastPage);
+  console.log('totalCount:', data.totalCount);
+
   return {
-    data,
-    totalCount: headers['total-count'],
+    data: data.result,
+    totalCount: data.totalCount,
   };
 };
 

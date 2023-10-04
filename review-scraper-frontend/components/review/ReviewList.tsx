@@ -68,9 +68,9 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
       // console.log(response.error);
       // console.log('## response:', response);
 
-      const { data, headers } = await findReview(url);
+      const { data, lastPage } = await findReview(url);
       setReviewList((prevState: any) => prevState.concat(data));
-      if (reviewPage === parseInt(headers['last-page'])) {
+      if (reviewPage === parseInt(lastPage)) {
         setHasNextPage(false);
       }
       setReviwPage((prevState) => prevState + 1);

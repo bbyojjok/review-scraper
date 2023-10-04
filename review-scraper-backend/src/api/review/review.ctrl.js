@@ -89,7 +89,11 @@ export const readDay = async (req, res) => {
       );
       return res.json({ googlePlay, appStore });
     }
-    return res.json(result);
+    return res.json({
+      result,
+      lastPage: Math.ceil(queryResultCount / 10),
+      totalCount: queryResultCount,
+    });
   } catch (e) {
     return res.status(500).json(e);
   }
