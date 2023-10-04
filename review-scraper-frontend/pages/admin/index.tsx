@@ -30,6 +30,8 @@ const Admin = () => {
   });
 
   useEffect(() => {
+    console.log('# isLoggedin:', isLoggedin);
+
     if (isLoggedin) {
       refetchCheck();
     }

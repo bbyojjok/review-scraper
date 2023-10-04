@@ -21,7 +21,9 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:8082/api/:path*',
+        destination:
+          'https://port-0-review-scraper-iciy2almznf244.sel5.cloudtype.app/api/:path*',
+        // destination: 'http://localhost:8082/api/:path*',
       },
     ];
   },
