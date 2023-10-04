@@ -26,7 +26,7 @@ export const getLists = async (name?: string) => {
 };
 
 export const getReview = async (url: string) => {
-  const { data, headers } = await client.get(`/api/review/day${url}`);
+  const { data } = await client.get(`/api/review/day${url}`);
   return {
     data: data.result,
     totalCount: data.totalCount,
