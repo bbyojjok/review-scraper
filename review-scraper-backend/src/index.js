@@ -34,6 +34,7 @@ const whitelist = [
   'https://localhost:8083',
   'http://review.stlee.kr',
   'https://review.stlee.kr',
+  'https://review-scraper-red.vercel.app',
 ];
 const corsOptions = {
   credentials: true,
