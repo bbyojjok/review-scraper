@@ -43,7 +43,9 @@ const corsOptions = {
       callback(null, true);
     } else {
       callback(
-        new Error('Not allowed by CORS', whitelist.indexOf(origin), origin),
+        new Error(
+          `Not allowed by CORS / ${whitelist.indexOf(origin)} / ${origin}`,
+        ),
       );
     }
   },
