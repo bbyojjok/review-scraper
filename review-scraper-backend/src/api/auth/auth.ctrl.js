@@ -42,7 +42,7 @@ export const login = (req, res) => {
     httpOnly: true,
     sameSite: 'none',
     secure: true,
-    domain: '/',
+    domain: '.stlee.kr',
   });
 
   return res.send({ token });
