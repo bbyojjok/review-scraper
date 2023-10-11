@@ -48,8 +48,6 @@ export default Admin;
 export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps(
     (store) => async (context: GetServerSidePropsContext) => {
-      console.log('### context.req.cookies:', context.req.cookies);
-
       const { access_token: token, userId } = context.req?.cookies;
       if (!token) {
         return { props: {} };

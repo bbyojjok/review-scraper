@@ -1,7 +1,10 @@
 import Dotenv from 'dotenv';
 Dotenv.config();
 import Joi from 'joi';
-import { generateToken } from '../../lib/jwtMiddleware.js';
+import {
+  generateToken,
+  generateCookieOptions,
+} from '../../lib/jwtMiddleware.js';
 
 const { ADMIN_USERNAME, ADMIN_PASSWORD } = process.env;
 
@@ -37,13 +40,7 @@ export const login = (req, res) => {
   }
 
   const token = generateToken();
-  res.cookie('access_token', token, {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-    httpOnly: true,
-    sameSite: 'none',
-    secure: true,
-    domain: '.stlee.kr',
-  });
+  res.cookie('access_token', token, generateCookieOptions());
 
   return res.send({ token });
 };
