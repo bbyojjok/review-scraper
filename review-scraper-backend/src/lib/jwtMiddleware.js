@@ -27,6 +27,7 @@ export const jwtMiddleware = (req, res, next) => {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
+        path: '/',
       });
     }
     return next();

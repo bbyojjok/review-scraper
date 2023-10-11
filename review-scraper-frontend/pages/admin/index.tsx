@@ -17,6 +17,7 @@ const Admin = () => {
 
   const { refetch: refetchCheck } = useQuery(['check'], check, {
     onSuccess: ({ username: userId }) => {
+      console.log('성공??');
       login({ userId });
       router.replace('/admin/add');
     },
@@ -30,6 +31,7 @@ const Admin = () => {
   });
 
   useEffect(() => {
+    console.log('### isLoggedin:', isLoggedin);
     if (isLoggedin) {
       refetchCheck();
     }
@@ -48,6 +50,8 @@ export default Admin;
 export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps(
     (store) => async (context: GetServerSidePropsContext) => {
+      console.log('### context.req.cookies:', context.req.cookies);
+
       const { access_token: token, userId } = context.req?.cookies;
       if (!token) {
         return { props: {} };
@@ -55,8 +59,6 @@ export const getServerSideProps: GetServerSideProps =
       if (userId) {
         store.dispatch(loginAction({ userId }));
       }
-      return {
-        props: {},
-      };
+      return { props: {} };
     },
   );
