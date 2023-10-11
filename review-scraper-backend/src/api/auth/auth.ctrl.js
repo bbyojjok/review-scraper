@@ -42,7 +42,7 @@ export const login = (req, res) => {
     httpOnly: true,
     sameSite: 'none',
     secure: true,
-    path: '/',
+    domain: '/',
   });
 
   return res.send({ token });
