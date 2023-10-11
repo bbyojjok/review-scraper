@@ -1,12 +1,9 @@
 import axios from 'axios';
 
+const API_BASEURL = process.env.API_BASEURL;
 const client = axios.create();
 client.defaults.withCredentials = true;
 client.defaults.baseURL =
-  process.env.NODE_ENV === 'production'
-    ? // ? // ? 'https://review.stlee.kr'
-      'https://reviewback.stlee.kr'
-    : 'http://localhost:8083';
-// : 'https://port-0-review-scraper-iciy2almznf244.sel5.cloudtype.app';
+  process.env.NODE_ENV === 'production' ? API_BASEURL : 'http://localhost:8083';
 
 export default client;
