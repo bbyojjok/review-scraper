@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const API_URL = process.env.API_URL;
-
 module.exports = (phase, { defaultConfig }) => {
+  const API_URL = process.env.API_URL;
   const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
