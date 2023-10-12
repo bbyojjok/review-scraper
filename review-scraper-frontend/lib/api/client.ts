@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_BASEURL = process.env.API_BASEURL;
+const API_URL = process.env.API_URL;
 const client = axios.create();
 client.defaults.withCredentials = true;
 client.defaults.baseURL =
-  process.env.NODE_ENV === 'production' ? API_BASEURL : 'http://localhost:8083';
+  process.env.NODE_ENV === 'production' ? API_URL : 'http://localhost:8083';
 
 export default client;

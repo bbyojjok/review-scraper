@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-const API_BASEURL = process.env.API_BASEURL;
+const API_URL = process.env.API_URL;
 
 module.exports = (phase, { defaultConfig }) => {
   const nextConfig = {
@@ -26,7 +26,7 @@ module.exports = (phase, { defaultConfig }) => {
           source: '/api/:path*',
           destination:
             phase === 'phase-production-server'
-              ? `${API_BASEURL}/api/:path*`
+              ? `${API_URL}/api/:path*`
               : 'http://localhost:8082/api/:path*',
         },
       ];
