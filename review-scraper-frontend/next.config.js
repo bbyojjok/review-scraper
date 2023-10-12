@@ -2,6 +2,11 @@
 
 module.exports = (phase, { defaultConfig }) => {
   const API_URL = process.env.API_URL;
+  console.log(
+    phase === 'phase-production-server'
+      ? `${API_URL}/api/:path*`
+      : 'http://localhost:8082/api/:path*',
+  );
   const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
