@@ -30,7 +30,7 @@ module.exports = (phase, { defaultConfig }) => {
           source: '/api/:path*',
           destination:
             phase === 'phase-production-server'
-              ? `${API_URL}/api/:path*`
+              ? `https://reviewback.stlee.kr/api/:path*`
               : 'http://localhost:8082/api/:path*',
         },
       ];
