@@ -58,8 +58,3 @@ const googlePlay = await scrapingDetailGooglePlay('com.hdmallapp.thehyundai');
 
 const appStore = await scrapingDetailAppStore(1067693191);
 console.log(appStore);
-
-/*
-https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/43/75/db/4375dbbc-52d7-8fcc-98b0-6c8e60edc2ec/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg
-https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/43/75/db/4375dbbc-52d7-8fcc-98b0-6c8e60edc2ec/AppIcon-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg
-*/

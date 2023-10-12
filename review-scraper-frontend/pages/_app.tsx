@@ -11,8 +11,11 @@ import Header from '../components/common/Header';
 import wrapper from '../store';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { Provider } from 'react-redux';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
+  const { pageProps } = props;
   const router = useRouter();
   const [queryClient] = useState(() => new QueryClient());
 
@@ -45,12 +48,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <GlobalStyle />
-        <Header />
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <GlobalStyle />
+          <Header />
+          <Component {...pageProps} />
+        </Provider>
       </Hydrate>
     </QueryClientProvider>
   );
 }
 
-export default wrapper.withRedux(MyApp);
+export default MyApp;
