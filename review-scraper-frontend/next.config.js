@@ -1,12 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 module.exports = (phase, { defaultConfig }) => {
-  const API_URL = process.env.API_URL;
-  console.log(
-    phase === 'phase-production-server'
-      ? `${API_URL}/api/:path*`
-      : 'http://localhost:8082/api/:path*',
-  );
   const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
@@ -30,7 +24,7 @@ module.exports = (phase, { defaultConfig }) => {
           source: '/api/:path*',
           destination:
             phase === 'phase-production-server'
-              ? `https://reviewback.stlee.kr/api/:path*`
+              ? `${process.env.NEXT_PUBLIC_API_BASEURL}/api/:path*`
               : 'http://localhost:8082/api/:path*',
         },
       ];
