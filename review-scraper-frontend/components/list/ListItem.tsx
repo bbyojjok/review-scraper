@@ -167,7 +167,13 @@ const ListItem = ({ icon, name, title }: ListItemProps) => {
           <Link href={href}>
             <a>
               <span className="img">
-                <Image src={icon} alt={name} width={256} height={256} />
+                <Image
+                  src={icon}
+                  alt={name}
+                  width={256}
+                  height={256}
+                  priority
+                />
                 <span className="over-box">
                   <span className="icon">
                     <MdOutlineArrowForward color="#000" />

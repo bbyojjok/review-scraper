@@ -89,7 +89,7 @@ const Sort = ({
   return (
     <SortBlock>
       <div className="info">
-        <Image src={icon} alt={title} width={256} height={256} />
+        <Image src={icon} alt={title} width={256} height={256} priority />
       </div>
       <div className="btns">
         <div className="score-box">

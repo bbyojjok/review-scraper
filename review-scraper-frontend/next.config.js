@@ -18,6 +18,7 @@ module.exports = (phase, { defaultConfig }) => {
         'play-lh.googleusercontent.com',
       ],
     },
+    output: 'standalone',
     async rewrites() {
       return [
         {
