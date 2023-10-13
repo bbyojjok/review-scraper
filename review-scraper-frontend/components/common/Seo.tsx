@@ -12,7 +12,7 @@ const Seo = ({ title, url }: SeoProps) => {
       <title>{`${title} | REVIEW-SCRAPER`}</title>
       <meta
         name="viewport"
-        content="initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"
+        content="initial-scale=1,maximum-scale=5,minimum-scale=1,width=device-width"
       />
       <meta
         name="description"
