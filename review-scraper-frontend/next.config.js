@@ -2,6 +2,10 @@
 
 module.exports = (phase, { defaultConfig }) => {
   const nextConfig = {
+    i18n: {
+      locales: ['ko'],
+      defaultLocale: 'ko',
+    },
     reactStrictMode: true,
     swcMinify: true,
     images: {
