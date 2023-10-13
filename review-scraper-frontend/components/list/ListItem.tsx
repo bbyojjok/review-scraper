@@ -187,9 +187,9 @@ const ListItem = ({ icon, name, title }: ListItemProps) => {
       ) : (
         <ListItemBlock className="add">
           <Link href={href}>
-            <a>
+            <a aria-label="추가하기">
               <span className="img">
-                <MdAdd className="add" />
+                <MdAdd className="add" aria-label="추가하기" />
               </span>
             </a>
           </Link>
