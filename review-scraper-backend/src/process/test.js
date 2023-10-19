@@ -46,15 +46,13 @@ const scrapingDetailAppStore = async (id) => {
   }
 };
 
-const reviewGooglePlay = await scrapingReviewGooglePlay(
-  'com.hdmallapp.thehyundai',
-);
-// console.log(reviewGooglePlay);
+const reviewGooglePlay = await scrapingReviewGooglePlay('com.coupang.mobile');
+console.log(reviewGooglePlay);
 
 // com.hdmallapp.thehyundai
 // com.thehyundai.tohome
-const googlePlay = await scrapingDetailGooglePlay('com.hdmallapp.thehyundai');
+// const googlePlay = await scrapingDetailGooglePlay('com.coupang.mobile');
 // console.log(googlePlay);
 
-const appStore = await scrapingDetailAppStore(1067693191);
-console.log(appStore);
+// const appStore = await scrapingDetailAppStore(454434967);
+// console.log(appStore);
