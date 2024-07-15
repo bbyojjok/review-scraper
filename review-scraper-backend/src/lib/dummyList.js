@@ -59,4 +59,39 @@ export const dummyList = [
     googlePlayAppId: 'com.ehyundai.mobile',
     appStoreId: 836305143,
   },
+  {
+    name: 'wemakeprice',
+    googlePlayAppId: 'com.wemakeprice',
+    appStoreId: 449141904,
+  },
+  {
+    name: 'tmon',
+    googlePlayAppId: 'com.tmon',
+    appStoreId: 463434588,
+  },
+  {
+    name: 'interpark',
+    googlePlayAppId: 'com.interpark.shop',
+    appStoreId: 504765473,
+  },
+  {
+    name: 'auction',
+    googlePlayAppId: 'com.ebay.kr.auction',
+    appStoreId: 380239756,
+  },
+  {
+    name: 'oliveyoung',
+    googlePlayAppId: 'com.oliveyoung',
+    appStoreId: 873779010,
+  },
+  {
+    name: 'ellotte',
+    googlePlayAppId: 'com.lotte.ellotte',
+    appStoreId: 902962633,
+  },
+  {
+    name: 'shinsegaemall',
+    googlePlayAppId: 'com.shinsegae.mobile.froyo',
+    appStoreId: 414878882,
+  },
 ];
