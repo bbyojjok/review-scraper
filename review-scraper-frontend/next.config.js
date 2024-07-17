@@ -27,10 +27,11 @@ module.exports = (phase, { defaultConfig }) => {
       return [
         {
           source: '/api/:path*',
-          destination: 'http://localhost:8082/api/:path*',
-          // phase === 'phase-production-server'
-          //   ? `${process.env.NEXT_PUBLIC_API_BASEURL}/api/:path*`
-          //   : 'http://localhost:8082/api/:path*',
+          destination:
+            phase === 'phase-production-server'
+              ? `${process.env.NEXT_PUBLIC_API_BASEURL}/api/:path*`
+              : 'http://localhost:8082/api/:path*',
+          //'http://localhost:8082/api/:path*',
         },
       ];
     },
