@@ -145,9 +145,10 @@ const ListItemBlock = styled.li`
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 374px) {
     & {
       width: 50%;
+      padding: 30px;
     }
   }
 `;
