@@ -73,7 +73,9 @@ export const write = async (req, res) => {
   }
 
   // db 저장후 스키마 모델 생성
-  const Review = mongoose.model(`Review-${name}`) || (await createReview(name));
+  const Review = mongoose.connection.modelNames().includes(`Review-${name}`)
+    ? mongoose.model(`Review-${name}`)
+    : await createReview(name);
 
   // 스크랩 시작
   scrapingStart({ name, googlePlayAppId, appStoreId, Review });
