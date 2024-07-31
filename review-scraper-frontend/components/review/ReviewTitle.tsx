@@ -54,7 +54,7 @@ const ReviewTitle = ({ os, score, version, url, length }: ReviewTitleProps) => {
             <span>{os}</span>
           </a>
         </p>
-        <p>버전: {version}</p>
+        <p>버전: {version === 'VARY' ? '기기별 다름' : version}</p>
       </div>
       <div>
         <p>

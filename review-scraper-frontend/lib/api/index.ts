@@ -72,9 +72,8 @@ export const addList = async ({
 };
 
 export const deleteList = async (name: string) => {
-  console.log('name:', name);
-
-  return;
+  const { data } = await client.delete(`/api/list/${name}`);
+  return data;
 };
 
 export const scrapStart = async () => {

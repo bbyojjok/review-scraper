@@ -94,4 +94,9 @@ export const dummyList = [
     googlePlayAppId: 'com.shinsegae.mobile.froyo',
     appStoreId: 414878882,
   },
+  {
+    name: '29cm',
+    googlePlayAppId: 'com.the29cm.app29cm',
+    appStoreId: 789634744,
+  },
 ];

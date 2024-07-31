@@ -17,7 +17,11 @@ const AddFormBlock = styled.div`
   }
 `;
 
-const AddForm = () => {
+type AddFormProps = {
+  refetchGetlists: () => void;
+};
+
+const AddForm = ({ refetchGetlists }: AddFormProps) => {
   const [scrapData, setScrapData] = useState<any>({
     name: '',
     googlePlayAppId: '',
@@ -32,6 +36,8 @@ const AddForm = () => {
   const { mutate, isLoading, isError } = useMutation(['addList'], addList, {
     onSuccess: (data) => {
       setScrapData({ name: '', googlePlayAppId: '', appStoreId: '' });
+      refetchGetlists();
+      alert(`[${data.data.name}] 스크랩 리스트에 추가되었습니다.`);
     },
 
     onError: (ctx: any) => {

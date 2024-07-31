@@ -87,7 +87,9 @@ const AddList = () => {
     enabled: false,
   });
 
-  const { data: lists } = useQuery(['lists'], () => getLists());
+  const { data: lists, refetch: refetchGetlists } = useQuery(['lists'], () =>
+    getLists(),
+  );
   const scrapStartMutation = useMutation(['scrapStart'], () => scrapStart(), {
     onSuccess: (data) => {
       console.log('성공 data:', data);
@@ -100,8 +102,12 @@ const AddList = () => {
   const deleteListMutation = useMutation(['deleteList'], deleteList, {
     onSuccess: (data) => {
       console.log('성공 data:', data);
+      refetchGetlists();
+      alert('삭제 되었습니다');
     },
-    onError: (ctx: any) => {},
+    onError: (ctx: any) => {
+      console.log('실패 ctx:', ctx);
+    },
   });
 
   const onLogout = () => {
@@ -115,8 +121,9 @@ const AddList = () => {
   };
 
   const onDelete = (name: string) => {
-    console.log('삭제', name);
-    deleteListMutation.mutate(name);
+    if (confirm(`[${name}]를 삭제할까요?`)) {
+      deleteListMutation.mutate(name);
+    }
   };
 
   return (
@@ -135,7 +142,7 @@ const AddList = () => {
           )}
         </Button>
       </div>
-      <AddForm />
+      <AddForm refetchGetlists={refetchGetlists} />
       <ul className="scrap-list">
         {lists?.map((list: any) => {
           return (
@@ -144,7 +151,7 @@ const AddList = () => {
               <p>googlePlayAppId: {list.googlePlayAppId}</p>
               <p>appStoreId: {list.appStoreId}</p>
               <ButtonBox>
-                <Button>수정</Button>
+                {/* <Button>수정</Button> */}
                 <Button onClick={() => onDelete(list.name)}>삭제</Button>
               </ButtonBox>
             </li>

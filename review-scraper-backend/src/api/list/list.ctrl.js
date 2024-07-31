@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Joi from 'joi';
 import List from '../../models/list.js';
 import { createReview } from '../../models/review.js';
@@ -72,7 +73,7 @@ export const write = async (req, res) => {
   }
 
   // db 저장후 스키마 모델 생성
-  const Review = await createReview(name);
+  const Review = mongoose.model(`Review-${name}`) || (await createReview(name));
 
   // 스크랩 시작
   scrapingStart({ name, googlePlayAppId, appStoreId, Review });
@@ -134,15 +135,26 @@ DELETE /api/list/:name
 export const remove = async (req, res) => {
   const { name } = req.params;
 
+  if (!name) {
+    return res.status(400).json({ error: 'required name' });
+  }
+
+  const queryResult = await List.findOne({ name }).exec();
+  if (!queryResult) {
+    return res.status(404);
+  }
+
   try {
-    await List.findByIdAndRemove(name).exec();
+    const resultData = await List.findByIdAndRemove(queryResult._id).exec();
+    const Review = mongoose.model(`Review-${name}`);
+    await Review.collection.drop();
+    return res.json(resultData);
   } catch (e) {
     return res.status(500).json(e);
   }
 };
 
-/*
-리스트 수정
+/* 리스트 수정
 PATCH /api/list/:name
 {
   "name": "thehyundai",
@@ -150,3 +162,9 @@ PATCH /api/list/:name
   "appStoreId": 1067693191
 }
 */
+export const update = async (req, res) => {
+  const { name } = req.params;
+  if (!name) {
+    return res.status(400).json({ error: 'required name' });
+  }
+};

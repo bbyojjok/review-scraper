@@ -5,5 +5,6 @@ const route = express.Router();
 
 route.get('/:name?', listCtrl.list);
 route.post('/', listCtrl.write);
+route.delete('/:name?', listCtrl.remove);
 
 export default route;
