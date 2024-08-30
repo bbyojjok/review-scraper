@@ -102,7 +102,7 @@ const Review = ({
 export default Review;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const [name, day = '7', score = '12345'] = params?.review as Array<string>;
+  const [name, day = '365', score = '12345'] = params?.review as Array<string>;
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['lists', name], () => getLists(name));

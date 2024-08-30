@@ -46,13 +46,17 @@ type ReviewListProps = {
   totalCount: number;
 };
 
+const pageCount: number = 20;
+
 const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   const router = useRouter();
   const [name, day, score] = router.query.review as string[];
   const scrollableDivRef = useRef<HTMLDivElement>(null);
   const [reviewList, setReviewList] = useState<any>(list);
   const [reviewPage, setReviwPage] = useState<number>(2);
-  const [hasNextPage, setHasNextPage] = useState<boolean>(totalCount >= 10);
+  const [hasNextPage, setHasNextPage] = useState<boolean>(
+    totalCount >= pageCount,
+  );
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error>();
 
@@ -90,7 +94,7 @@ const ReviewList = ({ os, list, totalCount }: ReviewListProps) => {
   });
 
   useEffect(() => {
-    setHasNextPage(totalCount > 10);
+    setHasNextPage(totalCount > pageCount);
     setReviewList(list);
     setReviwPage(2);
     scrollableDivRef.current?.scrollTo(0, 0);

@@ -24,7 +24,8 @@ GET /api/review/day/thehyundai/7/1/googlePlay
 GET /api/review/day/thehyundai/7/12345/googlePlay
 */
 export const readDay = async (req, res) => {
-  const page = parseInt(req.query.page || '1', 10);
+  const pageCount = 20;
+  const page = parseInt(req.query.page || '1', pageCount);
   if (page < 1) {
     return res.status(400);
   }
@@ -61,8 +62,8 @@ export const readDay = async (req, res) => {
   try {
     const queryResult = await Review.find(options)
       .sort({ date: -1 })
-      .limit(10)
-      .skip((page - 1) * 10)
+      .limit(pageCount)
+      .skip((page - 1) * pageCount)
       .lean()
       .exec();
     const queryResultCount = await Review.countDocuments(options).exec();
@@ -70,7 +71,7 @@ export const readDay = async (req, res) => {
       return res.status(404);
     }
 
-    res.set('Last-page', Math.ceil(queryResultCount / 10));
+    res.set('Last-page', Math.ceil(queryResultCount / pageCount));
     res.set('Total-count', queryResultCount);
 
     const result = reviewDateFormat(queryResult);
@@ -91,7 +92,7 @@ export const readDay = async (req, res) => {
     }
     return res.json({
       result,
-      lastPage: Math.ceil(queryResultCount / 10),
+      lastPage: Math.ceil(queryResultCount / pageCount),
       totalCount: queryResultCount,
     });
   } catch (e) {
