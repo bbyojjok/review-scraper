@@ -19,7 +19,7 @@ const SortBlock = styled.div`
     overflow: hidden;
     flex: 1;
     text-align: center;
-    max-width: 100px;
+    max-width: 65px;
     width: 100%;
     border-radius: 10%;
     transition: all 0.2s;
@@ -40,10 +40,6 @@ const SortBlock = styled.div`
   .btns {
     padding-left: 8px;
 
-    .score-box {
-      margin-bottom: 4px;
-    }
-
     .days-box {
       margin-top: 4px;
     }
@@ -51,6 +47,10 @@ const SortBlock = styled.div`
     & > div {
       display: flex;
       transition: all 0.2s;
+    }
+
+    & > .score-box,
+    & > .days-box {
       box-shadow: 0px 0px 3px 0px #000;
     }
   }
@@ -60,14 +60,15 @@ const SortBlock = styled.div`
       box-shadow: 0px 0px 5px 0px #000;
     }
 
-    .btns > div {
+    .btns > .score-box,
+    .btns > .days-box {
       box-shadow: 0px 0px 5px 0px #000;
     }
   }
 `;
 
 const scores: string[] = ['1', '2', '3', '4', '5'];
-const days: string[] = ['7', '30', '60', '90', '120'];
+const days: string[] = ['30', '60', '90', '120', '150'];
 
 type SortProps = {
   detail: any;
@@ -108,7 +109,7 @@ const Sort = ({
             );
           })}
         </div>
-        <div className="days-box">
+        {/* <div className="days-box">
           {days.map((day) => (
             <SortLabel
               key={day}
@@ -118,7 +119,7 @@ const Sort = ({
               checked={day === selectedDay}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </SortBlock>
   );

@@ -17,7 +17,7 @@ const SortLabelBlock = styled.label`
     justify-content: center;
     align-items: center;
     width: 50px;
-    height: 46px;
+    height: 65px;
     font-size: 12px;
     color: #666;
     border: 1px solid #666;

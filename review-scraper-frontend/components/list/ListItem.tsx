@@ -160,7 +160,7 @@ type ListItemProps = {
 };
 
 const ListItem = ({ icon, name, title }: ListItemProps) => {
-  const href = name ? `/review/${name}/7/12345` : '/admin';
+  const href = name ? `/review/${name}/365/12345` : '/admin';
   return (
     <>
       {name ? (

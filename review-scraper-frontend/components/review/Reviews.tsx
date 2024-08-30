@@ -8,7 +8,7 @@ const ReviewsBlock = styled.div`
   position: absolute;
   left: 0;
   right: 0;
-  top: 190px;
+  top: 155px;
   bottom: 0;
   padding: 0 20px;
   max-width: 750px;
